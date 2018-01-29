@@ -84,7 +84,7 @@ public class Service {
                 }
             }
         }
-
+		//排序是按照PlanBuildingTime的先后排序的 时间靠前的在前
         data_.sort(comparator);
 	}
 	

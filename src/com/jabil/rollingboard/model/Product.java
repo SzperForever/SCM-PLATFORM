@@ -3,7 +3,7 @@ package com.jabil.rollingboard.model;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
 
-
+//产品模型
 public class Product {
 	private String OrderID, Workcell, BayNum, ModelName, Progress, RouteStep;
 	private Timestamp PlanBuildTime, PlanCompleteTime;

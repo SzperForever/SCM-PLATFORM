@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="@cnshah0sql01">
-  <database-model serializer="dbm" rdbms="MSSQL" format-version="4.4">
+  <database-model serializer="dbm" rdbms="MSSQL" format-version="4.7">
     <root id="1">
       <ServerType>standalone</ServerType>
     </root>
@@ -3393,9 +3393,9 @@
     </key>
     <column id="588" parent="32" name="ID">
       <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="589" parent="32" name="MaterialGroup">
       <Position>2</Position>
@@ -3430,9 +3430,9 @@
     </key>
     <column id="595" parent="33" name="Ctn_Set_ID">
       <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="596" parent="33" name="FG_PartNum">
       <Position>3</Position>
@@ -3683,9 +3683,9 @@ Customer</ColNames>
     </key>
     <column id="649" parent="35" name="Plt_Set_ID">
       <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="650" parent="35" name="PltName">
       <Position>2</Position>
@@ -3748,9 +3748,9 @@ Customer</ColNames>
     </key>
     <column id="662" parent="36" name="ID">
       <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="663" parent="36" name="ProjectName">
       <Position>2</Position>
@@ -3982,8 +3982,8 @@ Material</ColNames>
     </column>
     <column id="713" parent="38" name="LastUpdated">
       <Position>27</Position>
-      <DataType>datetime|0</DataType>
       <DefaultExpression>getdate()</DefaultExpression>
+      <DataType>datetime|0</DataType>
     </column>
     <column id="714" parent="38" name="LastUpdateBy">
       <Position>28</Position>
@@ -4376,9 +4376,9 @@ PartNum</ColNames>
     </column>
     <column id="795" parent="44" name="ID">
       <Position>11</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <index id="796" parent="44" name="PK_Bas_BuyerInfo">
       <Position>1</Position>
@@ -4422,9 +4422,9 @@ WC_Type</ColNames>
     </column>
     <column id="803" parent="45" name="CodeID">
       <Position>7</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <index id="804" parent="45" name="PK_Bas_Code">
       <Position>1</Position>
@@ -4481,9 +4481,9 @@ WC_Type</ColNames>
     </column>
     <column id="814" parent="47" name="ID">
       <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="815" parent="47" name="ForwarderName">
       <Position>2</Position>
@@ -4689,9 +4689,9 @@ RouteStepText</ColNames>
     </column>
     <column id="857" parent="51" name="ID">
       <Position>12</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <index id="858" parent="51" name="PK_Bas_Kitting_Doc">
       <Position>1</Position>
@@ -4716,9 +4716,9 @@ RouteStepText</ColNames>
     </trigger>
     <column id="861" parent="52" name="AsDefault">
       <Position>1</Position>
+      <DefaultExpression>0</DefaultExpression>
       <DataType>bit|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>0</DefaultExpression>
     </column>
     <column id="862" parent="52" name="BayNum">
       <Position>2</Position>
@@ -5489,9 +5489,9 @@ Part Description</ColNames>
     </column>
     <column id="1012" parent="64" name="MtrlID">
       <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="1013" parent="64" name="Material">
       <Position>2</Position>
@@ -6346,9 +6346,9 @@ StoreArea</ColNames>
     </column>
     <column id="1210" parent="72" name="RowNumber">
       <Position>1</Position>
+      <SequenceIdentity>0</SequenceIdentity>
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>0</SequenceIdentity>
     </column>
     <column id="1211" parent="72" name="EventClass">
       <Position>2</Position>
@@ -6691,9 +6691,9 @@ HMPPartNo</ColNames>
     </key>
     <column id="1285" parent="79" name="id">
       <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="1286" parent="79" name="directory">
       <Position>2</Position>
@@ -6745,8 +6745,8 @@ HMPPartNo</ColNames>
     </column>
     <column id="1298" parent="79" name="lastUpdateTime">
       <Position>14</Position>
-      <DataType>smalldatetime|0</DataType>
       <DefaultExpression>getdate()</DefaultExpression>
+      <DataType>smalldatetime|0</DataType>
     </column>
     <column id="1299" parent="80" name="AlertFlag">
       <Position>2</Position>
@@ -6833,9 +6833,9 @@ HMPPartNo</ColNames>
     </column>
     <column id="1318" parent="80" name="ItemID">
       <Position>22</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>numeric(18)|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <index id="1319" parent="80" name="PK_SUP_Abnormal_Mateiral_Issue_1">
       <Position>1</Position>
@@ -6984,9 +6984,9 @@ Qty</ColNames>
     </column>
     <column id="1349" parent="82" name="ID">
       <Position>4</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="1350" parent="83" name="Parent P/N">
       <Position>1</Position>
@@ -7288,9 +7288,9 @@ BU</ColNames>
     </column>
     <column id="1408" parent="89" name="ITEM">
       <Position>14</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>numeric(18)|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <index id="1409" parent="89" name="PK_Sup_ExcessInventory">
       <Position>1</Position>
@@ -8023,9 +8023,9 @@ BU</ColNames>
     </column>
     <column id="1561" parent="98" name="ID">
       <Position>5</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="1562" parent="98" name="ShowMethod">
       <Position>6</Position>
@@ -8149,9 +8149,9 @@ BU</ColNames>
     </column>
     <column id="1591" parent="101" name="ID">
       <Position>20</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <index id="1592" parent="101" name="PK_TB_BFscan">
       <Position>1</Position>
@@ -8482,9 +8482,9 @@ SerialNumber</ColNames>
     </column>
     <column id="1664" parent="106" name="MPid">
       <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="1665" parent="106" name="SRid">
       <Position>2</Position>
@@ -8565,9 +8565,9 @@ MP_Items_Cnt</ColNames>
     </key>
     <column id="1680" parent="107" name="ID">
       <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="1681" parent="107" name="SRid">
       <Position>2</Position>
@@ -8669,9 +8669,9 @@ BoxID</ColNames>
     </column>
     <column id="1699" parent="108" name="Docid">
       <Position>2</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="1700" parent="108" name="LineID">
       <Position>3</Position>
@@ -8727,9 +8727,9 @@ AddTime</ColNames>
     </key>
     <column id="1709" parent="109" name="SMid">
       <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="1710" parent="109" name="SRid">
       <Position>2</Position>
@@ -8858,9 +8858,9 @@ NetWeight</ColNames>
     </trigger>
     <column id="1733" parent="110" name="SR_Item_id">
       <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="1734" parent="110" name="SRid">
       <Position>2</Position>
@@ -8900,8 +8900,8 @@ NetWeight</ColNames>
     </column>
     <column id="1742" parent="110" name="UnitNetWeight">
       <Position>10</Position>
-      <DataType>decimal(18,3)|0</DataType>
       <DefaultExpression>0.00</DefaultExpression>
+      <DataType>decimal(18,3)|0</DataType>
     </column>
     <column id="1743" parent="110" name="CDF_Number">
       <Position>11</Position>
@@ -8967,9 +8967,9 @@ Item</ColNames>
     </trigger>
     <column id="1754" parent="111" name="SRid">
       <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="1755" parent="111" name="SRno">
       <Position>2</Position>
@@ -9127,8 +9127,8 @@ Item</ColNames>
     </column>
     <column id="1791" parent="111" name="AllowUpdate">
       <Position>38</Position>
-      <DataType>bit|0</DataType>
       <DefaultExpression>0</DefaultExpression>
+      <DataType>bit|0</DataType>
     </column>
     <index id="1792" parent="111" name="PK_TB_SR_Header">
       <Position>1</Position>
@@ -9412,9 +9412,9 @@ AllowUpdate</ColNames>
     </column>
     <column id="1839" parent="112" name="ID">
       <Position>28</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="1840" parent="112" name="Flag0">
       <Position>29</Position>
@@ -9513,14 +9513,14 @@ ModelName</ColNames>
     </column>
     <column id="1860" parent="113" name="AddTime">
       <Position>13</Position>
-      <DataType>datetime|0</DataType>
       <DefaultExpression>getdate()</DefaultExpression>
+      <DataType>datetime|0</DataType>
     </column>
     <column id="1861" parent="113" name="ID">
       <Position>14</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <index id="1862" parent="113" name="PK_TB_KIT_DOC">
       <Position>1</Position>
@@ -9636,9 +9636,9 @@ ModelName</ColNames>
     </column>
     <column id="1884" parent="115" name="Order_ReleasedTime">
       <Position>9</Position>
+      <DefaultExpression>getdate()</DefaultExpression>
       <DataType>datetime|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>getdate()</DefaultExpression>
     </column>
     <column id="1885" parent="115" name="Pull_ReleasedBy">
       <Position>10</Position>
@@ -9739,8 +9739,8 @@ ModelName</ColNames>
     </column>
     <column id="1909" parent="115" name="IsChildOrder">
       <Position>34</Position>
-      <DataType>bit|0</DataType>
       <DefaultExpression>0</DefaultExpression>
+      <DataType>bit|0</DataType>
     </column>
     <column id="1910" parent="115" name="ReasonCode">
       <Position>35</Position>
@@ -9776,9 +9776,9 @@ ModelName</ColNames>
     </column>
     <column id="1918" parent="115" name="ID">
       <Position>43</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="1919" parent="115" name="ScheduledStartTime">
       <Position>44</Position>
@@ -9811,9 +9811,9 @@ ModelName</ColNames>
     </trigger>
     <column id="1924" parent="116" name="id">
       <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="1925" parent="116" name="OrderID">
       <Position>2</Position>
@@ -9902,9 +9902,9 @@ ModelName</ColNames>
     </column>
     <column id="1943" parent="117" name="id">
       <Position>9</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <index id="1944" parent="117" name="PK_TB_KIT_RIPE_HISTORY">
       <Position>1</Position>
@@ -9953,9 +9953,9 @@ ModelName</ColNames>
     </column>
     <column id="1953" parent="118" name="ID">
       <Position>8</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <index id="1954" parent="118" name="PK_TB_Kitting_BatchList">
       <Position>1</Position>
@@ -10338,9 +10338,9 @@ Unrestricted</ColNames>
     </key>
     <column id="2031" parent="125" name="LB_ID">
       <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="2032" parent="125" name="GRNno">
       <Position>2</Position>
@@ -10517,8 +10517,8 @@ Unrestricted</ColNames>
     </column>
     <column id="2068" parent="127" name="LstUpdateTime">
       <Position>4</Position>
-      <DataType>datetime|0</DataType>
       <DefaultExpression>getdate()</DefaultExpression>
+      <DataType>datetime|0</DataType>
     </column>
     <column id="2069" parent="127" name="Remark">
       <Position>5</Position>
@@ -10526,9 +10526,9 @@ Unrestricted</ColNames>
     </column>
     <column id="2070" parent="127" name="id">
       <Position>6</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="2071" parent="128" name="Column 0">
       <Position>1</Position>
@@ -10807,9 +10807,9 @@ Available stock</ColNames>
     </index>
     <column id="2132" parent="133" name="ID">
       <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="2133" parent="133" name="StringName">
       <Position>2</Position>
@@ -10978,8 +10978,8 @@ Available stock</ColNames>
     </column>
     <column id="2172" parent="136" name="YesForUse">
       <Position>7</Position>
-      <DataType>varchar(1)|0</DataType>
       <DefaultExpression>&apos;Y&apos;</DefaultExpression>
+      <DataType>varchar(1)|0</DataType>
     </column>
     <column id="2173" parent="136" name="ConnectionString">
       <Position>8</Position>
@@ -11389,9 +11389,9 @@ Available stock</ColNames>
     </column>
     <column id="2274" parent="142" name="ID">
       <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="2275" parent="142" name="OrderID">
       <Position>2</Position>
@@ -11601,8 +11601,8 @@ SN</ColNames>
     </column>
     <column id="2317" parent="145" name="LstUpdateTime">
       <Position>4</Position>
-      <DataType>datetime|0</DataType>
       <DefaultExpression>getdate()</DefaultExpression>
+      <DataType>datetime|0</DataType>
     </column>
     <column id="2318" parent="146" name="PullDate">
       <Position>1</Position>
@@ -11681,8 +11681,8 @@ SN</ColNames>
     </column>
     <column id="2336" parent="146" name="UpdateTime">
       <Position>19</Position>
-      <DataType>datetime|0</DataType>
       <DefaultExpression>getdate()</DefaultExpression>
+      <DataType>datetime|0</DataType>
     </column>
     <index id="2337" parent="146" name="PK_tb_Chart_StkPull">
       <Position>1</Position>
@@ -11730,8 +11730,8 @@ FlagGroup</ColNames>
     </column>
     <column id="2345" parent="147" name="AddTime">
       <Position>7</Position>
-      <DataType>datetime|0</DataType>
       <DefaultExpression>getdate()</DefaultExpression>
+      <DataType>datetime|0</DataType>
     </column>
     <column id="2346" parent="147" name="AddHost">
       <Position>8</Position>
@@ -11927,9 +11927,9 @@ logDay</ColNames>
     </column>
     <column id="2390" parent="148" name="ID">
       <Position>41</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <index id="2391" parent="148" name="PK_Tb_Kitting_Order_Header">
       <Position>1</Position>
@@ -12186,9 +12186,9 @@ Kits_Qty</ColNames>
     </column>
     <column id="2439" parent="149" name="ID">
       <Position>37</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="2440" parent="149" name="Selective">
       <Position>38</Position>
@@ -13042,8 +13042,8 @@ Sets</ColNames>
     </column>
     <column id="2574" parent="153" name="LstUpdateTime">
       <Position>9</Position>
-      <DataType>datetime|0</DataType>
       <DefaultExpression>getdate()</DefaultExpression>
+      <DataType>datetime|0</DataType>
     </column>
     <column id="2575" parent="153" name="Remark">
       <Position>10</Position>
@@ -13051,9 +13051,9 @@ Sets</ColNames>
     </column>
     <column id="2576" parent="153" name="id">
       <Position>11</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <index id="2577" parent="153" name="PK_Tb_PI_Bin">
       <Position>1</Position>
@@ -13194,9 +13194,9 @@ Tag Number</ColNames>
     </key>
     <column id="2605" parent="155" name="AsDefault">
       <Position>1</Position>
+      <DefaultExpression>0</DefaultExpression>
       <DataType>bit|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>0</DefaultExpression>
     </column>
     <column id="2606" parent="155" name="PlantID">
       <Position>2</Position>
@@ -13351,9 +13351,9 @@ Tag Number</ColNames>
     </column>
     <column id="2641" parent="156" name="ID">
       <Position>26</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>decimal(18)|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="2642" parent="156" name="Step">
       <Position>27</Position>
@@ -13719,9 +13719,9 @@ GRN</ColNames>
     </column>
     <column id="2703" parent="157" name="ID">
       <Position>22</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <index id="2704" parent="157" name="PK_Tb_RTS">
       <Position>1</Position>
@@ -13994,9 +13994,9 @@ Rmk</ColNames>
     </index>
     <column id="2762" parent="161" name="V_ID">
       <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="2763" parent="161" name="PN">
       <Position>2</Position>
@@ -14404,9 +14404,9 @@ OrderDate</ColNames>
     </column>
     <column id="2845" parent="171" name="id">
       <Position>9</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <index id="2846" parent="171" name="PK_Temp_RTS_SAPData">
       <Position>1</Position>
@@ -14833,9 +14833,9 @@ Material</ColNames>
     </key>
     <column id="2940" parent="178" name="id">
       <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="2941" parent="178" name="objectid">
       <Position>2</Position>
@@ -14860,9 +14860,9 @@ Material</ColNames>
     </column>
     <column id="2946" parent="178" name="version">
       <Position>7</Position>
+      <DefaultExpression>0</DefaultExpression>
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>0</DefaultExpression>
     </column>
     <index id="2947" parent="178" name="pk_dtproperties">
       <Position>1</Position>
@@ -14915,9 +14915,9 @@ property</ColNames>
     </column>
     <column id="2955" parent="180" name="diagram_id">
       <Position>3</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="2956" parent="180" name="version">
       <Position>4</Position>
@@ -15348,9 +15348,9 @@ ScanGRN</ColNames>
     </column>
     <column id="3047" parent="184" name="ID">
       <Position>50</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>decimal(18)|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="3048" parent="184" name="Qty">
       <Position>51</Position>
@@ -15666,9 +15666,9 @@ RegDate</ColNames>
     </column>
     <column id="3103" parent="187" name="ID">
       <Position>22</Position>
+      <SequenceIdentity>1</SequenceIdentity>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <index id="3104" parent="187" name="PK_Tmp_RTS">
       <Position>1</Position>

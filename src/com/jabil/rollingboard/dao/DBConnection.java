@@ -13,14 +13,22 @@ import java.util.ArrayList;
 
 @Repository
 public class DBConnection {
-    private static String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    private static String URL = "jdbc:sqlserver://cnshah0sql01:1433";
-    private static String USER_NAME = "epull";
-    private static String USER_PWD = "Jabil456";  
+//    private static String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+//    private static String URL = "jdbc:sqlserver://cnshah0sql01:1433";
+//    private static String USER_NAME = "epull";
+//    private static String USER_PWD = "Jabil456";
     
     private static Connection connection;
     private static java.sql.Statement statement;
     private static ResultSet resultSet;
+
+    //本地测试用
+    //连接MySQL数据库
+    private static String DRIVER = "com.mysql.jdbc.Driver";
+    private static String URL = "jdbc:mysql://localhost:3306/Jabil";
+    private static String USER_NAME = "root";
+    private static String USER_PWD = "199804";
+
 
     //连接数据库
     private static void connectSQL() {

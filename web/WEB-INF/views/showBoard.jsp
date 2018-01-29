@@ -16,8 +16,11 @@
 </head>
 <body>
     <div id="Container">
-        <ul id="displayBoard">
-        </ul>
+        <table id="displayBoard">
+
+        </table>
+        <%--<ul id="displayBoard">--%>
+        <%--</ul>--%>
     </div>
 </body>
 </html>

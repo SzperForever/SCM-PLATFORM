@@ -7,12 +7,12 @@ import java.util.HashMap;
 
 //代表生产线的模型
 public class LineModel {
-    private int status_;
-    private String bayNum_;
-    private int baySeq_;
-    private ArrayList<Product> building_;
-    private ArrayList<Product> loadingComplete_;
-    private final static int red_hour = 1;
+    private int status_;                        //此生产线的状态  小于 red_hour是红色 大于green_hour是黄色 其余是绿色
+    private String bayNum_;                     //生产线Num
+    private int baySeq_;                        //排序索引
+    private ArrayList<Product> building_;       //储存 building状态的List
+    private ArrayList<Product> loadingComplete_;//储存 loadingComplete状态的list
+    private final static int red_hour = 1;      //red_hour值
     private final static int green_hour = 12;
 
 
@@ -24,7 +24,7 @@ public class LineModel {
         this.loadingComplete_ = new ArrayList<Product>();
     }
 
-    public LineModel(ResultSet resultSet){
+    public LineModel(ResultSet resultSet){ //由 查询数据库 返回的 结果集 构造
         super();
         try {
             bayNum_ = resultSet.getString(2).trim().replace(' ','-');
