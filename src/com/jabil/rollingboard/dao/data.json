@@ -1,0 +1,1088 @@
+[
+  {
+    "status_": 1,
+    "bayNum_": "BAY-01",
+    "baySeq_": 1,
+    "building_": [
+      {
+        "progress": "Building",
+        "orderID": "180129T033",
+        "bayNum": "BAY-01",
+        "baySeq": 1,
+        "routeStep": "Bottom",
+        "workcell": "FAIVELEY",
+        "sets": 25,
+        "planBuildTime": 1517373000000,
+        "modelName": "546032",
+        "formatPlanBuildTime": "2018-1-31 12:30:00",
+        "planCompleteTime": 1517396400000,
+        "formatPlaneCompleteTime": "2018-1-31 19:00:00"
+      }
+    ],
+    "loadingComplete_": [
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129T033",
+        "bayNum": "BAY-01",
+        "baySeq": 1,
+        "routeStep": "TOP",
+        "workcell": "FAIVELEY",
+        "sets": 25,
+        "planBuildTime": 1517373000000,
+        "modelName": "546032",
+        "formatPlanBuildTime": "2018-1-31 12:30:00",
+        "planCompleteTime": 1517396400000,
+        "formatPlaneCompleteTime": "2018-1-31 19:00:00"
+      }
+    ]
+  },
+  {
+    "status_": 1,
+    "bayNum_": "BAY-2A",
+    "baySeq_": 2,
+    "building_": [
+      {
+        "progress": "Building",
+        "orderID": "180129S027",
+        "bayNum": "BAY-2A",
+        "baySeq": 2,
+        "routeStep": "TOP",
+        "workcell": "SCHNEIDER",
+        "sets": 1200,
+        "planBuildTime": 1517339100000,
+        "modelName": "LGHE10121AA",
+        "formatPlanBuildTime": "2018-1-31 3:05:00",
+        "planCompleteTime": 1517353200000,
+        "formatPlaneCompleteTime": "2018-1-31 7:00:00"
+      }
+    ],
+    "loadingComplete_": [
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129S030",
+        "bayNum": "BAY-2A",
+        "baySeq": 2,
+        "routeStep": "TOP",
+        "workcell": "SCHNEIDER",
+        "sets": 702,
+        "planBuildTime": 1517352000000,
+        "modelName": "LGHE10130AA",
+        "formatPlanBuildTime": "2018-1-31 6:40:00",
+        "planCompleteTime": 1517362800000,
+        "formatPlaneCompleteTime": "2018-1-31 9:40:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129S030",
+        "bayNum": "BAY-2A",
+        "baySeq": 2,
+        "routeStep": "Bottom",
+        "workcell": "SCHNEIDER",
+        "sets": 702,
+        "planBuildTime": 1517352000000,
+        "modelName": "LGHE10130AA",
+        "formatPlanBuildTime": "2018-1-31 6:40:00",
+        "planCompleteTime": 1517362800000,
+        "formatPlaneCompleteTime": "2018-1-31 9:40:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129S031",
+        "bayNum": "BAY-2A",
+        "baySeq": 2,
+        "routeStep": "TOP",
+        "workcell": "SCHNEIDER",
+        "sets": 1504,
+        "planBuildTime": 1517361000000,
+        "modelName": "AAV58072",
+        "formatPlanBuildTime": "2018-1-31 9:10:00",
+        "planCompleteTime": 1517380200000,
+        "formatPlaneCompleteTime": "2018-1-31 14:30:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129S031",
+        "bayNum": "BAY-2A",
+        "baySeq": 2,
+        "routeStep": "Bottom",
+        "workcell": "SCHNEIDER",
+        "sets": 1504,
+        "planBuildTime": 1517361000000,
+        "modelName": "AAV58072",
+        "formatPlanBuildTime": "2018-1-31 9:10:00",
+        "planCompleteTime": 1517380200000,
+        "formatPlaneCompleteTime": "2018-1-31 14:30:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129S032",
+        "bayNum": "BAY-2A",
+        "baySeq": 2,
+        "routeStep": "TOP",
+        "workcell": "SCHNEIDER",
+        "sets": 900,
+        "planBuildTime": 1517378400000,
+        "modelName": "AAV64783",
+        "formatPlanBuildTime": "2018-1-31 14:00:00",
+        "planCompleteTime": 1517390400000,
+        "formatPlaneCompleteTime": "2018-1-31 17:20:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129S032",
+        "bayNum": "BAY-2A",
+        "baySeq": 2,
+        "routeStep": "Bottom",
+        "workcell": "SCHNEIDER",
+        "sets": 900,
+        "planBuildTime": 1517378400000,
+        "modelName": "AAV64783",
+        "formatPlanBuildTime": "2018-1-31 14:00:00",
+        "planCompleteTime": 1517390400000,
+        "formatPlaneCompleteTime": "2018-1-31 17:20:00"
+      }
+    ]
+  },
+  {
+    "status_": 2,
+    "bayNum_": "BAY-2B",
+    "baySeq_": 3,
+    "building_": [
+      {
+        "progress": "Building",
+        "orderID": "180129S037",
+        "bayNum": "BAY-2B",
+        "baySeq": 3,
+        "routeStep": "Bottom",
+        "workcell": "SCHNEIDER",
+        "sets": 656,
+        "planBuildTime": 1517371200000,
+        "modelName": "1019021",
+        "formatPlanBuildTime": "2018-1-31 12:00:00",
+        "planCompleteTime": 1517391000000,
+        "formatPlaneCompleteTime": "2018-1-31 17:30:00"
+      }
+    ],
+    "loadingComplete_": [
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129S036",
+        "bayNum": "BAY-2B",
+        "baySeq": 3,
+        "routeStep": "TOP",
+        "workcell": "SCHNEIDER",
+        "sets": 1080,
+        "planBuildTime": 1517353800000,
+        "modelName": "BBV45156",
+        "formatPlanBuildTime": "2018-1-31 7:10:00",
+        "planCompleteTime": 1517382600000,
+        "formatPlaneCompleteTime": "2018-1-31 15:10:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129S037",
+        "bayNum": "BAY-2B",
+        "baySeq": 3,
+        "routeStep": "TOP",
+        "workcell": "SCHNEIDER",
+        "sets": 656,
+        "planBuildTime": 1517371200000,
+        "modelName": "1019021",
+        "formatPlanBuildTime": "2018-1-31 12:00:00",
+        "planCompleteTime": 1517391000000,
+        "formatPlaneCompleteTime": "2018-1-31 17:30:00"
+      }
+    ]
+  },
+  {
+    "status_": 2,
+    "bayNum_": "BAY-2C",
+    "baySeq_": 4,
+    "building_": [
+      {
+        "progress": "Building",
+        "orderID": "180129S040",
+        "bayNum": "BAY-2C",
+        "baySeq": 4,
+        "routeStep": "Bottom",
+        "workcell": "SCHNEIDER",
+        "sets": 800,
+        "planBuildTime": 1517348400000,
+        "modelName": "NHA77593",
+        "formatPlanBuildTime": "2018-1-31 5:40:00",
+        "planCompleteTime": 1517417400000,
+        "formatPlaneCompleteTime": "2018-2-1 0:50:00"
+      }
+    ],
+    "loadingComplete_": [
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129S040",
+        "bayNum": "BAY-2C",
+        "baySeq": 4,
+        "routeStep": "TOP",
+        "workcell": "SCHNEIDER",
+        "sets": 800,
+        "planBuildTime": 1517348400000,
+        "modelName": "NHA77593",
+        "formatPlanBuildTime": "2018-1-31 5:40:00",
+        "planCompleteTime": 1517417400000,
+        "formatPlaneCompleteTime": "2018-2-1 0:50:00"
+      }
+    ]
+  },
+  {
+    "status_": 1,
+    "bayNum_": "BAY-05",
+    "baySeq_": 5,
+    "building_": [
+      {
+        "progress": "Building",
+        "orderID": "180129S042",
+        "bayNum": "BAY-05",
+        "baySeq": 5,
+        "routeStep": "Bottom",
+        "workcell": "SCHNEIDER",
+        "sets": 600,
+        "planBuildTime": 1517355000000,
+        "modelName": "DC001839B",
+        "formatPlanBuildTime": "2018-1-31 7:30:00",
+        "planCompleteTime": 1517391000000,
+        "formatPlaneCompleteTime": "2018-1-31 17:30:00"
+      }
+    ],
+    "loadingComplete_": [
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129S042",
+        "bayNum": "BAY-05",
+        "baySeq": 5,
+        "routeStep": "TOP",
+        "workcell": "SCHNEIDER",
+        "sets": 600,
+        "planBuildTime": 1517355000000,
+        "modelName": "DC001839B",
+        "formatPlanBuildTime": "2018-1-31 7:30:00",
+        "planCompleteTime": 1517391000000,
+        "formatPlaneCompleteTime": "2018-1-31 17:30:00"
+      }
+    ]
+  },
+  {
+    "status_": 2,
+    "bayNum_": "BAY-5A",
+    "baySeq_": 6,
+    "building_": [
+      {
+        "progress": "Building",
+        "orderID": "180129S049",
+        "bayNum": "BAY-5A",
+        "baySeq": 6,
+        "routeStep": "TOP",
+        "workcell": "SCHNEIDER",
+        "sets": 128,
+        "planBuildTime": 1517362200000,
+        "modelName": "PRDR99MSTA00-00",
+        "formatPlanBuildTime": "2018-1-31 9:30:00",
+        "planCompleteTime": 1517377200000,
+        "formatPlaneCompleteTime": "2018-1-31 13:40:00"
+      }
+    ],
+    "loadingComplete_": [
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129S051",
+        "bayNum": "BAY-5A",
+        "baySeq": 6,
+        "routeStep": "TOP",
+        "workcell": "SCHNEIDER",
+        "sets": 750,
+        "planBuildTime": 1517374800000,
+        "modelName": "DC001738D",
+        "formatPlanBuildTime": "2018-1-31 13:00:00",
+        "planCompleteTime": 1517424000000,
+        "formatPlaneCompleteTime": "2018-2-1 2:40:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129S051",
+        "bayNum": "BAY-5A",
+        "baySeq": 6,
+        "routeStep": "Bottom",
+        "workcell": "SCHNEIDER",
+        "sets": 750,
+        "planBuildTime": 1517374800000,
+        "modelName": "DC001738D",
+        "formatPlanBuildTime": "2018-1-31 13:00:00",
+        "planCompleteTime": 1517424000000,
+        "formatPlaneCompleteTime": "2018-2-1 2:40:00"
+      }
+    ]
+  },
+  {
+    "status_": 2,
+    "bayNum_": "BAY-09",
+    "baySeq_": 7,
+    "building_": [
+      {
+        "progress": "Building",
+        "orderID": "180129C144",
+        "bayNum": "BAY-09",
+        "baySeq": 7,
+        "routeStep": "TOP",
+        "workcell": "CAREFUS",
+        "sets": 400,
+        "planBuildTime": 1517365800000,
+        "modelName": "CFN147816105",
+        "formatPlanBuildTime": "2018-1-31 10:30:00",
+        "planCompleteTime": 1517383800000,
+        "formatPlaneCompleteTime": "2018-1-31 15:30:00"
+      },
+      {
+        "progress": "Building",
+        "orderID": "180130C147",
+        "bayNum": "BAY-09",
+        "baySeq": 7,
+        "routeStep": "Bottom",
+        "workcell": "CAREFUS",
+        "sets": 699,
+        "planBuildTime": 1517374800000,
+        "modelName": "CFN11821231",
+        "formatPlanBuildTime": "2018-1-31 13:00:00",
+        "planCompleteTime": 1517394600000,
+        "formatPlaneCompleteTime": "2018-1-31 18:30:00"
+      }
+    ],
+    "loadingComplete_": [
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180130C147",
+        "bayNum": "BAY-09",
+        "baySeq": 7,
+        "routeStep": "TOP",
+        "workcell": "CAREFUS",
+        "sets": 699,
+        "planBuildTime": 1517374800000,
+        "modelName": "CFN11821231",
+        "formatPlanBuildTime": "2018-1-31 13:00:00",
+        "planCompleteTime": 1517394600000,
+        "formatPlaneCompleteTime": "2018-1-31 18:30:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180130C148",
+        "bayNum": "BAY-09",
+        "baySeq": 7,
+        "routeStep": "TOP",
+        "workcell": "CAREFUS",
+        "sets": 1200,
+        "planBuildTime": 1517378400000,
+        "modelName": "CFN145889",
+        "formatPlanBuildTime": "2018-1-31 14:00:00",
+        "planCompleteTime": 1517396400000,
+        "formatPlaneCompleteTime": "2018-1-31 19:00:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180130C148",
+        "bayNum": "BAY-09",
+        "baySeq": 7,
+        "routeStep": "Bottom",
+        "workcell": "CAREFUS",
+        "sets": 1200,
+        "planBuildTime": 1517378400000,
+        "modelName": "CFN145889",
+        "formatPlanBuildTime": "2018-1-31 14:00:00",
+        "planCompleteTime": 1517396400000,
+        "formatPlaneCompleteTime": "2018-1-31 19:00:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180130C151",
+        "bayNum": "BAY-09",
+        "baySeq": 7,
+        "routeStep": "TOP",
+        "workcell": "CAREFUS",
+        "sets": 200,
+        "planBuildTime": 1517385600000,
+        "modelName": "CFN11821331",
+        "formatPlanBuildTime": "2018-1-31 16:00:00",
+        "planCompleteTime": 1517398200000,
+        "formatPlaneCompleteTime": "2018-1-31 19:30:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180130C151",
+        "bayNum": "BAY-09",
+        "baySeq": 7,
+        "routeStep": "Bottom",
+        "workcell": "CAREFUS",
+        "sets": 200,
+        "planBuildTime": 1517385600000,
+        "modelName": "CFN11821331",
+        "formatPlanBuildTime": "2018-1-31 16:00:00",
+        "planCompleteTime": 1517398200000,
+        "formatPlaneCompleteTime": "2018-1-31 19:30:00"
+      }
+    ]
+  },
+  {
+    "status_": 1,
+    "bayNum_": "BAY-10",
+    "baySeq_": 8,
+    "building_": [
+      {
+        "progress": "Building",
+        "orderID": "180129C142",
+        "bayNum": "BAY-10",
+        "baySeq": 8,
+        "routeStep": "Bottom",
+        "workcell": "CAREFUS",
+        "sets": 600,
+        "planBuildTime": 1517362200000,
+        "modelName": "CFNTC10008452",
+        "formatPlanBuildTime": "2018-1-31 9:30:00",
+        "planCompleteTime": 1517410800000,
+        "formatPlaneCompleteTime": "2018-1-31 23:00:00"
+      },
+      {
+        "progress": "Building",
+        "orderID": "180129C142",
+        "bayNum": "BAY-10",
+        "baySeq": 8,
+        "routeStep": "TOP",
+        "workcell": "CAREFUS",
+        "sets": 600,
+        "planBuildTime": 1517362200000,
+        "modelName": "CFNTC10008452",
+        "formatPlanBuildTime": "2018-1-31 9:30:00",
+        "planCompleteTime": 1517410800000,
+        "formatPlaneCompleteTime": "2018-1-31 23:00:00"
+      }
+    ],
+    "loadingComplete_": []
+  },
+  {
+    "status_": 0,
+    "bayNum_": "BAY-11",
+    "baySeq_": 9,
+    "building_": [],
+    "loadingComplete_": []
+  },
+  {
+    "status_": 2,
+    "bayNum_": "BAY-12A",
+    "baySeq_": 10,
+    "building_": [
+      {
+        "progress": "Building",
+        "orderID": "180129I109",
+        "bayNum": "BAY-12A",
+        "baySeq": 10,
+        "routeStep": "Bottom",
+        "workcell": "SIEMENS",
+        "sets": 300,
+        "planBuildTime": 1517351400000,
+        "modelName": "11148456-R",
+        "formatPlanBuildTime": "2018-1-31 6:30:00",
+        "planCompleteTime": 1517367600000,
+        "formatPlaneCompleteTime": "2018-1-31 11:00:00"
+      }
+    ],
+    "loadingComplete_": [
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129N008",
+        "bayNum": "BAY-12A",
+        "baySeq": 10,
+        "routeStep": "TOP",
+        "workcell": "COCHLEAR",
+        "sets": 550,
+        "planBuildTime": 1517322840000,
+        "modelName": "S464499",
+        "formatPlanBuildTime": "2018-1-30 22:34:00",
+        "planCompleteTime": 1517394600000,
+        "formatPlaneCompleteTime": "2018-1-31 18:30:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129I109",
+        "bayNum": "BAY-12A",
+        "baySeq": 10,
+        "routeStep": "TOP",
+        "workcell": "SIEMENS",
+        "sets": 300,
+        "planBuildTime": 1517351400000,
+        "modelName": "11148456-R",
+        "formatPlanBuildTime": "2018-1-31 6:30:00",
+        "planCompleteTime": 1517367600000,
+        "formatPlaneCompleteTime": "2018-1-31 11:00:00"
+      }
+    ]
+  },
+  {
+    "status_": 1,
+    "bayNum_": "BAY-12B",
+    "baySeq_": 11,
+    "building_": [
+      {
+        "progress": "Building",
+        "orderID": "180127I066",
+        "bayNum": "BAY-12B",
+        "baySeq": 11,
+        "routeStep": "TOP",
+        "workcell": "NIHONK",
+        "sets": 222,
+        "planBuildTime": 1517345520000,
+        "modelName": "NKUR-4068J",
+        "formatPlanBuildTime": "2018-1-31 4:52:00",
+        "planCompleteTime": 1517367000000,
+        "formatPlaneCompleteTime": "2018-1-31 10:50:00"
+      }
+    ],
+    "loadingComplete_": [
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180126I186",
+        "bayNum": "BAY-12B",
+        "baySeq": 11,
+        "routeStep": "Bottom",
+        "workcell": "COVIDIEN",
+        "sets": 150,
+        "planBuildTime": 1517366400000,
+        "modelName": "GR102982",
+        "formatPlanBuildTime": "2018-1-31 10:40:00",
+        "planCompleteTime": 1517380560000,
+        "formatPlaneCompleteTime": "2018-1-31 14:36:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180126I186",
+        "bayNum": "BAY-12B",
+        "baySeq": 11,
+        "routeStep": "TOP",
+        "workcell": "COVIDIEN",
+        "sets": 150,
+        "planBuildTime": 1517366400000,
+        "modelName": "GR102982",
+        "formatPlanBuildTime": "2018-1-31 10:40:00",
+        "planCompleteTime": 1517380560000,
+        "formatPlaneCompleteTime": "2018-1-31 14:36:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180126I273",
+        "bayNum": "BAY-12B",
+        "baySeq": 11,
+        "routeStep": "Bottom",
+        "workcell": "ASP",
+        "sets": 54,
+        "planBuildTime": 1517378760000,
+        "modelName": "ZZ04-52216-4-001",
+        "formatPlanBuildTime": "2018-1-31 14:06:00",
+        "planCompleteTime": 1517384400000,
+        "formatPlaneCompleteTime": "2018-1-31 15:40:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180126I273",
+        "bayNum": "BAY-12B",
+        "baySeq": 11,
+        "routeStep": "TOP",
+        "workcell": "ASP",
+        "sets": 54,
+        "planBuildTime": 1517378760000,
+        "modelName": "ZZ04-52216-4-001",
+        "formatPlanBuildTime": "2018-1-31 14:06:00",
+        "planCompleteTime": 1517384400000,
+        "formatPlaneCompleteTime": "2018-1-31 15:40:00"
+      }
+    ]
+  },
+  {
+    "status_": 1,
+    "bayNum_": "BAY-13",
+    "baySeq_": 12,
+    "building_": [
+      {
+        "progress": "Building",
+        "orderID": "180129I110",
+        "bayNum": "BAY-13",
+        "baySeq": 12,
+        "routeStep": "TOP",
+        "workcell": "SIEMENS",
+        "sets": 200,
+        "planBuildTime": 1517323020000,
+        "modelName": "10528029",
+        "formatPlanBuildTime": "2018-1-30 22:37:00",
+        "planCompleteTime": 1517387400000,
+        "formatPlaneCompleteTime": "2018-1-31 16:30:00"
+      }
+    ],
+    "loadingComplete_": [
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129I274",
+        "bayNum": "BAY-13",
+        "baySeq": 12,
+        "routeStep": "TOP",
+        "workcell": "OCD",
+        "sets": 80,
+        "planBuildTime": 1517351400000,
+        "modelName": "J59910-ECO31458",
+        "formatPlanBuildTime": "2018-1-31 6:30:00",
+        "planCompleteTime": 1517358660000,
+        "formatPlaneCompleteTime": "2018-1-31 8:31:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129I274",
+        "bayNum": "BAY-13",
+        "baySeq": 12,
+        "routeStep": "Bottom",
+        "workcell": "OCD",
+        "sets": 80,
+        "planBuildTime": 1517351400000,
+        "modelName": "J59910-ECO31458",
+        "formatPlanBuildTime": "2018-1-31 6:30:00",
+        "planCompleteTime": 1517358660000,
+        "formatPlaneCompleteTime": "2018-1-31 8:31:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129I362",
+        "bayNum": "BAY-13",
+        "baySeq": 12,
+        "routeStep": "TOP",
+        "workcell": "VARI-VMS",
+        "sets": 37,
+        "planBuildTime": 1517356860000,
+        "modelName": "VMS10001553209",
+        "formatPlanBuildTime": "2018-1-31 8:01:00",
+        "planCompleteTime": 1517367060000,
+        "formatPlaneCompleteTime": "2018-1-31 10:51:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129I362",
+        "bayNum": "BAY-13",
+        "baySeq": 12,
+        "routeStep": "Bottom",
+        "workcell": "VARI-VMS",
+        "sets": 37,
+        "planBuildTime": 1517356860000,
+        "modelName": "VMS10001553209",
+        "formatPlanBuildTime": "2018-1-31 8:01:00",
+        "planCompleteTime": 1517367060000,
+        "formatPlaneCompleteTime": "2018-1-31 10:51:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180130I117",
+        "bayNum": "BAY-13",
+        "baySeq": 12,
+        "routeStep": "TOP",
+        "workcell": "SIEMENS",
+        "sets": 60,
+        "planBuildTime": 1517365260000,
+        "modelName": "11147298-R",
+        "formatPlanBuildTime": "2018-1-31 10:21:00",
+        "planCompleteTime": 1517373540000,
+        "formatPlaneCompleteTime": "2018-1-31 12:39:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180130I117",
+        "bayNum": "BAY-13",
+        "baySeq": 12,
+        "routeStep": "Bottom",
+        "workcell": "SIEMENS",
+        "sets": 60,
+        "planBuildTime": 1517365260000,
+        "modelName": "11147298-R",
+        "formatPlanBuildTime": "2018-1-31 10:21:00",
+        "planCompleteTime": 1517373540000,
+        "formatPlaneCompleteTime": "2018-1-31 12:39:00"
+      }
+    ]
+  },
+  {
+    "status_": 2,
+    "bayNum_": "BAY-15",
+    "baySeq_": 13,
+    "building_": [
+      {
+        "progress": "Building",
+        "orderID": "180126I390",
+        "bayNum": "BAY-15",
+        "baySeq": 13,
+        "routeStep": "TOP",
+        "workcell": "VARI-VMS",
+        "sets": 35,
+        "planBuildTime": 1517351400000,
+        "modelName": "VMS10001428107",
+        "formatPlanBuildTime": "2018-1-31 6:30:00",
+        "planCompleteTime": 1517360880000,
+        "formatPlaneCompleteTime": "2018-1-31 9:08:00"
+      }
+    ],
+    "loadingComplete_": [
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180126I185",
+        "bayNum": "BAY-15",
+        "baySeq": 13,
+        "routeStep": "TOP",
+        "workcell": "COVIDIEN",
+        "sets": 600,
+        "planBuildTime": 1517323020000,
+        "modelName": "GR105850",
+        "formatPlanBuildTime": "2018-1-30 22:37:00",
+        "planCompleteTime": 1517385600000,
+        "formatPlaneCompleteTime": "2018-1-31 16:00:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129I375",
+        "bayNum": "BAY-15",
+        "baySeq": 13,
+        "routeStep": "TOP",
+        "workcell": "VARI-VMS",
+        "sets": 11,
+        "planBuildTime": 1517359080000,
+        "modelName": "P1021946003",
+        "formatPlanBuildTime": "2018-1-31 8:38:00",
+        "planCompleteTime": 1517386080000,
+        "formatPlaneCompleteTime": "2018-1-31 16:08:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129I375",
+        "bayNum": "BAY-15",
+        "baySeq": 13,
+        "routeStep": "Bottom",
+        "workcell": "VARI-VMS",
+        "sets": 11,
+        "planBuildTime": 1517359080000,
+        "modelName": "P1021946003",
+        "formatPlanBuildTime": "2018-1-31 8:38:00",
+        "planCompleteTime": 1517386080000,
+        "formatPlaneCompleteTime": "2018-1-31 16:08:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180124I021",
+        "bayNum": "BAY-15",
+        "baySeq": 13,
+        "routeStep": "Bottom",
+        "workcell": "DRAGER",
+        "sets": 32,
+        "planBuildTime": 1517384280000,
+        "modelName": "MS30680",
+        "formatPlanBuildTime": "2018-1-31 15:38:00",
+        "planCompleteTime": 1517389200000,
+        "formatPlaneCompleteTime": "2018-1-31 17:00:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180124I021",
+        "bayNum": "BAY-15",
+        "baySeq": 13,
+        "routeStep": "TOP",
+        "workcell": "DRAGER",
+        "sets": 32,
+        "planBuildTime": 1517384280000,
+        "modelName": "MS30680",
+        "formatPlanBuildTime": "2018-1-31 15:38:00",
+        "planCompleteTime": 1517389200000,
+        "formatPlaneCompleteTime": "2018-1-31 17:00:00"
+      }
+    ]
+  },
+  {
+    "status_": 2,
+    "bayNum_": "BAY-19",
+    "baySeq_": 14,
+    "building_": [
+      {
+        "progress": "Building",
+        "orderID": "180129I150",
+        "bayNum": "BAY-19",
+        "baySeq": 14,
+        "routeStep": "TOP",
+        "workcell": "CARDINAL",
+        "sets": 500,
+        "planBuildTime": 1517351400000,
+        "modelName": "PT00052864",
+        "formatPlanBuildTime": "2018-1-31 6:30:00",
+        "planCompleteTime": 1517379180000,
+        "formatPlaneCompleteTime": "2018-1-31 14:13:00"
+      }
+    ],
+    "loadingComplete_": [
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129I068",
+        "bayNum": "BAY-19",
+        "baySeq": 14,
+        "routeStep": "Bottom",
+        "workcell": "NIHONK",
+        "sets": 196,
+        "planBuildTime": 1517377380000,
+        "modelName": "NKur-43021",
+        "formatPlanBuildTime": "2018-1-31 13:43:00",
+        "planCompleteTime": 1517420760000,
+        "formatPlaneCompleteTime": "2018-2-1 1:46:00"
+      }
+    ]
+  },
+  {
+    "status_": 1,
+    "bayNum_": "BAY-20",
+    "baySeq_": 15,
+    "building_": [
+      {
+        "progress": "Building",
+        "orderID": "180129I294",
+        "bayNum": "BAY-20",
+        "baySeq": 15,
+        "routeStep": "TOP",
+        "workcell": "MEDTRONIC",
+        "sets": 2100,
+        "planBuildTime": 1517333760000,
+        "modelName": "MD7053431-002-A-R",
+        "formatPlanBuildTime": "2018-1-31 1:36:00",
+        "planCompleteTime": 1517434800000,
+        "formatPlaneCompleteTime": "2018-2-1 5:40:00"
+      }
+    ],
+    "loadingComplete_": []
+  },
+  {
+    "status_": 1,
+    "bayNum_": "BAY-21",
+    "baySeq_": 16,
+    "building_": [
+      {
+        "progress": "Building",
+        "orderID": "180126I259",
+        "bayNum": "BAY-21",
+        "baySeq": 16,
+        "routeStep": "TOP",
+        "workcell": "BARCO",
+        "sets": 960,
+        "planBuildTime": 1517351400000,
+        "modelName": "BNPBA001662D",
+        "formatPlanBuildTime": "2018-1-31 6:30:00",
+        "planCompleteTime": 1517390340000,
+        "formatPlaneCompleteTime": "2018-1-31 17:19:00"
+      }
+    ],
+    "loadingComplete_": [
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180126I259",
+        "bayNum": "BAY-21",
+        "baySeq": 16,
+        "routeStep": "Bottom",
+        "workcell": "BARCO",
+        "sets": 960,
+        "planBuildTime": 1517351400000,
+        "modelName": "BNPBA001662D",
+        "formatPlanBuildTime": "2018-1-31 6:30:00",
+        "planCompleteTime": 1517390340000,
+        "formatPlaneCompleteTime": "2018-1-31 17:19:00"
+      }
+    ]
+  },
+  {
+    "status_": 1,
+    "bayNum_": "BAY-22",
+    "baySeq_": 17,
+    "building_": [
+      {
+        "progress": "Building",
+        "orderID": "180126I292",
+        "bayNum": "BAY-22",
+        "baySeq": 17,
+        "routeStep": "TOP",
+        "workcell": "MEDTRONIC",
+        "sets": 360,
+        "planBuildTime": 1517351400000,
+        "modelName": "M973044A002-01-R",
+        "formatPlanBuildTime": "2018-1-31 6:30:00",
+        "planCompleteTime": 1517379720000,
+        "formatPlaneCompleteTime": "2018-1-31 14:22:00"
+      }
+    ],
+    "loadingComplete_": [
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180126I292",
+        "bayNum": "BAY-22",
+        "baySeq": 17,
+        "routeStep": "Bottom",
+        "workcell": "MEDTRONIC",
+        "sets": 360,
+        "planBuildTime": 1517351400000,
+        "modelName": "M973044A002-01-R",
+        "formatPlanBuildTime": "2018-1-31 6:30:00",
+        "planCompleteTime": 1517379720000,
+        "formatPlaneCompleteTime": "2018-1-31 14:22:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180130I234",
+        "bayNum": "BAY-22",
+        "baySeq": 17,
+        "routeStep": "TOP",
+        "workcell": "BARCO",
+        "sets": 36,
+        "planBuildTime": 1517383920000,
+        "modelName": "451920855801",
+        "formatPlanBuildTime": "2018-1-31 15:32:00",
+        "planCompleteTime": 1517389500000,
+        "formatPlaneCompleteTime": "2018-1-31 17:05:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180130I234",
+        "bayNum": "BAY-22",
+        "baySeq": 17,
+        "routeStep": "Bottom",
+        "workcell": "BARCO",
+        "sets": 36,
+        "planBuildTime": 1517383920000,
+        "modelName": "451920855801",
+        "formatPlanBuildTime": "2018-1-31 15:32:00",
+        "planCompleteTime": 1517389500000,
+        "formatPlaneCompleteTime": "2018-1-31 17:05:00"
+      }
+    ]
+  },
+  {
+    "status_": 1,
+    "bayNum_": "BAY-26",
+    "baySeq_": 18,
+    "building_": [
+      {
+        "progress": "Building",
+        "orderID": "180129D168",
+        "bayNum": "BAY-26",
+        "baySeq": 18,
+        "routeStep": "Bottom",
+        "workcell": "NSN",
+        "sets": 780,
+        "planBuildTime": 1517361240000,
+        "modelName": "087384A.101",
+        "formatPlanBuildTime": "2018-1-31 9:14:00",
+        "planCompleteTime": 1517391840000,
+        "formatPlaneCompleteTime": "2018-1-31 17:44:00"
+      }
+    ],
+    "loadingComplete_": [
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129D168",
+        "bayNum": "BAY-26",
+        "baySeq": 18,
+        "routeStep": "TOP",
+        "workcell": "NSN",
+        "sets": 780,
+        "planBuildTime": 1517361240000,
+        "modelName": "087384A.101",
+        "formatPlanBuildTime": "2018-1-31 9:14:00",
+        "planCompleteTime": 1517391840000,
+        "formatPlaneCompleteTime": "2018-1-31 17:44:00"
+      }
+    ]
+  },
+  {
+    "status_": 1,
+    "bayNum_": "BAY-27",
+    "baySeq_": 19,
+    "building_": [
+      {
+        "progress": "Building",
+        "orderID": "180129D032",
+        "bayNum": "BAY-27",
+        "baySeq": 19,
+        "routeStep": "TOP",
+        "workcell": "NSN",
+        "sets": 50,
+        "planBuildTime": 1517351400000,
+        "modelName": "089179A.101",
+        "formatPlanBuildTime": "2018-1-31 6:30:00",
+        "planCompleteTime": 1517376000000,
+        "formatPlaneCompleteTime": "2018-1-31 13:20:00"
+      }
+    ],
+    "loadingComplete_": [
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129D031",
+        "bayNum": "BAY-27",
+        "baySeq": 19,
+        "routeStep": "Bottom",
+        "workcell": "NSN",
+        "sets": 38,
+        "planBuildTime": 1517374200000,
+        "modelName": "089939A.X21",
+        "formatPlanBuildTime": "2018-1-31 12:50:00",
+        "planCompleteTime": 1517401140000,
+        "formatPlaneCompleteTime": "2018-1-31 20:19:00"
+      },
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129D031",
+        "bayNum": "BAY-27",
+        "baySeq": 19,
+        "routeStep": "TOP",
+        "workcell": "NSN",
+        "sets": 38,
+        "planBuildTime": 1517374200000,
+        "modelName": "089939A.X21",
+        "formatPlanBuildTime": "2018-1-31 12:50:00",
+        "planCompleteTime": 1517401140000,
+        "formatPlaneCompleteTime": "2018-1-31 20:19:00"
+      }
+    ]
+  },
+  {
+    "status_": 1,
+    "bayNum_": "BAY-28",
+    "baySeq_": 20,
+    "building_": [
+      {
+        "progress": "Building",
+        "orderID": "180129D033",
+        "bayNum": "BAY-28",
+        "baySeq": 20,
+        "routeStep": "Bottom",
+        "workcell": "NSN",
+        "sets": 106,
+        "planBuildTime": 1517358480000,
+        "modelName": "090079A.102",
+        "formatPlanBuildTime": "2018-1-31 8:28:00",
+        "planCompleteTime": 1517388900000,
+        "formatPlaneCompleteTime": "2018-1-31 16:55:00"
+      }
+    ],
+    "loadingComplete_": [
+      {
+        "progress": "LoadingCompleted",
+        "orderID": "180129D033",
+        "bayNum": "BAY-28",
+        "baySeq": 20,
+        "routeStep": "TOP",
+        "workcell": "NSN",
+        "sets": 106,
+        "planBuildTime": 1517358480000,
+        "modelName": "090079A.102",
+        "formatPlanBuildTime": "2018-1-31 8:28:00",
+        "planCompleteTime": 1517388900000,
+        "formatPlaneCompleteTime": "2018-1-31 16:55:00"
+      }
+    ]
+  }
+]

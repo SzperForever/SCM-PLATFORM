@@ -3,13 +3,12 @@ $(document).ready(function () {
     setInterval('updateData()', 1000 * 60 * 5);
 });
 
-$( window ).resize(function() {
+$(window).resize(function () {
     var height = innerHeight / ($('tr').length + 5);
-    console.log(height);
     $('tr>td>img').each(function () {
         $(this).css('height', height);
     });
-    $('tr:first').css('height', (height - 5)* 2);
+    $('tr:first').css('height', (height - 5) * 2);
 });
 
 function updateData() {
@@ -28,7 +27,7 @@ function updateData() {
                 '   <th id="NextModel">Next Model</th>' +
                 '   <th id="RunningStatus">Running Status</th>' +
                 '   <th id="LotsReady">Lots Ready</th>' +
-                '   <th id="TimeToUse">Time To Use</th>' +
+                '   <th id="TimeToUse">Lots Ready Time</th>' +
                 '</tr>'
             );
             $.each(data, function (index, lineData) {
@@ -39,6 +38,47 @@ function updateData() {
     });
 }
 
+//检查数据是否为空
+function notEmpty(arr) {
+    for (let i = 0; i < arr.length; ++i) {
+        if (arr[i] != undefined) {
+            return true;
+        }
+    }
+    return false;
+}
+
+//找到最后一个非空值得索引
+function findLastIndex(arr) {
+    for (let i = arr.length - 1; i >= 0; --i) {
+        if (arr[i] != undefined)
+            return i;
+    }
+}
+
+//获取数组真实长度
+function len(arr) {
+    let count = 0;
+    for (let i = arr.length - 1; i >= 0; --i) {
+        if (arr[i] != undefined)
+            count += 1;
+    }
+    return count;
+}
+//获取URL里的参数
+function GetRequest() {
+
+    var url = location.search; //获取url中"?"符后的字串
+    var theRequest = new Object();
+    if (url.indexOf("?") != -1) {
+        var str = url.substr(1);
+        strs = str.split("&");
+        for (var i = 0; i < strs.length; i++) {
+            theRequest[strs[i].split("=")[0]] = (strs[i].split("=")[1]);
+        }
+    }
+    return theRequest;
+}
 
 //向表格中添加数据
 function writeData(lineData) {
@@ -52,7 +92,7 @@ function writeData(lineData) {
         bayStatus = '<td class="work"><img src="/IMG/tmpdir--17_8_31_8_45_09.gif" height="14%"></td>'
     }
     //产线号
-    let bayNum = '<td class="bayNum">' + lineData['bayNum_'] + '</td>'
+    let bayNum = '<td class="bayNum">' + lineData['bayNum_'] + '</td>';
     //处于building状态的信息
     let buildingContent;
     if (lineData['building_'].length > 0) {
@@ -76,7 +116,7 @@ function writeData(lineData) {
     let status;
     let currentTime = new Date().getTime();
     if (lineData['building_'].length != 0 && currentTime < lineData['building_'][0]["planBuildTime"]) {
-        status = '<td class="pre">Ahead Of Schedule</td>'
+        status = '<td class="pre">Pre</td>'
     }
     else if (lineData['building_'].length != 0 && currentTime > lineData['building_'][0]["planCompleteTime"]) {
         status = '<td class="delay">Delay</td>'
@@ -88,26 +128,92 @@ function writeData(lineData) {
         status = '<td class="onTime">On time</td>'
     }
 
-    let count = '<td class="count">' + lineData['loadingComplete_'].length + '</td>';
 
     let timeToUse;
-    if(lineData['loadingComplete_'].length != 0 && currentTime < lineData['loadingComplete_'][0]['planCompleteTime']){
-        let result =  (lineData['loadingComplete_'][0]['planCompleteTime'] - currentTime) / 1000;
-        let hour = Math.floor(result / 3600);
-        let min = Math.floor(result % 3600 / 60);
-        timeToUse = '<td class="timeToUse">'+ hour + ' h ' + min + ' m ' +'</td>'
-    }
-    else if(lineData['loadingComplete_'].length != 0){
-        let result =  (lineData['loadingComplete_'][0]['planCompleteTime'] - currentTime) / 1000;
-        let hour = Math.floor(result / 3600);
-        let min = Math.floor(result % 3600 / 60);
-        timeToUse = '<td class="delay">Delay : '+ hour + ' h ' + min + ' m ' +'</td>'
-    }
-    else{
-        timeToUse = '<td class="timeToUse">No Plan</td>'
+    currentTime = new Date().getTime();
+
+    let Request = GetRequest();
+
+    //当处于Building状态的OrderID 与 LoadingCompleted状态最后一个的OrderID一样时,去除最后一个
+    while (lineData['building_'].length != 0 && lineData['loadingComplete_'].length != 0 && notEmpty(lineData['loadingComplete_'])) {
+        let match = false;
+        let index = lineData['loadingComplete_'].length - 1;
+        while (lineData['loadingComplete_'][index] == undefined) {
+            index--;
+        }
+        let orderID = lineData['loadingComplete_'][index]['orderID'];
+        for (let i = 0; i < lineData['building_'].length; ++i) {
+            if (orderID == lineData['building_'][i]['orderID']) {
+                match = true;
+                delete lineData['loadingComplete_'][index];
+                break;
+            }
+        }
+        if (match == false) {
+            break;
+        }
     }
 
-    $('.container-li:last').append(bayStatus, bayNum, buildingContent, loadingCompleteContent, status, count, timeToUse);
+    //去除OrderID相同的一个Product
+    for(let i = 0; i < lineData['loadingComplete_'].length; ++i){
+        if(lineData['loadingComplete_'][i] == undefined) continue;
+        for(let j = i + 1; j < lineData['loadingComplete_'].length; ++j){
+            if(lineData['loadingComplete_'][i] != undefined && lineData['loadingComplete_'][j] != undefined){
+                if(lineData['loadingComplete_'][i]['orderID'] == lineData['loadingComplete_'][j]['orderID']){
+                    delete lineData['loadingComplete_'][i];
+                    break;
+                }
+            }
+        }
+    }
+
+
+    let count = '<td class="count">' + len(lineData['loadingComplete_']) + '</td>';
+
+    if (lineData['loadingComplete_'].length != 0 && notEmpty(lineData['loadingComplete_']) && currentTime < lineData['loadingComplete_'][findLastIndex(lineData['loadingComplete_'])]['planBuildTime']) {
+        let result = Math.abs((lineData['loadingComplete_'][findLastIndex(lineData['loadingComplete_'])]['planBuildTime'] - currentTime) / 1000);
+        let hour = Math.floor(result / 3600);
+        let min = Math.floor(result % 3600 / 60);
+        if (('' + min).length == 1) {
+            timeToUse = '<td class="">' + hour + '.0' + min + '</td>'
+        }
+        else {
+            timeToUse = '<td class="timeToUse">' + hour + '.' + min + '</td>'
+        }
+    }
+    //如果 Delay
+    else if (lineData['loadingComplete_'].length != 0 && notEmpty(lineData['loadingComplete_'])) {
+        let result = Math.abs((lineData['loadingComplete_'][findLastIndex(lineData['loadingComplete_'])]['planBuildTime'] - currentTime) / 1000);
+        let hour = Math.floor(result / 3600);
+        let min = Math.floor(result % 3600 / 60);
+        if (('' + min).length == 1) {
+            timeToUse = '<td class="delay">-' + hour + '.0' + min + '</td>'
+        }
+        else {
+            timeToUse = '<td class="delay">-' + hour + '.' + min + '</td>'
+        }
+        if(Request['mode']!=undefined)
+            status = '<td class="delay">Delay</td>'
+    }
+    else {
+        timeToUse = '<td class="timeToUse">0</td>'
+    }
+
+    if (Request['mode'] != undefined) {
+        $('.container-li:last').append(bayStatus, bayNum, buildingContent, loadingCompleteContent, status, count, timeToUse);
+    }
+    else {
+        $('th#TimeToUse').remove();
+        $('th#LineRunningStatus').css('width', '16.7vw');
+        $('th#Bay').css('width', '13.7vw');
+        $('th#WorkCell').css('width', '13.7vw');
+        $('th#ProcessingModel').css('width', '13.7vw');
+        $('th#NextModel').css('width', '13.7vw');
+        $('th#RunningStatus').css('width', '13.7vw');
+        $('th#LotsReady').css('width', '13.7vw');
+        $('.container-li:last').append(bayStatus, bayNum, buildingContent, loadingCompleteContent, status, count);
+    }
+
 
     $('tr').css('background', '#42b6ee');
     $('tr:first').css('background', '#ffffff')
@@ -116,9 +222,8 @@ function writeData(lineData) {
 
 function changeHeight(lineData) {
     var height = innerHeight / (lineData.length + 6);
-    console.log('--',height);
     $('tr>td>img').each(function () {
         $(this).css('height', height);
     });
-    $('tr:first').css('height', (height - 5)* 2);
+    $('tr:first').css('height', (height - 5) * 2);
 }
