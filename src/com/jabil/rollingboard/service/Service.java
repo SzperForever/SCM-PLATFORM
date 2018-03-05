@@ -20,28 +20,28 @@ public class Service {
 	}
 
 	//排序 根据数据库中的BaySeq排序
-    private Comparator<LineModel> comparator = new Comparator<LineModel>(){
-        public int compare(LineModel s1, LineModel s2) {
-            return s1.getBaySeq_() - s2.getBaySeq_();
-        }
-    };
+	private Comparator<LineModel> comparator = new Comparator<LineModel>(){
+		public int compare(LineModel s1, LineModel s2) {
+			return s1.getBaySeq_() - s2.getBaySeq_();
+		}
+	};
 
 	private Comparator<Product> comparatorOfProduct = new Comparator<Product>() {
-        @Override
-        public int compare(Product o1, Product o2) {
-            if (o1.getPlanBuildTime() != o2.getPlanBuildTime()) {
-                return (int) (o1.getPlanBuildTime().getTime() - o2.getPlanBuildTime().getTime());
-            } else {
-                if (o1.getRouteStep().equals("Bottom")) {
-                    return -1;
-                }
-                else if (o2.getRouteStep().equals("Bottom")) {
-                    return 1;
-                }
-            }
-            return 0;
-        }
-    };
+		@Override
+		public int compare(Product o1, Product o2) {
+			if (o1.getPlanBuildTime() != o2.getPlanBuildTime()) {
+				return (int) (o1.getPlanBuildTime().getTime() - o2.getPlanBuildTime().getTime());
+			} else {
+				if (o1.getRouteStep().equals("Bottom")) {
+					return -1;
+				}
+				else if (o2.getRouteStep().equals("Bottom")) {
+					return 1;
+				}
+			}
+			return 0;
+		}
+	};
 
 	private void addData(boolean addNullLine) {
 		ArrayList<Product> source = dbConnection.getData();
@@ -74,31 +74,31 @@ public class Service {
 			lineModel.getLoadingComplete_().sort(comparatorOfProduct);
 		}
 
-        if(addNullLine){
-            ArrayList<LineModel> fullLine = dbConnection.getLineData();
-            for(LineModel lineModel: fullLine){
-                String bayNum = lineModel.getBayNum_();
-                if(!hashMap.containsKey(bayNum)) {
-                    hashMap.put(bayNum, bayCount++);
-                    data_.add(lineModel);
-                }
-            }
-        }
+		if(addNullLine){
+			ArrayList<LineModel> fullLine = dbConnection.getLineData();
+			for(LineModel lineModel: fullLine){
+				String bayNum = lineModel.getBayNum_();
+				if(!hashMap.containsKey(bayNum)) {
+					hashMap.put(bayNum, bayCount++);
+					data_.add(lineModel);
+				}
+			}
+		}
 		//排序是按照PlanBuildingTime的先后排序的 时间靠前的在前
-        data_.sort(comparator);
+		data_.sort(comparator);
 	}
-	
+
 	public int getBuildingCount() {
 		return building_;
 	}
-	
+
 	public int getLoadingCompletedCount() {
 		return loadingCompleted_;
 	}
-	
+
 	public ArrayList<LineModel> getData(boolean addNullLine){
 		data_ = new ArrayList<LineModel>(35);
 		addData(addNullLine);
 		return data_;
-	}	
+	}
 }

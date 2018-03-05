@@ -22,25 +22,25 @@ public class DBConnection {
     private static java.sql.Statement statement;
     private static ResultSet resultSet;
 
-    //±¾µØ²âÊÔÓÃ
-    //Á¬½ÓMySQLÊı¾İ¿â
+    //æœ¬åœ°æµ‹è¯•ç”¨
+    //è¿æ¥MySQLæ•°æ®åº“
 //    private static String DRIVER = "com.mysql.jdbc.Driver";
 //    private static String URL = "jdbc:mysql://localhost:3306/Jabil";
 //    private static String USER_NAME = "root";
 //    private static String USER_PWD = "199804";
 
 
-    //Á¬½ÓÊı¾İ¿â
+    //è¿æ¥æ•°æ®åº“
     private static void connectSQL() {
-        //³õÊ¼»¯Êı¾İ¿âÁ¬½Ó
-        //¼ÓÔØSQLServerÇı¶¯
+        //åˆå§‹åŒ–æ•°æ®åº“è¿æ¥
+        //åŠ è½½SQLServeré©±åŠ¨
         try {  
             Class.forName(DRIVER);  
         } catch (ClassNotFoundException e) {  
             System.out.println("Load Drive failed!");
             e.printStackTrace();  
         }  
-        //´´½¨Á¬½Ó
+        //åˆ›å»ºè¿æ¥
         try {
             connection = DriverManager.getConnection(URL, USER_NAME,USER_PWD);
             System.out.println("Connect to SQL Server success!");
@@ -51,7 +51,7 @@ public class DBConnection {
   
         
     }
-    //´´½¨ÉùÃ÷ ÓÃÓÚÖ´ĞĞ²éÑ¯Óï¾ä
+    //åˆ›å»ºå£°æ˜ ç”¨äºæ‰§è¡ŒæŸ¥è¯¢è¯­å¥
     private static void createStatement() {
     	try {
     		statement = connection.createStatement();
@@ -80,7 +80,7 @@ public class DBConnection {
         catch (Exception e) {
             e.printStackTrace();
         }
-        //¹Ø±ÕÁ¬½Ó
+        //å…³é—­è¿æ¥
         finally {
             try {
                 if (resultSet != null) resultSet.close();
@@ -95,11 +95,11 @@ public class DBConnection {
     }
 
     @SuppressWarnings("finally")
-    //´ÓÊı¾İ¿âÖĞ¶ÁÈ¡Êı¾İ
+    //ä»æ•°æ®åº“ä¸­è¯»å–æ•°æ®
 	public ArrayList<Product> getData() {
     	connectSQL();
         createStatement();
-    	//½«Êı¾İ¿âÖĞµÄÃ¿Ò»ĞĞ´æÔÚProductÄ£ĞÍÖĞ£¬ÔÙ·ÅÈëListÖĞ
+    	//å°†æ•°æ®åº“ä¸­çš„æ¯ä¸€è¡Œå­˜åœ¨Productæ¨¡å‹ä¸­ï¼Œå†æ”¾å…¥Listä¸­
     	ArrayList<Product> list = new ArrayList<Product>();
     	try {
     		resultSet = statement.executeQuery("SELECT * FROM V_BI_Feeder_BayNum_Status");
@@ -111,7 +111,7 @@ public class DBConnection {
     	catch (Exception e) {
     		e.printStackTrace();
     	}
-    	//¹Ø±ÕÁ¬½Ó
+    	//å…³é—­è¿æ¥
     	finally {
     		try {   
                 if(resultSet!=null){  

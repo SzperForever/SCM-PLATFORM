@@ -27,12 +27,12 @@ public class controller {
     // request mapping --> detail.form, add all bay data to page
     @RequestMapping(value = "/detail")
     public String watchDetail(ModelMap model) {
-        return "result";
+        return "rollingBoard/result";
     }
 
     @RequestMapping(value = "/showBoard")
     public String showDetail() {
-        return "showBoard";
+        return "rollingBoard/showBoard";
     }
 
     @RequestMapping("/getCountNum")
