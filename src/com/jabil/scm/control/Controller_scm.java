@@ -5,9 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-public class controller {
-    @RequestMapping("/scm")
+public class Controller_scm {
+    @RequestMapping(value = "/scm")
     public String getIndex(){
-        return "/scm/scm";
+        System.out.println("Success");
+        return "scm/scm";
     }
 }

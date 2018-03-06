@@ -9,6 +9,117 @@ body{
     background: #efefef;
 }
 
-#id{
-    background: white;
+#header{
+    width: 80%;
+    height: 35vh;
+    margin: auto;
+    margin-top: 5vh;
+    position: relative;
+    background: #FFF;
+    border-radius: 4px;
+    padding-bottom: 30px;
+    box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.1) inset;
+    margin-bottom: 30px;
+}
+
+#info{
+    position: relative;
+    margin: auto;
+    padding-top: 6vh;
+    text-align: center;
+}
+
+#name{
+    font-size: xx-large;
+}
+
+#description{
+    width: 65%;
+    margin: 3vh auto auto;
+    color: #888;
+}
+
+#nav{
+    width: 80%;
+    padding: 0 10% 0 10%;
+    margin-bottom: 4vh;
+    position: absolute;
+    bottom: 0px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.type{
+    background: #EFEFEF;
+    border-radius: 8px;
+    padding: 0 12px;
+    line-height: 24px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #888;
+}
+
+#nav>span:hover{
+    background: #11BD78;
+    color: white;
+}
+
+
+#display-area{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    position: relative;
+    margin: auto;
+}
+
+#display-area>div{
+    position: relative;
+    margin: 0 0 30px 0;
+    padding: 20px;
+    box-sizing: border-box;
+    float: none;
+    background: #FFF;
+    border-radius: 4px;
+    padding-bottom: 30px;
+    box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.1) inset;
+    /*这里宽度应该计算出来，使得窗口宽度不够的时候能够变为一列*/
+    width: 46%;
+    height: 24vh;
+}
+
+.module-pic{
+    /*临时*/
+    background: cadetblue;
+    color: wheat;
+    text-align: center;
+    font-size: 230%;
+    /**/
+
+    float: left;
+    margin: 0 20px 20px 0;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+}
+
+#display-area>div>h3{
+    font-size: 24px;
+    margin: 6px 0 12px 0;
+    padding: 0;
+}
+
+#display-area>div>p{
+    font-size: 15px;
+    line-height: 1.3em;
+}
+
+.module-type{
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
 }

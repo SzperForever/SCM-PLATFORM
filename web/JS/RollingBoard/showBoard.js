@@ -86,10 +86,10 @@ function writeData(lineData) {
     //产线状态
     let bayStatus;
     if (lineData['building_'].length == 0) {
-        bayStatus = '<td class="free"><img src="/IMG/tmpdir--17_8_31_8_44_29.png" height="14%"></td>'
+        bayStatus = '<td class="free"><img src="/IMG/RollingBoard/free.png" height="14%"></td>'
     }
     else {
-        bayStatus = '<td class="work"><img src="/IMG/tmpdir--17_8_31_8_45_09.gif" height="14%"></td>'
+        bayStatus = '<td class="work"><img src="/IMG/RollingBoard/working.gif" height="14%"></td>'
     }
     //产线号
     let bayNum = '<td class="bayNum">' + lineData['bayNum_'] + '</td>';

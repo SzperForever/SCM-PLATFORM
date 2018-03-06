@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
-  <artifact type="war" name="RollingBoard_Final:war exploded">
+  <artifact type="exploded-war" name="RollingBoard_Final:war exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/RollingBoard_Final_war_exploded</output-path>
-    <root id="archive" name="RollingBoard_Final_war exploded.war">
+    <root id="root">
       <element id="javaee-facet-resources" facet="RollingBoard_Final/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
