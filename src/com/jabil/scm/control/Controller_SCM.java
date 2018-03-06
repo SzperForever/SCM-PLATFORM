@@ -1,7 +1,10 @@
 package com.jabil.scm.control;
 
+import com.jabil.scm.model.Category;
 import com.jabil.scm.model.URL;
+import com.jabil.scm.service.testService;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -10,6 +13,7 @@ import java.util.ArrayList;
 
 @Controller
 public class Controller_SCM {
+    private testService testservice = new testService();
     @RequestMapping(value = "/scm")
     public String getIndex(){
         return "scm/scm";
@@ -54,5 +58,30 @@ public class Controller_SCM {
         result.add(new URL("https://www.tonymacx86.com/","tonymacx","null","UniBeast has been updated to version 8.2 for macOS High Sierra. This tool creates a bootable USB drive from your Mac App Store purchased copy of macOS. The resulting USB drive allows for a clean install, upgrade or use as a rescue boot drive.","InventoryControl"));
         return result;
     }
+    @RequestMapping(value = "getTest")
+    @ResponseBody
+    public String getTest(){
+        testservice.testSql();
+        return "test SQL";
 
+    }
+    @RequestMapping(value = "getUrl")
+    @ResponseBody
+    public ArrayList<URL> getUrl(){
+        return testservice.getUrl();
+    }
+    @RequestMapping(value="getCats")
+    @ResponseBody
+    public ArrayList<Category> getCats() {
+        return testservice.getCategory();
+    }
+    @RequestMapping(value="insertCats")
+    @ResponseBody
+    public ArrayList<Category> insertCats(){
+        //category = new Category(5, "ShenmeWanyi");
+        testservice.insertCategory();
+        ArrayList<Category> categories = new ArrayList<>();
+
+        return testservice.getCategory();
+    }
 }

@@ -1,5 +1,7 @@
 package com.jabil.scm.model;
 
+import java.sql.ResultSet;
+
 public class URL {
     private String link;
     private String title;
@@ -10,9 +12,26 @@ public class URL {
     public URL(String link, String title, String picPath, String description, String category) {
         this.link = link;
         this.title = title;
-        PicPath = picPath;
-        Description = description;
+        this.PicPath = picPath;
+        this.Description = description;
         this.category = category;
+    }
+    public URL(ResultSet resultSet){
+        super();
+        try{
+            this.link = resultSet.getString(1).trim();
+            this.title = resultSet.getString(2).trim();
+
+            this.PicPath = resultSet.getString(3);
+            if(resultSet.getString(4).trim() != null)
+                this.Description = resultSet.getString(4).trim();
+            else
+                this.Description = "judge in";
+            this.category = resultSet.getString(5).trim();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public String getTitle() {
