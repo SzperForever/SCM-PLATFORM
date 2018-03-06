@@ -11,7 +11,7 @@ body{
 
 #header{
     width: 80%;
-    height: 35vh;
+    height: auto;
     margin: auto;
     margin-top: 5vh;
     position: relative;
@@ -23,7 +23,6 @@ body{
 }
 
 #info{
-    position: relative;
     margin: auto;
     padding-top: 6vh;
     text-align: center;
@@ -41,17 +40,14 @@ body{
 
 #nav{
     width: 80%;
-    padding: 0 10% 0 10%;
-    margin-bottom: 4vh;
-    position: absolute;
-    bottom: 0px;
+    padding: 9% 10% 0px 10%;
     display: flex;
     flex-flow: row wrap;
     align-items: center;
     justify-content: space-around;
 }
 
-.type{
+.category{
     background: #EFEFEF;
     border-radius: 8px;
     padding: 0 12px;
@@ -59,6 +55,12 @@ body{
     font-size: 14px;
     cursor: pointer;
     color: #888;
+    margin-bottom: 11px;
+}
+
+#nav>span.active{
+    background: #11BD78;
+    color: white;
 }
 
 #nav>span:hover{
@@ -77,19 +79,56 @@ body{
     margin: auto;
 }
 
-#display-area>div{
-    position: relative;
-    margin: 0 0 30px 0;
-    padding: 20px;
-    box-sizing: border-box;
-    float: none;
-    background: #FFF;
-    border-radius: 4px;
-    padding-bottom: 30px;
-    box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.1) inset;
-    /*这里宽度应该计算出来，使得窗口宽度不够的时候能够变为一列*/
-    width: 46%;
-    height: 24vh;
+
+@media screen and (max-width:900px) {
+    #display-area>div{
+        position: relative;
+        margin: 0 0 30px 0;
+        padding: 20px;
+        box-sizing: border-box;
+        float: none;
+        background: #FFF;
+        border-radius: 4px;
+        padding-bottom: 30px;
+        box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.1) inset;
+        /*这里宽度应该计算出来，使得窗口宽度不够的时候能够变为一列*/
+        width: 100%;
+        height: 24vh;
+    }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1440px){
+    #display-area>div{
+        position: relative;
+        margin: 0 0 30px 0;
+        padding: 20px;
+        box-sizing: border-box;
+        float: none;
+        background: #FFF;
+        border-radius: 4px;
+        padding-bottom: 30px;
+        box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.1) inset;
+        /*这里宽度应该计算出来，使得窗口宽度不够的时候能够变为一列*/
+        width: 46%;
+        height: 24vh;
+    }
+}
+
+@media screen and (min-width: 1441px){
+    #display-area>div{
+        position: relative;
+        margin: 0 0 30px 0;
+        padding: 20px;
+        box-sizing: border-box;
+        float: none;
+        background: #FFF;
+        border-radius: 4px;
+        padding-bottom: 30px;
+        box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.1) inset;
+        /*这里宽度应该计算出来，使得窗口宽度不够的时候能够变为一列*/
+        width: 30%;
+        height: 24vh;
+    }
 }
 
 .module-pic{
@@ -118,8 +157,18 @@ body{
     line-height: 1.3em;
 }
 
+.data{
+    display: none;
+}
+
 .module-type{
     position: absolute;
     bottom: 20px;
     right: 30px;
+}
+
+.read-more{
+    text-decoration: underline;
+    color: #0078bf;
+    cursor: pointer;
 }

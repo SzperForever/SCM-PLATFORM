@@ -5,12 +5,12 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Detail</title>
-    <link href="CSS/Style.css" type="text/css" rel="stylesheet"/>
-    <link href="CSS/simple.switch.three.css" type="text/css" rel="stylesheet"/>
+    <link href="CSS/RollingBoard/Style.css" type="text/css" rel="stylesheet"/>
+    <link href="CSS/RollingBoard/simple.switch.three.css" type="text/css" rel="stylesheet"/>
     <%--<script type="text/javascript" src="JS/jquery-3.2.1.min.js"></script>--%>
-    <script type="text/javascript" src="JS/183.js"></script>
-    <script type="text/javascript" src="JS/pageJS.js"></script>
-    <script type="text/javascript" src="JS/simple.switch.js"></script>
+    <script type="text/javascript" src="JS/Public/183.js"></script>
+    <script type="text/javascript" src="JS/RollingBoard/pageJS.js"></script>
+    <script type="text/javascript" src="JS/RollingBoard/simple.switch.js"></script>
 </head>
 <body>
 

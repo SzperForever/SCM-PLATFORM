@@ -10,9 +10,9 @@
 <head>
     <title>Detail</title>
     <%--　<meta name="viewport" content="width=device-width, initial-scale=1" />--%>
-    <link href="CSS/BoardStyle.css" type="text/css" rel="stylesheet"/>
-    <script type="text/javascript" src="JS/183.js"></script>
-    <script type="text/javascript" src="JS/showBoard.js"></script>
+    <link href="CSS/RollingBoard/BoardStyle.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="JS/Public/183.js"></script>
+    <script type="text/javascript" src="JS/RollingBoard/showBoard.js"></script>
 </head>
 <body>
     <div id="Container">
