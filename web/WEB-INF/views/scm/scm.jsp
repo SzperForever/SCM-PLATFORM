@@ -20,7 +20,7 @@
         <div id="description"></div>
     </div>
     <div id="nav">
-        <span class="category">All Modules</span>
+        <span class="category active">All Modules</span>
     </div>
 </div>
 

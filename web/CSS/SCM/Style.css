@@ -5,11 +5,11 @@ body, html {
     margin: 0;
 }
 
-body{
+body {
     background: #efefef;
 }
 
-#header{
+#header {
     width: 80%;
     height: auto;
     margin: auto;
@@ -22,23 +22,23 @@ body{
     margin-bottom: 30px;
 }
 
-#info{
+#info {
     margin: auto;
     padding-top: 6vh;
     text-align: center;
 }
 
-#name{
+#name {
     font-size: xx-large;
 }
 
-#description{
+#description {
     width: 65%;
     margin: 3vh auto auto;
     color: #888;
 }
 
-#nav{
+#nav {
     width: 80%;
     padding: 9% 10% 0px 10%;
     display: flex;
@@ -47,7 +47,7 @@ body{
     justify-content: space-around;
 }
 
-.category{
+.category {
     background: #EFEFEF;
     border-radius: 8px;
     padding: 0 12px;
@@ -58,18 +58,17 @@ body{
     margin-bottom: 11px;
 }
 
-#nav>span.active{
+#nav > span.active {
     background: #11BD78;
     color: white;
 }
 
-#nav>span:hover{
+#nav > span:hover {
     background: #11BD78;
     color: white;
 }
 
-
-#display-area{
+#display-area {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -79,9 +78,8 @@ body{
     margin: auto;
 }
 
-
-@media screen and (max-width:900px) {
-    #display-area>div{
+@media screen and (max-width: 900px) {
+    #display-area > div {
         position: relative;
         margin: 0 0 30px 0;
         padding: 20px;
@@ -97,8 +95,8 @@ body{
     }
 }
 
-@media screen and (min-width: 900px) and (max-width: 1440px){
-    #display-area>div{
+@media screen and (min-width: 900px) and (max-width: 1440px) {
+    #display-area > div {
         position: relative;
         margin: 0 0 30px 0;
         padding: 20px;
@@ -114,8 +112,8 @@ body{
     }
 }
 
-@media screen and (min-width: 1441px){
-    #display-area>div{
+@media screen and (min-width: 1441px) {
+    #display-area > div {
         position: relative;
         margin: 0 0 30px 0;
         padding: 20px;
@@ -131,7 +129,7 @@ body{
     }
 }
 
-.module-pic{
+.module-pic {
     /*临时*/
     background: cadetblue;
     color: wheat;
@@ -146,30 +144,67 @@ body{
     line-height: 80px;
 }
 
-#display-area>div>h3{
+#display-area > div > h3 {
     font-size: 24px;
     margin: 6px 0 12px 0;
     padding: 0;
 }
 
-#display-area>div>p{
+#display-area > div > h3 > a{
+    text-decoration: none;
+    color: #0078bf;
+}
+
+#display-area > div > p {
     font-size: 15px;
     line-height: 1.3em;
 }
 
-.data{
+.data {
     display: none;
 }
 
-.module-type{
+.module-type {
     position: absolute;
-    bottom: 20px;
+    bottom: 2px;
     right: 30px;
 }
 
-.read-more{
+.read-more {
     text-decoration: underline;
     color: #0078bf;
     cursor: pointer;
 }
+
+.disappear{
+    animation-name: rotation_disappear;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.show{
+    animation-name: rotation_show;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes rotation_disappear {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(90deg);
+    }
+}
+
+@keyframes rotation_show {
+    from {
+        transform: rotateY(90deg);
+    }
+    to {
+        transform: rotateY(0deg);
+    }
+}
+
 

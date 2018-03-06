@@ -1,3 +1,22 @@
+jQuery.fn.animateAuto = function (prop, speed, callback) {
+    var elem, height, width;
+
+    return this.each(function (i, el) {
+        el = jQuery(el), elem = el.clone().css({"height": "auto", "width": "auto"}).appendTo("body");
+        height = elem.css("height"),
+            width = elem.css("width"),
+            elem.remove();
+
+        if (prop === "height")
+            el.animate({"height": height}, speed, callback);
+        else if (prop === "width")
+            el.animate({"width": width}, speed, callback);
+        else if (prop === "both")
+            el.animate({"width": width, "height": height}, speed, callback);
+    });
+}
+
+
 $(function () {
     content_control.run();
 });
@@ -26,8 +45,7 @@ let content_control = {
                     let content = '<span class="category">' + val + '</span>';
                     $('#nav').append(content);
                 });
-                //绑定点击事件
-                category_select.listen_click();
+
             }
         });
 
@@ -54,6 +72,8 @@ let content_control = {
                     }
                 });
                 content_control.windows_resize_control();
+                //绑定点击事件
+                category_select.listen_click();
             }
         });
     },
@@ -67,13 +87,13 @@ let content_control = {
                 if ($(this).find('span.data').text().length > char_num * 3) {
                     p.empty();
                     p.append($(this).find('span.data').text().slice(0, char_num * 3 - 17) + '&nbsp<span class="read-more">Read more</span>');
+                    urlCard_control.bindReadMoreListener($(this));
                 }
             });
             $('#blank_div').remove();
             if ($('#display-area>div').size() % 3 != 0) {
                 $('#display-area').append('<span id="blank_div" style="width: 30%; height: 24vh;"></span>')
             }
-
         });
     },
 };
@@ -84,19 +104,70 @@ let category_select = {
     },
     listen_click: function () {
         $(".category").click(function () {
+
+            $('.category').removeClass('active');
+
             let category_name = $(this).text();
-            if(category_name=="All Modules"){
-                $('#display-area>div').css('display', 'block');
-            }else {
+
+            $('#nav>span').each(function () {
+                if ($(this).text() == category_name) {
+                    $(this).addClass('active');
+                }
+            });
+
+
+            let all = false;
+            let module_div = $('#display-area>div');
+            if (category_name == "All Modules") {
+                all = true;
+            }
+            module_div.css('display', 'block');
+            module_div.addClass('disappear');
+            setTimeout(function () {
                 $('#display-area>div').css('display', 'none');
                 $('#display-area>div').each(function () {
-                    if ($(this).find('.module-type').text() == category_name) {
-                        console.log($(this).find('.module-type').text());
+                    if ($(this).find('.module-type').text() == category_name || all) {
                         $(this).css('display', 'block');
+                        $(this).addClass('show');
                     }
                 })
-            }
+            }, 700);
+            setTimeout(function () {
+                $('#display-area>div').each(function () {
+                    $(this).removeClass('disappear');
+                    $(this).removeClass('show');
+                })
+            }, 1000)
         })
     }
+};
 
+let urlCard_control = {
+    run: function () {
+
+    },
+    bindReadMoreListener: function (object) {
+        object.find('.read-more').click(function () {
+            object.find('p').text(object.find('span.data').text());
+            let pre_height = object.outerHeight();
+            object.css('height', pre_height);
+            object.css('height','auto');
+            let target_height = object.outerHeight();
+            object.css('height', pre_height);
+            console.log(target_height, object.height());
+            object.animate({
+                height: target_height + 'px'
+            }, 1000);
+            // object.animateAuto("height", 1000);
+            // setTimeout(function () {
+            //     let target_height = object.height();
+            //     object.css('height', pre_height);
+            //     console.log(target_height,object.height());
+            //     object.animate({
+            //         height: target_height + 'px'
+            //     }, 1000);
+            // },300);
+
+        })
+    }
 };
