@@ -36,6 +36,7 @@ body{
     width: 65%;
     margin: 3vh auto auto;
     color: #888;
+
 }
 
 #nav{
@@ -171,5 +172,12 @@ body{
     text-decoration: underline;
     color: #0078bf;
     cursor: pointer;
+}
+.descri{
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    width:250px;
+    height: 40px;
 }
 

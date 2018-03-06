@@ -42,7 +42,7 @@ let content_control = {
                         '<div>' +
                         '   <span class="module-pic"><img src="' + val['picPath'] + '"></span>' +
                         '   <h3><a href="' + val['link'] + '">' + val['title'] + '</a></h3>' +
-                        '   <p>' + val['description'] + '</p>' +
+                        '   <p class="descri">' + val['description'] + '</p>' +
                         '   <span class="data">' + val['description'] + '</span>' +
                         '   <span class="module-type category">' + val['category'] + '</span>' +
                         '</div>';
