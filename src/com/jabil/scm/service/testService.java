@@ -18,7 +18,10 @@ public class testService {
     public ArrayList<Category> getCategory(){
         return dbConnection.getCategory();
     }
-    public void insertCategory(){
-        dbConnection.insertCategory();
+    public void insertCategory(Category category){
+        dbConnection.insertCategory(category);
+    }
+    public void insertUrl(URL url){
+        dbConnection.insertUrl(url);
     }
 }

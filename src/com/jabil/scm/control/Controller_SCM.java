@@ -78,10 +78,17 @@ public class Controller_SCM {
     @RequestMapping(value="insertCats")
     @ResponseBody
     public ArrayList<Category> insertCats(){
-        //category = new Category(5, "ShenmeWanyi");
-        testservice.insertCategory();
+        Category category = new Category(6, "Shenanyi");
+        testservice.insertCategory(category);
         ArrayList<Category> categories = new ArrayList<>();
 
         return testservice.getCategory();
+    }
+    @RequestMapping(value = "addUrl")
+    @ResponseBody
+    public ArrayList<URL> insertUrls(){
+        URL url = new URL("https://www.sougo.com","Sougo","null","Pape Amodou \"Modou\" Sougou (born 18 December 1984) is a Senegalese professional footballer who plays as a right winger.","Planning");
+        testservice.insertUrl(url);
+        return testservice.getUrl();
     }
 }

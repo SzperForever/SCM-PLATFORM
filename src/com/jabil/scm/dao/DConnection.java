@@ -115,8 +115,8 @@ public class DConnection {
 
         return categories;
     }
-     public void insertCategory(){
-        Category category = new Category(5, "ABAFDFDF");
+     public void insertCategory(Category category){
+        //Category category = new Category(5, "ABAFDFDF");
         connectSQL();
         createStatement();
         String sql = "insert into Category values(" + category.getId() + "," + "'" + category.getName() + "')";
@@ -134,5 +134,25 @@ public class DConnection {
                 e.printStackTrace();
             }
         }
+     }
+     public void insertUrl(URL url){
+         connectSQL();
+         createStatement();
+         String sql = "insert into URL values(" + "'" + url.getLink() + "','" + url.getTitle() + "','" + url.getPicPath() + "','" + url.getDescription() + "','" + url.getCategory() + "')";
+         try{
+             statement.executeUpdate(sql);
+
+         }catch (Exception e){
+             e.printStackTrace();
+         }
+         finally {
+             try {
+                 if (statement != null) statement.close();
+                 if (connection != null) connection.close();
+                 System.out.println("Close success");
+             } catch (SQLException e) {
+                 e.printStackTrace();
+             }
+         }
      }
 }
