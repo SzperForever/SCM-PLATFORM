@@ -73,7 +73,7 @@ let content_control = {
             });
             $('#blank_div').remove();
             if ($('#display-area>div').size() % 3 != 0) {
-                $('#display-area').append('<span id="blank_div" style="width: 30%; height: 24vh;"></span>')
+                $('#display-area').append('<span id="blank_div" style="width: 28%; height: 22vh;"></span>')
             }
         });
     },
@@ -102,7 +102,7 @@ let category_select = {
             if (category_name == "All Modules") {
                 all = true;
             }
-            module_div.css('display', 'block');
+            // module_div.css('display', 'block');
             module_div.addClass('disappear');
             setTimeout(function () {
                 $('#display-area>div').css('display', 'none');
@@ -112,7 +112,7 @@ let category_select = {
                         $(this).addClass('show');
                     }
                 })
-            }, 700);
+            }, 550);
             setTimeout(function () {
                 $('#display-area>div').each(function () {
                     $(this).removeClass('disappear');

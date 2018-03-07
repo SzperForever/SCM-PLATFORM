@@ -79,6 +79,8 @@ body {
     margin: auto;
 }
 
+
+
 @media screen and (max-width: 900px) {
     #display-area > div {
         position: relative;
@@ -125,10 +127,12 @@ body {
         padding-bottom: 30px;
         box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.1) inset;
         /*这里宽度应该计算出来，使得窗口宽度不够的时候能够变为一列*/
-        width: 30%;
-        height: 24vh;
+        width: 28%;
+        height: 22vh;
     }
 }
+
+
 
 .module-pic {
     /*临时*/
