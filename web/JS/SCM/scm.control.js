@@ -124,12 +124,21 @@ let category_select = {
             module_div.addClass('disappear');
             setTimeout(function () {
                 $('#display-area>div').css('display', 'none');
+                $('.temp_blank_div').each(function () {
+                    $(this).remove();
+                });
+                let count = 0;
                 $('#display-area>div').each(function () {
                     if ($(this).find('.module-type').text() == category_name || all) {
+                        count += 1;
                         $(this).css('display', 'block');
                         $(this).addClass('show');
                     }
                 })
+                if(count % 3 != 0){
+                    $('#display-area').append('<span class="temp_blank_div" style="width: 28%; height: 22vh;"></span>')
+                }
+
             }, 550);
             setTimeout(function () {
                 $('#display-area>div').each(function () {

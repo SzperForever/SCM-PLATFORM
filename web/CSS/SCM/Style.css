@@ -180,13 +180,7 @@ body {
     color: #0078bf;
     cursor: pointer;
 }
-.descri{
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-    width:250px;
-    height: 40px;
-}
+
 
 .disappear{
     animation-name: rotation_disappear;
