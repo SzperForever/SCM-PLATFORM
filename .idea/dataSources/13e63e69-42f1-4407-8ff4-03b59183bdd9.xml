@@ -23,9 +23,8 @@
     </database>
     <schema id="7" parent="2" name="dbo">
       <ObjectId>1</ObjectId>
-      <IntrospectionTimestamp>2018-03-06.14:47:26.487</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2018-03-09.04:31:54.013</IntrospectionTimestamp>
       <Current>1</Current>
-      <Visible>1</Visible>
     </schema>
     <schema id="8" parent="2" name="guest">
       <ObjectId>2</ObjectId>
@@ -63,30 +62,5 @@
     <schema id="19" parent="2" name="db_denydatawriter">
       <ObjectId>16393</ObjectId>
     </schema>
-    <table id="20" parent="7" name="URL">
-      <ObjectId>901578250</ObjectId>
-      <CreatedTimestamp>2018-03-06.12:45:22.673</CreatedTimestamp>
-      <ModifiedTimestamp>2018-03-06.12:45:22.673</ModifiedTimestamp>
-    </table>
-    <column id="21" parent="20" name="link">
-      <Position>1</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="22" parent="20" name="title">
-      <Position>2</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="23" parent="20" name="PicPath">
-      <Position>3</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="24" parent="20" name="Description">
-      <Position>4</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="25" parent="20" name="category">
-      <Position>5</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
   </database-model>
 </dataSource>

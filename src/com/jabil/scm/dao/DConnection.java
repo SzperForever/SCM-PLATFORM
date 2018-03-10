@@ -13,9 +13,9 @@ import java.util.ArrayList;
 @Repository
 public class DConnection {
     private static String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    private static String URL = "jdbc:sqlserver://127.0.0.1:1433;DatabaseName=scm";
+    private static String URL = "jdbc:sqlserver://123.207.49.64:1433";
     private static String USER_NAME = "sa";
-    private static String USER_PWD = "@@Szp686521";
+    private static String USER_PWD = "Jabil456";
 
     private static Connection connection;
     private static java.sql.Statement statement;
@@ -58,6 +58,10 @@ public class DConnection {
         }
     }
 
+    /**
+     *
+     * @return Urls
+     */
     public ArrayList<URL> getUrl(){
         connectSQL();
         createStatement();
@@ -87,15 +91,20 @@ public class DConnection {
         }
         return list;
     }
-    public ArrayList<Category> getCategory(){
+
+    /**
+     *
+     * @return
+     */
+    public ArrayList<String> getCategory(){
         connectSQL();
         createStatement();
-        ArrayList<Category> categories = new ArrayList<Category>();
+        ArrayList<String> cates = new ArrayList<String>();
         try{
             resultSet = statement.executeQuery("SELECT * FROM Category");
             while(resultSet.next()){
                 Category category = new Category(resultSet);
-                categories.add(category);
+                cates.add(category.getName());
             }
 
         }catch (Exception e){
@@ -113,8 +122,13 @@ public class DConnection {
             }
         }
 
-        return categories;
+        return cates;
     }
+
+    /**
+     *
+     * @param category
+     */
      public void insertCategory(Category category){
         //Category category = new Category(5, "ABAFDFDF");
         connectSQL();
@@ -135,6 +149,11 @@ public class DConnection {
             }
         }
      }
+
+    /**
+     *
+     * @param url
+     */
      public void insertUrl(URL url){
          connectSQL();
          createStatement();

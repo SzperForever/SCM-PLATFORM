@@ -52,6 +52,24 @@ let content_control = {
                         module_pic.text(val['title'].slice(0, 1));
                     }
                 });
+
+                $('#display-area>div').each(function () {
+                    let p = $(this).find('p');
+                    let area_width = p.width() - 100;
+                    let char_num = area_width / 9.7;
+                    p.text($(this).find('span.data').text());
+                    if ($(this).find('span.data').text().length > char_num * 3) {
+                        p.empty();
+                        p.append($(this).find('span.data').text().slice(0, char_num * 3 - 17) + '&nbsp<span class="read-more">Read more</span>');
+                        urlCard_control.bindReadMoreListener($(this));
+                    }
+                });
+                $('#blank_div').remove();
+                if ($('#display-area>div').size() % 3 != 0) {
+                    $('#display-area').append('<span id="blank_div" style="width: 28%; height: 22vh;"></span>')
+                }
+
+
                 content_control.windows_resize_control();
                 //绑定点击事件
                 category_select.listen_click();
