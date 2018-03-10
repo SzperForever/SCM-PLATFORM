@@ -1,6 +1,6 @@
 package com.jabil.scm.service;
 
-import com.jabil.scm.dao.DConnection;
+import com.jabil.scm.utils.SqlConnection;
 import com.jabil.scm.model.Category;
 import org.springframework.stereotype.Service;
 import com.jabil.scm.model.URL;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 @Service
 public class testService {
-    private DConnection dbConnection = new DConnection();
+    /*private SqlConnection dbConnection = new SqlConnection();
     public void testSql(){
         dbConnection.connectSQL();
     }
@@ -23,5 +23,5 @@ public class testService {
     }
     public void insertUrl(URL url){
         dbConnection.insertUrl(url);
-    }
+    }*/
 }
