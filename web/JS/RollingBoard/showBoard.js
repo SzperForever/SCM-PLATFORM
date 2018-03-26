@@ -40,7 +40,7 @@ function updateData() {
 
 //检查数据是否为空
 function notEmpty(arr) {
-    for (let i = 0; i < arr.length; ++i) {
+    for (var i = 0; i < arr.length; ++i) {
         if (arr[i] != undefined) {
             return true;
         }
@@ -50,7 +50,7 @@ function notEmpty(arr) {
 
 //找到最后一个非空值得索引
 function findLastIndex(arr) {
-    for (let i = arr.length - 1; i >= 0; --i) {
+    for (var i = arr.length - 1; i >= 0; --i) {
         if (arr[i] != undefined)
             return i;
     }
@@ -58,8 +58,8 @@ function findLastIndex(arr) {
 
 //获取数组真实长度
 function len(arr) {
-    let count = 0;
-    for (let i = arr.length - 1; i >= 0; --i) {
+    var count = 0;
+    for (var i = arr.length - 1; i >= 0; --i) {
         if (arr[i] != undefined)
             count += 1;
     }
@@ -84,7 +84,7 @@ function GetRequest() {
 function writeData(lineData) {
     $('table#displayBoard').append('<tr class="container-li"></tr>');
     //产线状态
-    let bayStatus;
+    var bayStatus;
     if (lineData['building_'].length == 0) {
         bayStatus = '<td class="free"><img src="/IMG/RollingBoard/free.png" height="14%"></td>'
     }
@@ -92,9 +92,9 @@ function writeData(lineData) {
         bayStatus = '<td class="work"><img src="/IMG/RollingBoard/working.gif" height="14%"></td>'
     }
     //产线号
-    let bayNum = '<td class="bayNum">' + lineData['bayNum_'] + '</td>';
+    var bayNum = '<td class="bayNum">' + lineData['bayNum_'] + '</td>';
     //处于building状态的信息
-    let buildingContent;
+    var buildingContent;
     if (lineData['building_'].length > 0) {
         buildingContent = '<td class="workCell">' + lineData['building_'][0]['workcell'] + '</td><td class="modelName">' + lineData['building_'][0]['modelName'] + '</td>';
         // buildingContent = '<span class="building"><span class="workCell"><span>' + lineData['building_'][0]['workcell'] + '</span></span><span class="modelName"><span>' + lineData['building_'][0]['modelName'] + '</span></span></span>';
@@ -105,7 +105,7 @@ function writeData(lineData) {
     }
     //处于loadingComplete状态的信息
 
-    let loadingCompleteContent;
+    var loadingCompleteContent;
     if (lineData['loadingComplete_'].length > 0) {
         loadingCompleteContent = '<td class="modelName">' + lineData['loadingComplete_'][0]['modelName'] + '</td>';
     }
@@ -113,8 +113,8 @@ function writeData(lineData) {
         loadingCompleteContent = '<td class="noPlan">No Plan</td>';
     }
 
-    let status;
-    let currentTime = new Date().getTime();
+    var status;
+    var currentTime = new Date().getTime();
     if (lineData['building_'].length != 0 && currentTime < lineData['building_'][0]["planBuildTime"]) {
         status = '<td class="pre">Pre</td>'
     }
@@ -129,20 +129,20 @@ function writeData(lineData) {
     }
 
 
-    let timeToUse;
+    var timeToUse;
     currentTime = new Date().getTime();
 
-    let Request = GetRequest();
+    var Request = GetRequest();
 
     //当处于Building状态的OrderID 与 LoadingCompleted状态最后一个的OrderID一样时,去除最后一个
     while (lineData['building_'].length != 0 && lineData['loadingComplete_'].length != 0 && notEmpty(lineData['loadingComplete_'])) {
-        let match = false;
-        let index = lineData['loadingComplete_'].length - 1;
+        var match = false;
+        var index = lineData['loadingComplete_'].length - 1;
         while (lineData['loadingComplete_'][index] == undefined) {
             index--;
         }
-        let orderID = lineData['loadingComplete_'][index]['orderID'];
-        for (let i = 0; i < lineData['building_'].length; ++i) {
+        var orderID = lineData['loadingComplete_'][index]['orderID'];
+        for (var i = 0; i < lineData['building_'].length; ++i) {
             if (orderID == lineData['building_'][i]['orderID']) {
                 match = true;
                 delete lineData['loadingComplete_'][index];
@@ -155,9 +155,9 @@ function writeData(lineData) {
     }
 
     //去除OrderID相同的一个Product
-    for(let i = 0; i < lineData['loadingComplete_'].length; ++i){
+    for(var i = 0; i < lineData['loadingComplete_'].length; ++i){
         if(lineData['loadingComplete_'][i] == undefined) continue;
-        for(let j = i + 1; j < lineData['loadingComplete_'].length; ++j){
+        for(var j = i + 1; j < lineData['loadingComplete_'].length; ++j){
             if(lineData['loadingComplete_'][i] != undefined && lineData['loadingComplete_'][j] != undefined){
                 if(lineData['loadingComplete_'][i]['orderID'] == lineData['loadingComplete_'][j]['orderID']){
                     delete lineData['loadingComplete_'][i];
@@ -168,12 +168,12 @@ function writeData(lineData) {
     }
 
 
-    let count = '<td class="count">' + len(lineData['loadingComplete_']) + '</td>';
+    var count = '<td class="count">' + len(lineData['loadingComplete_']) + '</td>';
 
     if (lineData['loadingComplete_'].length != 0 && notEmpty(lineData['loadingComplete_']) && currentTime < lineData['loadingComplete_'][findLastIndex(lineData['loadingComplete_'])]['planBuildTime']) {
-        let result = Math.abs((lineData['loadingComplete_'][findLastIndex(lineData['loadingComplete_'])]['planBuildTime'] - currentTime) / 1000);
-        let hour = Math.floor(result / 3600);
-        let min = Math.floor(result % 3600 / 60);
+        var result = Math.abs((lineData['loadingComplete_'][findLastIndex(lineData['loadingComplete_'])]['planBuildTime'] - currentTime) / 1000);
+        var hour = Math.floor(result / 3600);
+        var min = Math.floor(result % 3600 / 60);
         if (('' + min).length == 1) {
             timeToUse = '<td class="">' + hour + '.0' + min + '</td>'
         }
@@ -183,9 +183,9 @@ function writeData(lineData) {
     }
     //如果 Delay
     else if (lineData['loadingComplete_'].length != 0 && notEmpty(lineData['loadingComplete_'])) {
-        let result = Math.abs((lineData['loadingComplete_'][findLastIndex(lineData['loadingComplete_'])]['planBuildTime'] - currentTime) / 1000);
-        let hour = Math.floor(result / 3600);
-        let min = Math.floor(result % 3600 / 60);
+        var result = Math.abs((lineData['loadingComplete_'][findLastIndex(lineData['loadingComplete_'])]['planBuildTime'] - currentTime) / 1000);
+        var hour = Math.floor(result / 3600);
+        var min = Math.floor(result % 3600 / 60);
         if (('' + min).length == 1) {
             timeToUse = '<td class="delay">-' + hour + '.0' + min + '</td>'
         }

@@ -20,6 +20,7 @@ public class categoryController {
     public String getDescription(){
         return "This is SCM PLATFORM.This platform collects commonly used links in the work, Excel macros, FTP files, to facilitate daily use, improve work efficiency";
     }
+
     /**
      *
      * @return 返回所有的类别
@@ -29,6 +30,7 @@ public class categoryController {
     public ArrayList<String> getCats() {
         return categoryService.getCategory();
     }
+
     @RequestMapping(value="insertCats")
     @ResponseBody
     public ArrayList<String> insertCats(){
@@ -36,4 +38,6 @@ public class categoryController {
         categoryService.insertCategory(category);
         return categoryService.getCategory();
     }
+
+
 }

@@ -22,7 +22,12 @@ public class URL {
             this.link = resultSet.getString(1).trim();
             this.title = resultSet.getString(2).trim();
 
-            this.PicPath = resultSet.getString(3);
+            if(resultSet.getString(3)==null){
+                this.PicPath = "null";
+            }
+            else {
+                this.PicPath = resultSet.getString(3);
+            }
             if(resultSet.getString(4).trim() != null)
                 this.Description = resultSet.getString(4).trim();
             else
@@ -73,4 +78,6 @@ public class URL {
     public void setCategory(String category) {
         this.category = category;
     }
+
+
 }
