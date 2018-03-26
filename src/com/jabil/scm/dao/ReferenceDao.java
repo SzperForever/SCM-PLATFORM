@@ -11,7 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 @Repository
-public class reference_dao {
+public class ReferenceDao {
     private Connection connection;
     private Statement statement;
     private ResultSet resultSet;
