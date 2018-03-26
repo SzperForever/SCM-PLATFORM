@@ -11,7 +11,7 @@ import java.util.ArrayList;
 @Controller
 public class AppController {
     private ApplicationsService applicationsService = new ApplicationsService();
-    @RequestMapping(value = "/getApp")
+    @RequestMapping(value = "/getApplications")
     @ResponseBody
     public ArrayList<Applications> getApp(){
         return applicationsService.getApplications();

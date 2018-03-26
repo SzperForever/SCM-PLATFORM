@@ -11,7 +11,7 @@ import java.util.ArrayList;
 @Controller
 public class ReferenceController {
     private ReferenceService referenceService = new ReferenceService();
-    @RequestMapping(value = "/getReferences")
+    @RequestMapping(value = "/getReference")
     @ResponseBody
     public ArrayList<Reference> getReferences(){
         return referenceService.getReference();

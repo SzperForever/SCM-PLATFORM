@@ -377,3 +377,11 @@ body {
     margin: 0 auto;
     margin-top: 50px;
 }
+
+.footer-link{
+    z-index: 5;
+    text-decoration-line: none;
+    color: white;
+    font-family: Lato;
+    font-size: large;
+}
