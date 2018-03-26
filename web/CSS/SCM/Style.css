@@ -41,6 +41,22 @@ body {
     background: #efefef;
 }
 
+#top-menu{
+    position: fixed;
+    top: 0;
+    height: 43px;
+    width: 100%;
+    background: wheat;
+    background: linear-gradient(to bottom,rgba(78, 124, 162, 0.65) 0,rgba(239,239,239,1) 100%);
+    z-index: 4;
+}
+
+#left-menu{
+    display: none;
+    z-index: 4;
+    width: 315px;
+}
+
 
 #header-background{
     z-index: 3;
@@ -50,7 +66,7 @@ body {
     width: 80%;
     height: auto;
     margin: auto;
-    margin-top: 5vh;
+    margin-top: 8vh;
     position: relative;
     background: #efefef;
     border-radius: 4px;

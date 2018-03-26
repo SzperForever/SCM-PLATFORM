@@ -2,6 +2,11 @@ package com.jabil.rollingboard.control;
 
 import com.jabil.rollingboard.model.LineModel;
 import com.jabil.rollingboard.service.Service;
+import com.jabil.scm.dao.app_dao;
+import com.jabil.scm.dao.reference_dao;
+import com.jabil.scm.model.Applications;
+import com.jabil.scm.model.Reference;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +19,14 @@ import java.util.Map;
 
 @Controller
 public class controller {
-    private Service service = new Service();
+    @Autowired
+    private Service service;
+
+    @Autowired
+    private app_dao appDao;
+
+    @Autowired
+    private reference_dao referenceDao;
 
     //add count num to page
     private void addCount(ModelMap model) {
@@ -55,4 +67,17 @@ public class controller {
     public ArrayList<LineModel> getFullBayLine() {
         return service.getData(true);
     }
+
+    @RequestMapping("/getApplications")
+    @ResponseBody
+    public ArrayList<Applications> getApplications(){
+        return appDao.getApplications();
+    }
+
+    @RequestMapping("/getReference")
+    @ResponseBody
+    public ArrayList<Reference> getReference(){
+        return referenceDao.getReference();
+    }
+
 }

@@ -3,6 +3,25 @@ $(function () {
     $('#particles-js').css({
         'position': 'absolute'
     });
+
+    //预加载
+    $.ajax({
+        dataType: 'json',
+        url: 'getApplications.form',
+        success: function (data) {
+            cache['applications'] = data;
+            removeLoading();
+        }
+    });
+    $.ajax({
+        dataType: 'json',
+        url: 'getReference.form',
+        success: function (data) {
+            cache['reference'] = data;
+            removeLoading();
+        }
+    })
+
     // document.getElementsByClassName('particles-js-canvas-el')[0].setAttribute("height",$('body').height());
     // document.getElementsByClassName('particles-js-canvas-el')[0].setAttribute("width",$('body').width());
 });
@@ -40,7 +59,7 @@ var content_control = {
                     'position': 'absolute',
                     'height': height,
                     'width': width,
-                    'margin-top': '5vh',
+                    'margin-top': '8vh',
                     'margin-left': margin_left,
                     'background': 'url("' + data + '") no-repeat  center',
                     'background-size': 'cover'
@@ -64,10 +83,13 @@ var content_control = {
             dataType: 'json',
             url: '/getCategory.form',
             success: function (data) {
+                //缓存以备菜单使用
+                cache['category'] = data;
                 $.each(data, function (index, val) {
                     var content = '<span class="category">' + val + '</span>';
                     $('#nav').append(content);
                 });
+                //为啥在这里加载背景？
                 content_control.loadBackground();
                 removeLoading();
             }
@@ -79,10 +101,12 @@ var content_control = {
             dataType: 'json',
             url: '/getURL.form',
             success: function (data) {
+                cache['URL'] = data;
                 $.each(data, function (index, val) {
                     var content =
                         '<div class="w3-card-4">' +
                         '   <span class="module-pic"><img src="' + val['picPath'] + '"></span>' +
+                        '   <span class="module-tag">' + val['tag'] + '</span>' +
                         '   <h3><a href="' + val['link'] + '">' + val['title'] + '</a></h3>' +
                         '   <p class="description">' + val['description'] + '</p>' +
                         '   <span class="data">' + val['description'] + '</span>' +
@@ -216,7 +240,7 @@ var content_control = {
                 }
             });
             $('#blank_div').remove();
-            if ($('#display-area>div').size() % 3 != 0) {
+            if ($('#display-area>div').size() % 4 != 0) {
                 $('#display-area').append('<span id="blank_div" style="width: 22%; height: 22vh;"></span>')
             }
 
@@ -310,55 +334,65 @@ var category_select = {
     },
     listen_click: function () {
         $(".category").click(function () {
-
-            $('.category').removeClass('active');
-
-            var category_name = $(this).text();
-
+            category_select.switch_card($(this).text(), "Modules")
+        })
+    },
+    switch_card: function (name, by_what) {
+        name = name.trim();
+        if (name == "All") {
+            name = "All Modules";
+        }
+        //移除所有分类的激活状态
+        $('.category').removeClass('active');
+        var category_name = name;
+        //给对应的分类添加激活状态
+        if (by_what == 'Modules') {
             $('#nav>span').each(function () {
                 if ($(this).text() == category_name) {
                     $(this).addClass('active');
                 }
             });
-
-
-            var all = false;
-            var module_div = $('#display-area>div');
-            if (category_name == "All Modules") {
-                all = true;
-            }
-            // module_div.css('display', 'block');
-            module_div.addClass('disappear');
-            setTimeout(function () {
-                $('#display-area>div').css('display', 'none');
-                $('.temp_blank_div').each(function () {
-                    $(this).remove();
-                });
-                var count = 0;
-                $('#display-area>div').each(function () {
-                    if ($(this).find('.module-type').text() == category_name || all) {
-                        $(this).css('display', 'block');
-                        $(this).addClass('show');
-                        count += 1;
-                    }
-                });
-                if (count % 3 != 0) {
-                    $('#display-area').append('<span class="temp_blank_div" style="width: 28%; height: 22vh;"></span>')
+        }
+        else {
+            $('#nav>span:first').addClass('active');
+        }
+        //点击all时 显示所有的模块
+        var all = false;
+        var module_div = $('#display-area>div');
+        if (category_name == "All Modules") {
+            all = true;
+        }
+        // module_div.css('display', 'block');
+        //添加消失动画
+        module_div.addClass('disappear');
+        //延时调用函数，使得可以播放完消失动画
+        setTimeout(function () {
+            $('#display-area>div').css('display', 'none');
+            $('.temp_blank_div').each(function () {
+                $(this).remove();
+            });
+            var count = 0;
+            $('#display-area>div').each(function () {
+                if ($(this).find('.module-type').text() == category_name || all || $(this).find('.module-tag').text() == category_name) {
+                    $(this).css('display', 'block');
+                    $(this).addClass('show');
+                    count += 1;
                 }
+            });
+            if (count % 4 != 0) {
+                $('#display-area').append('<span class="temp_blank_div" style="width: 22%; height: 22vh;"></span>')
+            }
 
-                //告知筛选菜单 元素发生变化
-                filter_menu_control.onChange();
+            //告知筛选菜单 元素发生变化
+            filter_menu_control.onChange();
 
-            }, 550);
-            setTimeout(function () {
-                $('#display-area>div').each(function () {
-                    $(this).removeClass('disappear');
-                    $(this).removeClass('show');
-                })
-            }, 1000);
-
-
-        })
+        }, 550);
+        setTimeout(function () {
+            $('#display-area>div').each(function () {
+                $(this).removeClass('disappear');
+                $(this).removeClass('show');
+            })
+        }, 1000);
     }
 };
 
@@ -386,12 +420,63 @@ var count = 0;
 
 function removeLoading() {
     count++;
-    if (count == 6) {
+    if (count == 8) {
         setTimeout(function () {
             $('#loading').fadeOut(600);
         }, 600);
-
+        side_menu_control.run();
     }
 }
 
+var side_menu_control = {
+    run: function () {
+        this.loadContent();
+    },
+    loadContent: function () {
+        //load module
+        var by_module = $('#by-module');
+        var module_data = cache['category'];
+        var functionName = 'category_select.switch_card("All")';
+        var content = '<button class="w3-button" onclick=' + functionName + '>All Modules</div>';
+        by_module.find('div.w3-dropdown-content').append(content);
+        $.each(module_data, function (index, val) {
+            var functionName = 'category_select.switch_card("' + val + '","Modules")';
+            var content = '<button class="w3-button" onclick=' + functionName + '>' + val + '</div>';
+            by_module.find('div.w3-dropdown-content').append(content);
+        });
+        //load tags
+        var URL_data = cache['URL'];
+        var by_tag = $('#by-tag');
+        $.each(URL_data, function (index, val) {
+            var functionName = 'category_select.switch_card(\'' + val['tag'] + '\',\'Tags\')';
+            var content = '<button class="w3-button" onclick=\"' + functionName + '\">' + val['tag'] + '</div>';
+            by_tag.find('div.w3-dropdown-content').append(content);
+        });
+        //load applications
+        var app_data = cache['applications'];
+        var app = $('#applications');
+        $.each(app_data, function (index, val) {
+            var content = '<a href="'+val['url']+'" class="w3-bar-item w3-button">'+val['name']+'</a>'
+            app.find('div.w3-dropdown-content').append(content);
+        });
+        //load reference
+        var ref_data = cache['reference'];
+        var ref = $('#reference');
+        $.each(ref_data, function (index, val) {
+            var content = '<a href="'+val['url']+'" class="w3-bar-item w3-button">'+val['name']+'</a>'
+            ref.find('div.w3-dropdown-content').append(content);
+        });
+    },
+    closeMenu: function () {
+        $('#left-menu').css('display', 'none');
+    },
+    openLeftMenu: function () {
+        $('#left-menu').css('display', 'block');
+    },
+    sortByFrequent: function () {
 
+    },
+    sortByA_Z: function () {
+
+    }
+};

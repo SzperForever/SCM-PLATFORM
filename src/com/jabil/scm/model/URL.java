@@ -8,13 +8,15 @@ public class URL {
     private String PicPath;
     private String Description;
     private String category;
+    private String tag;
 
-    public URL(String link, String title, String picPath, String description, String category) {
+    public URL(String link, String title, String picPath, String description, String category, String tag) {
         this.link = link;
         this.title = title;
         this.PicPath = picPath;
         this.Description = description;
         this.category = category;
+        this.tag = tag;
     }
     public URL(ResultSet resultSet){
         super();
@@ -33,6 +35,7 @@ public class URL {
             else
                 this.Description = "judge in";
             this.category = resultSet.getString(5).trim();
+            this.tag = resultSet.getString(6).trim();
 
         }catch (Exception e){
             e.printStackTrace();
@@ -79,5 +82,11 @@ public class URL {
         this.category = category;
     }
 
+    public String getTag() {
+        return tag;
+    }
 
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
 }
