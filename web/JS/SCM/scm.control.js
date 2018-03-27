@@ -4,20 +4,12 @@ $(function () {
         'position': 'absolute'
     });
 
-    //预加载
+
     $.ajax({
-        dataType: 'json',
-        url: 'getApplications.form',
-        success: function (data) {
-            cache['applications'] = data;
-            removeLoading();
-        }
-    });
-    $.ajax({
-        dataType: 'json',
-        url: 'getReference.form',
-        success: function (data) {
-            cache['reference'] = data;
+        dataType:'json',
+        url:'/getTag.form',
+        success:function (data) {
+            cache['tag'] = data;
             removeLoading();
         }
     })
@@ -30,18 +22,19 @@ var cache = {};
 
 var content_control = {
     run: function () {
-        this.loadDescription();
+        this.loadNameAndDescription();
         this.loadCategory();
         this.loadURL();
         this.bind_menu_event();
         this.loadLink();
     },
-    loadDescription: function () {
+    loadNameAndDescription: function () {
         $.ajax({
-            dataType: 'text',
-            url: '/getDescription.form',
+            dataType: 'json',
+            url: '/getConf.form',
             success: function (data) {
-                $('#description').text(data);
+                $('#name').text(data[0]['name']);
+                $('#description').text(data[0]['description']);
                 removeLoading()
             }
         })
@@ -60,7 +53,7 @@ var content_control = {
                     'position': 'absolute',
                     'height': height,
                     'width': width,
-                    'margin-top': '8vh',
+                    // 'margin-top': '8vh',
                     'margin-left': margin_left,
                     'background': 'url("' + data + '") no-repeat  center',
                     'background-size': 'cover'
@@ -107,7 +100,7 @@ var content_control = {
                     var content =
                         '<div class="w3-card-4">' +
                         '   <span class="module-pic"><img src="' + val['picPath'] + '"></span>' +
-                        '   <span class="module-tag">' + val['tag'] + '</span>' +
+                        '   <span class="module-tag">' + val['tagID'] + '</span>' +
                         '   <h3><a href="' + val['link'] + '">' + val['title'] + '</a></h3>' +
                         '   <p class="description">' + val['description'] + '</p>' +
                         '   <span class="data">' + val['description'] + '</span>' +
@@ -268,7 +261,7 @@ var content_control = {
                 'position': 'absolute',
                 'height': height,
                 'width': width,
-                'margin-top': '5vh',
+                // 'margin-top': '5vh',
                 'margin-left': margin_left,
             });
 
@@ -387,7 +380,7 @@ var category_select = {
             });
             var count = 0;
             $('#display-area>div').each(function () {
-                if ($(this).find('.module-type').text() == category_name || all || $(this).find('.module-tag').text() == category_name) {
+                if ($(this).find('.module-type').text() == category_name || all || $(this).find('.module-tag').text().indexOf(category_name) != -1) {
                     $(this).css('display', 'block');
                     $(this).addClass('show');
                     count += 1;
@@ -434,7 +427,7 @@ var count = 0;
 
 function removeLoading() {
     count++;
-    if (count == 9) {
+    if (count == 8) {
         setTimeout(function () {
             $('#loading').fadeOut(600);
         }, 600);
@@ -451,41 +444,32 @@ var side_menu_control = {
         var by_module = $('#by-module');
         var module_data = cache['category'];
         var functionName = 'category_select.switch_card("All")';
-        var content = '<button class="w3-button" onclick=' + functionName + '>All Modules</div>';
-        by_module.find('div.w3-dropdown-content').append(content);
+        var content = '<button class="w3-button w3-bar-item" onclick=' + functionName + '>All Modules</div>';
+        by_module.append(content);
         $.each(module_data, function (index, val) {
             var functionName = 'category_select.switch_card("' + val + '","Modules")';
-            var content = '<button class="w3-button" onclick=' + functionName + '>' + val + '</div>';
-            by_module.find('div.w3-dropdown-content').append(content);
+            var content = '<button class="w3-button w3-bar-item" onclick=' + functionName + '>' + val + '</div>';
+            by_module.append(content);
         });
         //load tags
-        var URL_data = cache['URL'];
+        var URL_data = cache['tag'];
         var by_tag = $('#by-tag');
         $.each(URL_data, function (index, val) {
-            var functionName = 'category_select.switch_card(\'' + val['tag'] + '\',\'Tags\')';
-            var content = '<button class="w3-button" onclick=\"' + functionName + '\">' + val['tag'] + '</div>';
-            by_tag.find('div.w3-dropdown-content').append(content);
-        });
-        //load applications
-        var app_data = cache['applications'];
-        var app = $('#applications');
-        $.each(app_data, function (index, val) {
-            var content = '<a href="' + val['url'] + '" class="w3-bar-item w3-button">' + val['name'] + '</a>'
-            app.find('div.w3-dropdown-content').append(content);
-        });
-        //load reference
-        var ref_data = cache['reference'];
-        var ref = $('#reference');
-        $.each(ref_data, function (index, val) {
-            var content = '<a href="' + val['url'] + '" class="w3-bar-item w3-button">' + val['name'] + '</a>'
-            ref.find('div.w3-dropdown-content').append(content);
+            var functionName = 'category_select.switch_card(\'' + val['id'] + '\',\'Tags\')';
+            var content = '<button class="w3-button w3-bar-item" onclick=\"' + functionName + '\">' + val['name'] + '</div>';
+            by_tag.append(content);
         });
     },
     closeMenu: function () {
+
         $('#left-menu').css('display', 'none');
+        $('#main-container').removeClass();
+        $('#main-container').addClass('animate-left');
     },
     openLeftMenu: function () {
         $('#left-menu').css('display', 'block');
+        $('#main-container').removeClass();
+        $('#main-container').addClass('animate-right');
     },
     sortByFrequent: function () {
 

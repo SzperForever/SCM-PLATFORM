@@ -11,15 +11,7 @@ import java.util.ArrayList;
 @Controller
 public class categoryController {
     private categoryService categoryService = new categoryService();
-    /**
-     *
-     * @return 返回网站的描述信息
-     */
-    @RequestMapping(value = "/getDescription")
-    @ResponseBody
-    public String getDescription(){
-        return "This is SCM PLATFORM.This platform collects commonly used links in the work, Excel macros, FTP files, to facilitate daily use, improve work efficiency";
-    }
+
 
     /**
      *

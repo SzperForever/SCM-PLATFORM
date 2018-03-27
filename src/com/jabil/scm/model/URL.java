@@ -8,15 +8,17 @@ public class URL {
     private String PicPath;
     private String Description;
     private String category;
-    private String tag;
+    private String tagID;
+    private int id;
 
-    public URL(String link, String title, String picPath, String description, String category, String tag) {
+    public URL(String link, String title, String picPath, String description, String category, String tagID, int id) {
         this.link = link;
         this.title = title;
         this.PicPath = picPath;
         this.Description = description;
         this.category = category;
-        this.tag = tag;
+        this.tagID = tagID;
+        this.id = id;
     }
     public URL(ResultSet resultSet){
         super();
@@ -35,8 +37,8 @@ public class URL {
             else
                 this.Description = "judge in";
             this.category = resultSet.getString(5).trim();
-            this.tag = resultSet.getString(6).trim();
-
+            this.tagID = resultSet.getString(6).trim();
+            this.id = resultSet.getInt(7);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -82,11 +84,19 @@ public class URL {
         this.category = category;
     }
 
-    public String getTag() {
-        return tag;
+    public String getTagID() {
+        return tagID;
     }
 
-    public void setTag(String tag) {
-        this.tag = tag;
+    public void setTagID(String tagID) {
+        this.tagID = tagID;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

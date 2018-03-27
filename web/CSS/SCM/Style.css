@@ -41,6 +41,27 @@ body {
     background: #efefef;
 }
 
+
+.animate-right{
+    animation: move-right 0.4s;
+    animation-fill-mode: forwards;
+}
+
+.animate-left{
+    animation: move-left 0.4s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes move-right {
+    0%{transform: translateX(0)}
+    100%{transform: translateX(200px)}
+}
+
+@keyframes move-left {
+    0%{transform: translateX(200px)}
+    100%{transform: translateX(0)}
+}
+
 #top-menu{
     position: fixed;
     top: 0;

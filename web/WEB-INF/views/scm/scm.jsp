@@ -43,29 +43,14 @@
     <div id="left-menu" class="w3-sidebar w3-bar-block w3-card-4 w3-animate-left w3-blue-gray">
         <button onclick="side_menu_control.closeMenu()" class="w3-bar-item w3-button w3-large">Close &times;</button>
         <div class="w3-bar-item">Platform</div>
-        <div id="by-module" class="w3-dropdown-hover">
-            <button class="w3-button w3-blue-gray">By Module<i class="fa fa-caret-down"></i></button>
-            <div class="w3-dropdown-content w3-bar-block">
-                <%--<div class="w3-bar-item">planning</div>--%>
-            </div>
-        </div>
-        <div id="by-tag" class="w3-dropdown-hover">
-            <button class="w3-button w3-blue-gray">By Functions(tags)<i class="fa fa-caret-down"></i> </button>
-            <div class="w3-dropdown-content w3-bar-block">
 
-            </div>
+        <div id="by-module" class="w3-bar-item">
+            <span>By Module</span>
+            <%--<div class="w3-bar-item"></div>--%>
         </div>
-        <div id="applications" class="w3-dropdown-hover">
-            <button class="w3-button w3-blue-gray">Applications<i class="fa fa-caret-down"></i> </button>
-            <div class="w3-dropdown-content w3-bar-block">
 
-            </div>
-        </div>
-        <div id="reference" class="w3-dropdown-hover">
-            <button class="w3-button w3-blue-gray">Reference<i class="fa fa-caret-down"></i> </button>
-            <div class="w3-dropdown-content w3-bar-block">
-
-            </div>
+        <div id="by-tag" class="w3-bar-item">
+            <span>By Functions(tag)</span>
         </div>
         <div class="w3-dropdown-hover">
             <button class="w3-button w3-blue-gray">Sort by<i class="fa fa-caret-down"></i> </button>
@@ -77,10 +62,11 @@
     </div>
 </div>
 
+<div id="main-container">
 <div id="header-background" class="w3-card-4"></div>
 <div id="header">
     <div id="info">
-        <div id="name">SCM PLATFORM</div>
+        <div id="name"></div>
         <div id="description"></div>
     </div>
     <div id="nav">
@@ -145,7 +131,7 @@
         </div>
     </div>
 </div>
-
+</div>
 </body>
 <script type="text/javascript" src="JS/SCM/particles.js"></script>
 <script type="text/javascript" src="JS/SCM/app.js"></script>

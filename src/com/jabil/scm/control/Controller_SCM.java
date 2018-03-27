@@ -19,5 +19,19 @@ public class Controller_SCM {
         return "scm/scm";
     }
 
+    @RequestMapping(value = "/procedure")
+    public String getProcedureDocument(){
+        return "scm/procedure-document";
+    }
+
+    @RequestMapping(value = "/workflow")
+    public String getWorkFlow(){
+        return "scm/WorkFlows";
+    }
+
+    @RequestMapping(value = "/file")
+    public String getFile(){
+        return "scm/file";
+    }
 
 }

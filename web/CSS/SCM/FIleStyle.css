@@ -1,0 +1,13 @@
+#main-container{
+    width: 400px;
+    height: 200px;
+    margin: 0 auto;
+    margin-top: 25vh;
+    border: 2px solid;
+    border-style: dashed;
+}
+
+#main-container>div{
+    width: 20%;
+    margin: 0 auto;
+}
