@@ -2,8 +2,6 @@ package com.jabil.rollingboard.control;
 
 import com.jabil.rollingboard.model.LineModel;
 import com.jabil.rollingboard.service.Service;
-import com.jabil.scm.model.Applications;
-import com.jabil.scm.model.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

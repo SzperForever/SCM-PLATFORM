@@ -122,8 +122,7 @@
         <span>Y</span>
         <span>Z</span>
     </div>
-    <span id="down-button" class="w3-display-middle"><i
-            class="fas fa-chevron-circle-down w3-xlarge w3-display-middle"></i>
+    <span id="down-button" class="w3-display-middle"><i class="fas fa-chevron-circle-down w3-xlarge w3-display-middle"></i>
 </span>
 </div>
 
