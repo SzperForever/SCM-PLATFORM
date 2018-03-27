@@ -101,7 +101,7 @@ var content_control = {
                         '<div class="w3-card-4">' +
                         '   <span class="module-pic"><img src="' + val['picPath'] + '"></span>' +
                         '   <span class="module-tag">' + val['tagID'] + '</span>' +
-                        '   <h3><a href="' + val['link'] + '">' + val['title'] + '</a></h3>' +
+                        '   <h3><a href="' + val['link'] + '" target="_blank">' + val['title'] + '</a></h3>' +
                         '   <p class="description">' + val['description'] + '</p>' +
                         '   <span class="data">' + val['description'] + '</span>' +
                         '   <span class="module-type category">' + val['category'] + '</span>' +
@@ -148,7 +148,7 @@ var content_control = {
             url: '/getLinks.form',
             success: function (data) {
                 $.each(data, function (index, val) {
-                    var content = '<a href="'+val['url']+'" class="footer-link">'+val['name']+'</a>'
+                    var content = '<a href="'+val['url']+'" class="footer-link" target="_blank">'+val['name']+'</a>'
                     $('#footer-link').append(content);
                 })
                 removeLoading();
@@ -444,11 +444,11 @@ var side_menu_control = {
         var by_module = $('#by-module');
         var module_data = cache['category'];
         var functionName = 'category_select.switch_card("All")';
-        var content = '<button class="w3-button w3-bar-item" onclick=' + functionName + '>All Modules</div>';
+        var content = '<button class="w3-button w3-bar-item w3-blue-gray" onclick=' + functionName + '>All Modules</div>';
         by_module.append(content);
         $.each(module_data, function (index, val) {
             var functionName = 'category_select.switch_card("' + val + '","Modules")';
-            var content = '<button class="w3-button w3-bar-item" onclick=' + functionName + '>' + val + '</div>';
+            var content = '<button class="w3-button w3-bar-item w3-blue-gray" onclick=' + functionName + '>' + val + '</div>';
             by_module.append(content);
         });
         //load tags
@@ -456,7 +456,7 @@ var side_menu_control = {
         var by_tag = $('#by-tag');
         $.each(URL_data, function (index, val) {
             var functionName = 'category_select.switch_card(\'' + val['id'] + '\',\'Tags\')';
-            var content = '<button class="w3-button w3-bar-item" onclick=\"' + functionName + '\">' + val['name'] + '</div>';
+            var content = '<button class="w3-button w3-bar-item w3-blue-gray" onclick=\"' + functionName + '\">' + val['name'] + '</div>';
             by_tag.append(content);
         });
     },

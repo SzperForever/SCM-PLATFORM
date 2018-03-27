@@ -11,6 +11,10 @@
     <title>Work Flows</title>
 </head>
 <body>
-    <p>Work Flows</p>
+    <div style="margin: 0 auto;
+    width: 20%;
+    text-align: center;
+    margin-top: 5vh;
+    font-size: xx-large;"><p>Work Flows</p></div>
 </body>
 </html>

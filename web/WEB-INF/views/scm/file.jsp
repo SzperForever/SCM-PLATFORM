@@ -9,11 +9,18 @@
 <html>
 <head>
     <title>File</title>
-    <link href="CSS/SCM/FileStyle.css" type="text/css" rel="stylesheet">
+    <link href="CSS/SCM/FIleStyle.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-    <div id="main-container">
-        <div><button class="w3-button">Click here</button></div>
+<div style="margin: 0 auto;
+    width: 20%;
+    text-align: center;
+    margin-top: 5vh;
+    font-size: xx-large;"><p>File Upload Center</p></div>
+<div id="container">
+    <div>
+        <button class="w3-button">Click here</button>
     </div>
+</div>
 </body>
 </html>

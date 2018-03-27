@@ -44,12 +44,12 @@
         <button onclick="side_menu_control.closeMenu()" class="w3-bar-item w3-button w3-large">Close &times;</button>
         <div class="w3-bar-item">Platform</div>
 
-        <div id="by-module" class="w3-bar-item">
+        <div id="by-module" class="w3-bar-item w3-blue-gray">
             <span>By Module</span>
             <%--<div class="w3-bar-item"></div>--%>
         </div>
 
-        <div id="by-tag" class="w3-bar-item">
+        <div id="by-tag" class="w3-bar-item w3-blue-gray">
             <span>By Functions(tag)</span>
         </div>
         <div class="w3-dropdown-hover">

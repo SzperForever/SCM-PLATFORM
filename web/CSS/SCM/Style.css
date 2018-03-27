@@ -21,8 +21,8 @@ body {
 }
 
 @font-face {
-    font-family: Cookie;
-    src:url('/Fonts/Cookie-Regular.ttf')
+    font-family: Raleway;
+    src:url('/Fonts/Raleway-Regular.ttf')
 }
 
 @font-face {
@@ -39,6 +39,7 @@ body, html {
 
 body {
     background: #efefef;
+    /*font-family: "Raleway", "Microsoft YaHei", serif;*/
 }
 
 
@@ -305,7 +306,7 @@ body {
 }
 
 #display-area{
-    font-family: Lato;
+    font-family: Raleway;
 }
 
 #display-area > div > h3 {
