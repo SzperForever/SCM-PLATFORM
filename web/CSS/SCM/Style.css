@@ -91,7 +91,6 @@ body {
     width: 65%;
     margin: 3vh auto auto;
     color: #888;
-
 }
 
 #nav {
@@ -265,6 +264,9 @@ body {
 }
 
 
+.module-tag{
+    display: none;
+}
 
 .module-pic {
     /*临时*/

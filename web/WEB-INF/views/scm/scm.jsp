@@ -122,8 +122,7 @@
         <span>Y</span>
         <span>Z</span>
     </div>
-    <span id="down-button" class="w3-display-middle"><i
-            class="fas fa-chevron-circle-down w3-xlarge w3-display-middle"></i>
+    <span id="down-button" class="w3-display-middle"><i class="fas fa-chevron-circle-down w3-xlarge w3-display-middle"></i>
 </span>
 </div>
 
@@ -142,7 +141,7 @@
             </div>
         </div>
         <div class="w3-rest">
-            <div id="footer-link" style="height: 100%;width: 80%;display: flex;flex-flow: column wrap;justify-content: space-between;align-items: left;"></div>
+            <div id="footer-link" style="height: 100%;width: 80%;margin: 0 auto;display: flex;flex-flow: column wrap;justify-content: space-between;align-items: left;"></div>
         </div>
     </div>
 </div>
