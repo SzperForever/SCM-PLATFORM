@@ -8,8 +8,9 @@ import java.util.ArrayList;
 
 @Repository
 public class TagDao {
-    private ConnectionUtils connectionUtils = new ConnectionUtils();
+    private ConnectionUtils connectionUtils;
     public ArrayList<Tags> getTags(){
+        connectionUtils = new ConnectionUtils();
         ArrayList<Tags> tags = new ArrayList<Tags>();
         try{
             ResultSet resultSet = connectionUtils.getResultSet("SELECT * FROM Tags");

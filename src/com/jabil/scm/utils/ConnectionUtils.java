@@ -11,12 +11,13 @@ public class ConnectionUtils {
     private SqlConnection sqlConnection;
 
     public ConnectionUtils(){
-        this.sqlConnection = new SqlConnection();
-        this.connection = this.sqlConnection.connectSQL();
-        this.statement = this.sqlConnection.createStatement(this.connection);
+
     }
 
     public ResultSet getResultSet(String sql){
+        this.sqlConnection = new SqlConnection();
+        this.connection = this.sqlConnection.connectSQL();
+        this.statement = this.sqlConnection.createStatement(this.connection);
         try{
             this.resultSet = this.statement.executeQuery(sql);
 
