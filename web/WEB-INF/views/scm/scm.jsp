@@ -127,7 +127,14 @@
             </div>
         </div>
         <div class="w3-rest">
-            <div id="footer-link" style="height: 100%;width: 80%;margin: 0 auto;display: flex;flex-flow: column wrap;justify-content: space-between;align-items: left;"></div>
+            <div id="footer-link" style="    height: 100%;
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: left;
+    margin-top: 30px;"></div>
         </div>
     </div>
 </div>

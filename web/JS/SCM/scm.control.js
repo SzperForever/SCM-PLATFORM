@@ -6,9 +6,9 @@ $(function () {
 
 
     $.ajax({
-        dataType:'json',
-        url:'/getTag.form',
-        success:function (data) {
+        dataType: 'json',
+        url: '/getTag.form',
+        success: function (data) {
             cache['tag'] = data;
             removeLoading();
         }
@@ -104,19 +104,19 @@ var content_control = {
                         '   <p class="description">' + val['description'] + '</p>' +
                         '   <span class="data">' + val['description'] + '</span>';
 
-                    if(val['category'].length > 1){
+                    if (val['category'].length > 1) {
                         content += '<span class="more-category">';
-                        for(var i = 0; i < val['category'].length; ++i){
+                        for (var i = 0; i < val['category'].length; ++i) {
                             content += '   <span class="module-type category">' + val['category'][i] + '</span>'
                         }
                         content += '</span><button class="more-category-button"">...</button>';
                     }
-                    else{
+                    else {
                         content += '   <span class="module-type category">' + val['category'][0] + '</span>'
                     }
 
                     content +=
-                        '   <span class="category-id">'+val['category_id']+'</span>'+
+                        '   <span class="category-id">' + val['category_id'] + '</span>' +
                         '</div>';
 
 
@@ -129,8 +129,8 @@ var content_control = {
                 });
                 //绑定更多按钮
                 $('.more-category-button').each(function () {
-                    $(this).click(function (e) {
-                        category_select.display_category();
+                    $(this).click(function () {
+                        category_select.display_category($(this));
                     })
                 });
 
@@ -145,20 +145,24 @@ var content_control = {
                         urlCard_control.bindReadMoreListener($(this));
                     }
                 });
-                $('#blank_div').remove();
+                $('#blank_div').each(function () {
+                    $(this).remove();
+                });
                 if ($('#display-area>div').size() % 4 != 0) {
-                    $('#display-area').append('<span id="blank_div" style="width: 22%; height: 22vh;"></span>')
+                    for (var i = 0; i < 10 % 4; ++i) {
+                        $('#display-area').append('<span id="blank_div" style="width: 22%; height: 22vh;"></span>')
+                    }
                 }
 
                 content_control.windows_resize_control();
                 //绑定点击事件
                 setTimeout(function () {
                     category_select.listen_click();
+                    content_control.listen_leanPortal_click();
                     removeLoading();
                 }, 200);
                 //告知发生变化
                 filter_menu_control.onChange(true);
-
             }
         });
     },
@@ -168,7 +172,7 @@ var content_control = {
             url: '/getLinks.form',
             success: function (data) {
                 $.each(data, function (index, val) {
-                    var content = '<a href="'+val['url']+'" class="footer-link" target="_blank">'+val['name']+'</a>';
+                    var content = '<a href="' + val['url'] + '" class="footer-link" target="_blank">' + val['name'] + '</a>';
                     $('#footer-link').append(content);
                 });
                 removeLoading();
@@ -253,8 +257,36 @@ var content_control = {
         filter_menu_control.listen_click();
         removeLoading();
     },
+    listen_leanPortal_click : function () {
+        var lean_portal;
+        $('#display-area>div').each(function () {
+            if($(this).find('h3 a').text() == 'lean portal'){
+                lean_portal = $(this);
+            }
+        });
+        lean_portal.find('h3 a').attr('onclick','return false');
+        lean_portal.click(function () {
+            //隐藏其他卡片
+            $('#display-area>div').each(function () {
+                if($(this).find('h3 a').text() != 'lean portal'){
+                    $(this).css('display','none');
+                }
+            });
+            filter_menu_control.onChange(true);
+            lean_portal.css({
+                'width': '100%',
+                'height': '60vh',
+                'transition': 'all 1s'
+            });
+            lean_portal.children().each(function(){$(this).fadeOut('200ms')});
+            lean_portal.append('<div id="lean-portal"></div>');
+            var page = $('#lean-portal');
+            page.load()
+        })
+    },
     windows_resize_control: function () {
         $(window).resize(function () {
+            var count = 0;
             $('#display-area>div').each(function () {
                 var p = $(this).find('p');
                 var area_width = p.width() - 100;
@@ -265,10 +297,17 @@ var content_control = {
                     p.append($(this).find('span.data').text().slice(0, char_num * 3 - 17) + '&nbsp<span class="read-more">Read more</span>');
                     urlCard_control.bindReadMoreListener($(this));
                 }
+                if ($(this).css('display') != 'none') {
+                    count++;
+                }
             });
-            $('#blank_div').remove();
-            if ($('#display-area>div').size() % 4 != 0) {
-                $('#display-area').append('<span id="blank_div" style="width: 22%; height: 22vh;"></span>')
+            $('#blank_div').each(function () {
+                $(this).remove();
+            });
+            if (count % 4 != 0) {
+                for (var i = 0; i < 10 % 4; ++i) {
+                    $('#display-area').append('<span id="blank_div" style="width: 22%; height: 22vh;"></span>')
+                }
             }
 
             //控制遮罩
@@ -406,8 +445,14 @@ var category_select = {
                     count += 1;
                 }
             });
+
+            $('#blank_div').each(function () {
+                $(this).remove();
+            });
             if (count % 4 != 0) {
-                $('#display-area').append('<span class="temp_blank_div" style="width: 22%; height: 22vh;"></span>')
+                for (var i = 0; i < 10 % 4; ++i) {
+                    $('#display-area').append('<span id="blank_div" style="width: 22%; height: 22vh;"></span>')
+                }
             }
 
             //告知筛选菜单 元素发生变化
@@ -421,15 +466,16 @@ var category_select = {
             })
         }, 1000);
     },
-    display_category :function () {
-        console.log($(this).text());
-        if($(this).text() == "..."){
-            $(this).prev().addClass('expand');
-            $(this).text("X");
+    display_category: function (element) {
+        if (element.text() == "...") {
+            element.prev().css({'display': 'flex'});
+            // element.prev().addClass('more-category-expand');
+            element.text("X");
         }
-        else{
-            $(this).prev().removeClass('expand');
-            $(this).text("...");
+        else {
+            // element.prev().removeClass('more-category-expand');
+            element.prev().css('display', 'none');
+            element.text("...");
         }
 
     }

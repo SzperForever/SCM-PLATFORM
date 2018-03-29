@@ -290,9 +290,9 @@ body {
 }
 
 .more-category{
-    background: green;
-    width: 0;
-    height: 0;
+    background: whitesmoke;
+    width: 245px;
+    height: 100px;
     display: none;
     transform: translateY(-71px);
     flex-flow: row wrap;
@@ -301,12 +301,12 @@ body {
 }
 
 .more-category-expand{
-    animation: expand 0.5s;
+    animation: expand 0.3s;
     animation-fill-mode: forwards;
 }
 
 @keyframes expand {
-    0% {width: 0; height: 0}
+    0%  {width: 0px; height: 0px}
     100%{width: 245px; height: 100px}
 }
 
@@ -451,7 +451,7 @@ body {
 .footer-link{
     z-index: 5;
     text-decoration-line: none;
-    color: white;
+    color: black;
     font-family: Lato;
     font-size: large;
 }
