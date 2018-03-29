@@ -19,6 +19,10 @@
             <td><input type="file" name="file"></td>
         </tr>
         <tr>
+            <td>文件类型：</td>
+            <td><input type="text" name="type"/></td>
+        </tr>
+        <tr>
             <td>开始上传</td>
             <td><input type="submit" value="上传"></td>
         </tr>

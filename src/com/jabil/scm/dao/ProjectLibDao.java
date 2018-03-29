@@ -34,7 +34,10 @@ public class ProjectLibDao {
         Connection connection = sqlConnection.connectSQL();
         Statement statement = sqlConnection.createStatement(connection);
         try{
-            String sql = "insert into ProjectLib values(" + "'" + projectLib.getFileName() + "','" + projectLib.getFilePath() + "','" + projectLib.getTypeid() + "','" + projectLib.getUserid() + "','" + projectLib.getStatus() + "'," + projectLib.getUploadTime() + "')";
+            String sql = "insert into ProjectLib values(" + "'" + projectLib.getId()+  "','" + projectLib.getFileName() +
+                    "','" + projectLib.getFilePath() + "','" +
+                    projectLib.getTypeid() + "','" + projectLib.getUserid() +
+                    "','" + projectLib.getStatus() + "','" + projectLib.getUploadTime() + "')";
             statement.executeUpdate(sql);
         }catch (Exception e){
             e.printStackTrace();

@@ -84,15 +84,32 @@ public class FileUtils {
         return 0;
 
     }
+    public static void mkdir(){
+        File f = new File("/Users/szper/Desktop/SCM/test/haha", "test.txt");
+        if(!f.getParentFile().exists()){
+            f.getParentFile().mkdirs();
+            System.out.println("创建成功");
+        }
+        /*File file = new File( "/Users/szper/Desktop/SCM/test.txt");
+        if(!file.exists()){
+            try{
+                file.createNewFile();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+
+        }*/
+    }
     public static void main(String args[])throws IllegalAccessException{
 
         System.out.println("file Go...");
         test t = new test();
         t.setId(3);
         t.setName("haha");
+        mkdir();
         // 这里改成你要遍历的目录路径
         //resourceFiles("/Users/szper/Desktop/SQL");
-        insertEntity(test.class, t);
+        //insertEntity(test.class, t);
         //System.out.println(getGetMethod(test.class, "name").invoke(t));
         System.out.println("file End.");
 

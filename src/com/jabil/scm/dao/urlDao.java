@@ -71,7 +71,8 @@ public class urlDao {
     public void insertUrl(URL url){
         connection = sqlConnection.connectSQL();
         statement = sqlConnection.createStatement(connection);
-        String sql = "insert into URL values(" + "'" + url.getLink() + "','" + url.getTitle() + "','" + url.getPicPath() + "','" + url.getDescription() + "','" + url.getCategory() + "')";
+        String sql = "insert into URL values(" + "'" + url.getLink() + "','" + url.getTitle() + "','" + url.getPicPath() +
+                "','" + url.getDescription() + "','" + url.getCategory() + "')";
         try{
             statement.executeUpdate(sql);
 
