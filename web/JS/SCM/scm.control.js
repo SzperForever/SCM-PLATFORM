@@ -257,32 +257,79 @@ var content_control = {
         filter_menu_control.listen_click();
         removeLoading();
     },
-    listen_leanPortal_click : function () {
-        var lean_portal;
-        $('#display-area>div').each(function () {
-            if($(this).find('h3 a').text() == 'lean portal'){
-                lean_portal = $(this);
-            }
-        });
-        lean_portal.find('h3 a').attr('onclick','return false');
-        lean_portal.click(function () {
-            //隐藏其他卡片
+    listen_leanPortal_click: function () {
+        if (cache['leanPortal_clicked'] == undefined || cache['leanPortal_clicked'] != true) {
+            cache['leanPortal_clicked'] = true;
+            var lean_portal;
             $('#display-area>div').each(function () {
-                if($(this).find('h3 a').text() != 'lean portal'){
-                    $(this).css('display','none');
+                if ($(this).find('h3 a').text() == 'lean portal') {
+                    lean_portal = $(this);
                 }
             });
-            filter_menu_control.onChange(true);
-            lean_portal.css({
-                'width': '100%',
-                'height': '60vh',
-                'transition': 'all 1s'
+            lean_portal.find('h3 a').attr('onclick', 'return false');
+            lean_portal.click(function () {
+                //隐藏其他卡片
+                $('#display-area>div').each(function () {
+                    if ($(this).find('h3 a').text() != 'lean portal') {
+                        $(this).css('display', 'none');
+                    }
+                });
+                filter_menu_control.onChange(false);
+                lean_portal.css({
+                    'width': '100%',
+                    'height': '60vh',
+                    'transition': 'all 1s'
+                });
+                lean_portal.children().each(function () {
+                    $(this).fadeOut('200ms')
+                });
+                lean_portal.append('<div id="lean-portal"></div>');
+                var page = $('#lean-portal');
+                page.css('display', 'block');
+                page.load("/file.form");
             });
-            lean_portal.children().each(function(){$(this).fadeOut('200ms')});
-            lean_portal.append('<div id="lean-portal"></div>');
-            var page = $('#lean-portal');
-            page.load()
-        })
+            $('#restore-card').click(function () {
+                var lean_portal2;
+                $('#display-area>div').each(function () {
+                    if ($(this).attr('display') != none) {
+                        lean_portal2 = $(this);
+                    }
+                });
+                $('#lean-portal').remove();
+                lean_portal2.css({
+                    'width': '22%',
+                    'height': '22vh',
+                    'transition': 'all 1s'
+                });
+                lean_portal2.children().each(function () {
+                    $(this).fadeIn('200ms')
+                });
+                $('#display-area>div').each(function () {
+                    $(this).css('display', 'block');
+                });
+                cache['leanPortal_clicked'] = false;
+            })
+        }
+        // else{
+        //     var lean_portal2;
+        //     $('#display-area>div').each(function () {
+        //         if ($(this).attr('display') != none) {
+        //             lean_portal2 = $(this);
+        //         }
+        //     });
+        //     lean_portal2.css({
+        //         'width': '22%',
+        //         'height': '22vh',
+        //         'transition': 'all 1s'
+        //     });
+        //     lean_portal.children().each(function () {
+        //         $(this).fadeIn('200ms')
+        //     });
+        //     $('#display-area>div').each(function () {
+        //         $(this).css('display', 'block');
+        //     });
+        //     cache['leanPortal_clicked'] = false;
+        // }
     },
     windows_resize_control: function () {
         $(window).resize(function () {
