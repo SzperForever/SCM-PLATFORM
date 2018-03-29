@@ -18,8 +18,10 @@ $(function () {
     // document.getElementsByClassName('particles-js-canvas-el')[0].setAttribute("width",$('body').width());
 });
 
+//用来储存一些临时数据，比如预加载的AJAX数据
 var cache = {};
 
+//内容控制，用来加载数据
 var content_control = {
     run: function () {
         this.loadNameAndDescription();
@@ -28,6 +30,7 @@ var content_control = {
         this.bind_menu_event();
         this.loadLink();
     },
+    //加载名称和描述
     loadNameAndDescription: function () {
         $.ajax({
             dataType: 'json',
@@ -39,6 +42,7 @@ var content_control = {
             }
         })
     },
+    //加载背景图,收起菜单
     loadBackground: function () {
         $.ajax({
             dataType: 'text',
@@ -58,15 +62,9 @@ var content_control = {
                     'background': 'url("' + data + '") no-repeat  center',
                     'background-size': 'cover'
                 });
-                //防止背景未加载完时，透过header看到隐藏在下方的菜单栏
-                $('#header').css({
-                    'background': 'rgba(0,0,0,0.185)'
-                });
                 setTimeout(function () {
+                    //收起菜单
                     content_control.collapse_menu();
-                    $('#header').css({
-                        'background': 'rgba(0,0,0,0.185)'
-                    });
                     removeLoading();
                 }, 100);
             }
@@ -77,19 +75,20 @@ var content_control = {
             dataType: 'json',
             url: '/getCategory.form',
             success: function (data) {
-                //缓存以备菜单使用
+                //缓存以备侧边菜单使用
                 cache['category'] = data;
                 $.each(data, function (index, val) {
                     var content = '<span class="category">' + val + '</span>';
                     $('#nav').append(content);
                 });
-                //为啥在这里加载背景？
+                //加载完毕目录之后再加载背景图，防止出现高度不统一
                 content_control.loadBackground();
                 removeLoading();
             }
         });
 
     },
+    //加载URL卡片
     loadURL: function () {
         $.ajax({
             dataType: 'json',
@@ -103,15 +102,36 @@ var content_control = {
                         '   <span class="module-tag">' + val['tagID'] + '</span>' +
                         '   <h3><a href="' + val['link'] + '" target="_blank">' + val['title'] + '</a></h3>' +
                         '   <p class="description">' + val['description'] + '</p>' +
-                        '   <span class="data">' + val['description'] + '</span>' +
-                        '   <span class="module-type category">' + val['category'] + '</span>' +
+                        '   <span class="data">' + val['description'] + '</span>';
+
+                    if(val['category'].length > 1){
+                        content += '<span class="more-category">';
+                        for(var i = 0; i < val['category'].length; ++i){
+                            content += '   <span class="module-type category">' + val['category'][i] + '</span>'
+                        }
+                        content += '</span><button class="more-category-button"">...</button>';
+                    }
+                    else{
+                        content += '   <span class="module-type category">' + val['category'][0] + '</span>'
+                    }
+
+                    content +=
+                        '   <span class="category-id">'+val['category_id']+'</span>'+
                         '</div>';
+
+
                     $('#display-area').append(content);
                     if (val['picPath'] === 'null' || val['picPath'] == null) {
                         var module_pic = $('#display-area>div:last>span:first');
                         module_pic.empty();
                         module_pic.text(val['title'].slice(0, 1));
                     }
+                });
+                //绑定更多按钮
+                $('.more-category-button').each(function () {
+                    $(this).click(function (e) {
+                        category_select.display_category();
+                    })
                 });
 
                 $('#display-area>div').each(function () {
@@ -148,9 +168,9 @@ var content_control = {
             url: '/getLinks.form',
             success: function (data) {
                 $.each(data, function (index, val) {
-                    var content = '<a href="'+val['url']+'" class="footer-link" target="_blank">'+val['name']+'</a>'
+                    var content = '<a href="'+val['url']+'" class="footer-link" target="_blank">'+val['name']+'</a>';
                     $('#footer-link').append(content);
-                })
+                });
                 removeLoading();
             }
         })
@@ -400,6 +420,18 @@ var category_select = {
                 $(this).removeClass('show');
             })
         }, 1000);
+    },
+    display_category :function () {
+        console.log($(this).text());
+        if($(this).text() == "..."){
+            $(this).prev().addClass('expand');
+            $(this).text("X");
+        }
+        else{
+            $(this).prev().removeClass('expand');
+            $(this).text("...");
+        }
+
     }
 };
 

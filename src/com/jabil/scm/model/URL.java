@@ -1,17 +1,19 @@
 package com.jabil.scm.model;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class URL {
     private String link;
     private String title;
     private String PicPath;
     private String Description;
-    private String category;
+    private ArrayList<String> category;
     private String tagID;
     private int id;
+    private String category_id;
 
-    public URL(String link, String title, String picPath, String description, String category, String tagID, int id) {
+    public URL(String link, String title, String picPath, String description, ArrayList<String> category, String tagID, int id, String category_id) {
         this.link = link;
         this.title = title;
         this.PicPath = picPath;
@@ -19,7 +21,13 @@ public class URL {
         this.category = category;
         this.tagID = tagID;
         this.id = id;
+        this.category_id = category_id;
     }
+
+    /**
+     * 从数据库中读取数据，但注意这里的category并没有数据，仅仅是初始化
+     * @param resultSet 数据库查询结果集
+     */
     public URL(ResultSet resultSet){
         super();
         try{
@@ -36,9 +44,10 @@ public class URL {
                 this.Description = resultSet.getString(4).trim();
             else
                 this.Description = "judge in";
-            this.category = resultSet.getString(5).trim();
-            this.tagID = resultSet.getString(6).trim();
-            this.id = resultSet.getInt(7);
+            this.tagID = resultSet.getString(5).trim();
+            this.id = resultSet.getInt(6);
+            this.category_id = resultSet.getString(7);
+            category = new ArrayList<>();
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -76,14 +85,6 @@ public class URL {
         Description = description;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
     public String getTagID() {
         return tagID;
     }
@@ -98,5 +99,25 @@ public class URL {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getCategory_id() {
+        return category_id;
+    }
+
+    public void setCategory_id(String category_id) {
+        this.category_id = category_id;
+    }
+
+    public ArrayList<String> getCategory() {
+        return category;
+    }
+
+    public void setCategory(ArrayList<String> category) {
+        this.category = category;
+    }
+
+    public void addCategory(String category){
+        this.category.add(category);
     }
 }
