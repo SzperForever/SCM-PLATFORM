@@ -9,18 +9,21 @@
 <html>
 <head>
     <title>procedure document</title>
+    <link href="CSS/SCM/w3.css" type="text/css" rel="stylesheet">
     <link href="CSS/SCM/procedure-documentStyle.css" type="text/css" rel="stylesheet">
     <link href="CSS/SCM/fontawesome-all.min.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="JS/Public/183.js"></script>
+    <script type="text/javascript" src="JS/SCM/procedure.js"></script>
 </head>
 <body>
-<div id="top-bar" class="w3-bar w3-black">
+<div id="top-bar" >
     <div id="container">
         <div id="logo" class="w3-bar-item">
             <span></span>
         </div>
         <div id="search-box" class="w3-bar-item">
             <input class="w3-input" placeholder="Find a document" type="text">
-            <i class="fas fa-search w3-xlarge"></i>
+            <i class="fas fa-search w3-large"></i>
         </div>
         <div class="popupmenu document-list bright" id="searchresults" style="display: none;">
             <div class="results"><p class="empty">no document found</p></div>
@@ -44,9 +47,6 @@
                             data-reactroot="" class="tooltip" title=""><a href="#"
                                                                           class="notification_button tooltip"><span
                             class="icon icon-notifications"></span></a></span></div>
-                    <script type="text/javascript">
-                        reactInit(react.Notification.NotificationIcon, {}, 'notification-icon-wrapper', 'notificationIcon');
-                    </script>
                     <a href="/imessage/?folder=1" class="tooltip" title="Messages">
                         <span class="icon icon-mail"></span>
                     </a>
@@ -64,11 +64,41 @@
 <div id="full-page-container">
     <div id="page" class="content-container">
         <div id="left">
+            <div id="asyncJobNotification" class="react-component-container"><!-- react-empty: 1 --></div>
             <div id="favorite">
-
+                <span>Facorite</span>
             </div>
-            <div>By Module</div>
-            <div>By Tag</div>
+            <div id="by-category">
+                <span>By category</span>
+                <ul>
+
+                </ul>
+            </div>
+            <div id="by-tag">
+                <span>By Tag</span>
+                <ul>
+                    <li>A</li>
+                    <li>B</li>
+                    <li>C</li>
+                    <li>D</li>
+                </ul>
+            </div>
+        </div>
+        <div id="center">
+            <div id="search-box-2">
+                <input class="w3-input" placeholder="Find a document" type="text" style="width: 20%">
+            </div>
+            <table id="data-number" class="w3-table-all w3-hoverable">
+                <tr>
+                    <th>Title</th>
+                    <th>Type</th>
+                    <th>number</th>
+                    <th>description</th>
+                    <th>file path</th>
+                    <th>category</th>
+                    <th>tag</th>
+                </tr>
+            </table>
         </div>
     </div>
 </div>

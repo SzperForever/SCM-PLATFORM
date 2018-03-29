@@ -1,26 +1,18 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: leehaoze
-  Date: 2018/3/27
-  Time: 下午4:29
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>File</title>
-    <link href="CSS/SCM/FIleStyle.css" type="text/css" rel="stylesheet">
-</head>
-<body>
-<div style="margin: 0 auto;
-    width: 20%;
-    text-align: center;
-    margin-top: 5vh;
-    font-size: xx-large;"><p>File Upload Center</p></div>
-<div id="container">
-    <div>
-        <button class="w3-button">Click here</button>
-    </div>
+<link href="CSS/SCM/fontawesome-all.min.css" type="text/css" rel="stylesheet">
+<div>
+    <i id="restore-card" class="fas fa-times-circle w3-xlarge w3-display-middle"></i>
+    <form action="/uploadfile.form" enctype="multipart/form-data" method="post" style="width: 80%;margin:0 auto">
+        <table style="margin: 0 auto;
+    margin-top: 58px;">
+            <tr>
+                <td>请选择文件：</td>
+                <td><input type="file" name="file"></td>
+            </tr>
+            <tr>
+                <td>开始上传</td>
+                <td><input type="submit" value="上传"></td>
+            </tr>
+        </table>
+    </form>
 </div>
-</body>
-</html>
