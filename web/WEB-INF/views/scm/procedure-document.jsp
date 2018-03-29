@@ -9,12 +9,69 @@
 <html>
 <head>
     <title>procedure document</title>
+    <link href="CSS/SCM/procedure-documentStyle.css" type="text/css" rel="stylesheet">
+    <link href="CSS/SCM/fontawesome-all.min.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-<div style="margin: 0 auto;
-    width: 20%;
-    text-align: center;
-    margin-top: 5vh;
-    font-size: xx-large;"><p>procedure document</p></div>
+<div id="top-bar" class="w3-bar w3-black">
+    <div id="container">
+        <div id="logo" class="w3-bar-item">
+            <span></span>
+        </div>
+        <div id="search-box" class="w3-bar-item">
+            <input class="w3-input" placeholder="Find a document" type="text">
+            <i class="fas fa-search w3-xlarge"></i>
+        </div>
+        <div class="popupmenu document-list bright" id="searchresults" style="display: none;">
+            <div class="results"><p class="empty">no document found</p></div>
+        </div>
+        <div class="instance">
+            <div id="snippet-instanceSelect-"><span class="instance-name">@&nbsp;&nbsp;Jabil</span>
+            </div>
+        </div>
+        <div style="display: none;" id="snippet--top">
+            <div class="topmenu">
+                <div id="usermenu-btns-desktop">
+                    <a title="My Profile" class="tooltip my-profile" href="/profile/detail/?folder=1">
+                        <img src="https://jabil.teamguru.com/data/jabil.teamguru.com/images/thumb/1_ec932b5837.jpg?1516956493"
+                             width="30" height="30" alt="">
+                        <span class="name">Johnson Jia</span>
+                    </a>
+                    <a title="Home - My Dashboard" class="tooltip my-dashboard" href="/dashboard/?folder=1">Home</a>
+                    <a title="Recently opened documents" class="recent_button tooltip my-recents" href="#"
+                       onclick="return false;">Recents</a>
+                    <div id="notification-icon-wrapper" class="react-component-wrapper react-component-container"><span
+                            data-reactroot="" class="tooltip" title=""><a href="#"
+                                                                          class="notification_button tooltip"><span
+                            class="icon icon-notifications"></span></a></span></div>
+                    <script type="text/javascript">
+                        reactInit(react.Notification.NotificationIcon, {}, 'notification-icon-wrapper', 'notificationIcon');
+                    </script>
+                    <a href="/imessage/?folder=1" class="tooltip" title="Messages">
+                        <span class="icon icon-mail"></span>
+                    </a>
+                    <a title="Settings" class="setting_button tooltip settings" href="#" onclick="return false;"><span
+                            class="icon icon-settings"></span></a>
+                    <a title="Logout" class="tooltip logout" href="/auth/logout/"><span class="icon icon-logout"></span></a>
+                </div>
+                <div class="cleaner"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="full-page-container">
+    <div id="page" class="content-container">
+        <div id="left">
+            <div id="favorite">
+
+            </div>
+            <div>By Module</div>
+            <div>By Tag</div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

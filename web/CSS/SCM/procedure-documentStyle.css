@@ -1,0 +1,139 @@
+#top-bar {
+    width: 100%;
+    background: #0077b5;
+    z-index: 101;
+    position: fixed;
+    left: 0;
+    top: 0;
+    min-width: 290px;
+    border-bottom: solid 1px #006b8e;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+#container {
+    min-width: 290px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 30px;
+    position: relative;
+}
+
+#logo {
+    width: 122px;
+    height: 40px;
+    float: left;
+    margin: 0 94px 0 0;
+}
+
+#logo > span {
+    display: block;
+    width: 122px;
+    height: 22px;
+    margin: 9px 0 0 0;
+    background-image: linear-gradient(transparent, transparent), url(/IMG/SCM/tg-logo.svg);
+    background-size: 100% 100%;
+}
+
+#search-box {
+    width: 420px;
+    margin: 8px 0 0 0;
+    padding-right: 6px;
+    float: left;
+    position: relative;
+}
+
+#search-box > input {
+    background: #005f90;
+    color: #fff;
+}
+
+#search-box > input {
+    width: 100%;
+    border: none;
+    padding: 0 0 0 8px;
+    font-size: 13px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    height: 26px;
+    line-height: 26px;
+    outline: 0;
+}
+
+#search-box > i {
+    top: 4px;
+    right: 12px;
+    position: absolute;
+    font-size: 18px;
+    color: #ccc;
+}
+
+#searchresults {
+    right: auto;
+    left: 246px;
+    top: 41px;
+    width: 420px;
+}
+
+.document-list.bright {
+    background-color: #fff;
+    border-top: none;
+    border-bottom: solid 1px #ccc;
+}
+
+.popupmenu {
+    display: none;
+    position: absolute;
+    background-color: #002a3f;
+    right: 0;
+    width: auto;
+    top: 40px;
+    color: #1a4473;
+    z-index: 1005;
+}
+
+.instance {
+    height: 40px;
+    display: inline-block;
+}
+
+.instance-name {
+    line-height: 44px;
+    color: #fff;
+    padding: 0 0 0 8px;
+}
+
+#full-page-container {
+    position: relative;
+    padding: 0 25px;
+    min-height: 100%;
+}
+
+#page {
+    padding: 40px 0 100px 0;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.content-container {
+    min-width: 290px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 30px;
+    position: relative;
+}
+
+#left{
+    width: 200px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-right: 20px;
+    padding: 20px 0 0 0;
+    line-height: 16px;
+}
