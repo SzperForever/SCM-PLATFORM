@@ -8,17 +8,53 @@
         <table style="margin: 0 auto;
     margin-top: 58px;">
             <tr>
-                <td>请选择文件：</td>
-                <td><input type="file" name="file"></td>
+                <td>Choose file：</td>
+                <td><input type="file" name="file" value="Choose file"></td>
+            </tr>
+            <tr style="display: none">
+                <td>Choose type：</td>
+                <td><input id="id" type="text" name="type"/></td>
             </tr>
             <tr>
-                <td>文件类型：</td>
-                <td><input type="text" name="type"/></td>
+                <td>Choose type:</td>
+                <td><select id="select" class="w3-select" name="type">
+                    <option value="" disabled selected>Choose your option</option>
+                </select></td>
             </tr>
             <tr>
-                <td>开始上传</td>
-                <td><input type="submit" value="上传" onclick="upload()"></td>
+                <td>Upload</td>
+                <td><input type="submit" value="Upload" onclick="upload_control.pre_handle()"></td>
             </tr>
         </table>
     </form>
 </div>
+<script>
+    var upload_control = {
+        load_type : function () {
+            $.ajax({
+                dataType : 'json',
+                url : '/getTypes.form',
+                success: function (data) {
+                    $.each(data,function (index, value) {
+                        $('#select').append('<option value="'+index+'">'+value['typeName']+'</option>')
+                    });
+                }
+            })
+        },
+        pre_handle : function () {
+            $('#id').val( $('#select').val());
+            upload_control.upload();
+        }
+        ,
+        upload : function () {
+            $('#upload-form').ajaxForm(function () {
+                alert("Upload Success!");
+                $('upload-form').clearForm();
+            });
+        },
+
+    };
+    $(function () {
+        upload_control.load_type();
+    });
+</script>

@@ -51,8 +51,7 @@ var content_control = {
                         '<td>'+val['number']+'</td>' +
                         '<td>'+val['description']+'</td>' +
                         '<td>'+val['filePath']+'</td>' +
-                        '<td>'+val['category_id']+'</td>' +
-                        '<td>'+val['tag_id']+'</td>' +
+                        '<td>'+val['category']+'</td>' +
                      '</tr>';
                     $('#data-number').append(content);
                 })

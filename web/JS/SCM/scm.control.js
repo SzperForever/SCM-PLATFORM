@@ -260,7 +260,7 @@ var content_control = {
     listen_leanPortal_click: function () {
         var lean_portal;
         $('#display-area>div').each(function () {
-            if ($(this).find('h3 a').text() == 'lean portal') {
+            if ($(this).find('h3 a').text() == 'Lean Portal') {
                 lean_portal = $(this);
             }
         });
@@ -270,7 +270,7 @@ var content_control = {
                 cache['leanPortal_clicked'] = true;
                 //隐藏其他卡片
                 $('#display-area>div').each(function () {
-                    if ($(this).find('h3 a').text() != 'lean portal') {
+                    if ($(this).find('h3 a').text() != 'Lean Portal') {
                         $(this).css('display', 'none');
                     }
                 });
@@ -294,7 +294,7 @@ var content_control = {
     restore_card : function () {
         var lean_portal;
         $('#display-area>div').each(function () {
-            if ($(this).find('h3 a').text() == 'lean portal') {
+            if ($(this).find('h3 a').text() == 'Lean Portal') {
                 lean_portal = $(this);
             }
         });
@@ -588,9 +588,3 @@ var side_menu_control = {
     }
 };
 
-function upload() {
-    $('#upload-form').ajaxForm(function() {
-        alert("Upload Success!");
-        $('upload-form').clearForm();
-    });
-}

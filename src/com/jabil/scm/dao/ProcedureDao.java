@@ -38,15 +38,18 @@ public class ProcedureDao {
         }
     }
 
+
+
     public ArrayList<procedure> getProcedure(){
         ArrayList<procedure> procedures = new ArrayList<procedure>();
         Connection connection = sqlConnection.connectSQL();
         Statement statement = sqlConnection.createStatement(connection);
         ResultSet resultSet = null;
         try{
-            resultSet = statement.executeQuery("SELECT * FROM [procedure]");
+            resultSet = statement.executeQuery("SELECT * FROM V_doc");
             while(resultSet.next()){
                 procedure pro = new procedure(resultSet);
+                this.getCategoryNameByID(pro);
                 procedures.add(pro);
             }
 

@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>procedure document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <link href="CSS/SCM/w3.css" type="text/css" rel="stylesheet">
     <link href="CSS/SCM/procedure-documentStyle.css" type="text/css" rel="stylesheet">
     <link href="CSS/SCM/fontawesome-all.min.css" type="text/css" rel="stylesheet">
@@ -94,7 +95,6 @@
                     <th>description</th>
                     <th>file path</th>
                     <th>category</th>
-                    <th>tag</th>
                 </tr>
             </table>
         </div>

@@ -11,18 +11,15 @@ public class procedure {
     private String picPath;
     private String description;
     private String Category_id;
-    private String tag_id;
     private int number;
     private ArrayList<String>category;
 
-    public procedure(int id, String filePath, String title, String picPath, String description, String category_id, String tag_id, int number) {
+    public procedure(int id, String filePath, String title, String description, String category_id, String tag_id, int number) {
         this.id = id;
         FilePath = filePath;
         this.title = title;
-        this.picPath = picPath;
         this.description = description;
         Category_id = category_id;
-        this.tag_id = tag_id;
         this.number = number;
     }
     public procedure(ResultSet resultSet){
@@ -31,15 +28,20 @@ public class procedure {
             id = resultSet.getInt(1);
             FilePath = resultSet.getString(2);
             title = resultSet.getString(3);
-            picPath = resultSet.getString(4);
-            description = resultSet.getString(5);
-            Category_id = resultSet.getString(6);
-            tag_id = resultSet.getString(7);
-            number = resultSet.getInt(8);
+            description = resultSet.getString(4);
+            Category_id = resultSet.getString(5);
+            number = resultSet.getInt(6);
         }catch (Exception e){
             e.printStackTrace();
         }
+        category = new ArrayList<>();
     }
+
+    public void addCategory(String category){
+        this.category.add(category);
+    }
+
+
 
     public int getId() {
         return id;
@@ -89,13 +91,6 @@ public class procedure {
         Category_id = category_id;
     }
 
-    public String getTag_id() {
-        return tag_id;
-    }
-
-    public void setTag_id(String tag_id) {
-        this.tag_id = tag_id;
-    }
 
     public int getNumber() {
         return number;
@@ -104,4 +99,13 @@ public class procedure {
     public void setNumber(int number) {
         this.number = number;
     }
+
+    public ArrayList<String> getCategory() {
+        return category;
+    }
+
+    public void setCategory(ArrayList<String> category) {
+        this.category = category;
+    }
+
 }

@@ -31,10 +31,10 @@ public class FileUploadController {
             String contextPath = request.getContextPath();//"/SpringMvcFileUpload"
             String servletPath = request.getServletPath();//"/gotoAction"
             String scheme = request.getScheme();//"http"
-            String storePath="/SCM";
+            String storePath="E:\\Projects";
             int size = projectLibService.getProjectLibs().size() + 1;
             Date date = new Date();
-            String TypePath= "/" + typesService.getTypes().get(type).getTypeName() + "/";
+            String TypePath= "\\" + typesService.getTypes().get(type).getTypeName().trim() + "\\";
             storePath = storePath + TypePath;
             System.out.println(storePath);
             String filename = file.getOriginalFilename();
