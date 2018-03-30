@@ -8,8 +8,8 @@ import java.util.ArrayList;
 @Service
 public class categoryService {
     private categoryDao categoryDao = new categoryDao();
-    public ArrayList<String> getCategory(){
-        return categoryDao.getCategoryName();
+    public ArrayList<Category> getCategory(){
+        return categoryDao.getCategory();
     }
     public void insertCategory(Category category){
         categoryDao.insertCategory(category);

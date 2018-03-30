@@ -78,7 +78,7 @@ var content_control = {
                 //缓存以备侧边菜单使用
                 cache['category'] = data;
                 $.each(data, function (index, val) {
-                    var content = '<span class="category">' + val + '</span>';
+                    var content = '<span class="category">' + val['name'] + '</span>';
                     $('#nav').append(content);
                 });
                 //加载完毕目录之后再加载背景图，防止出现高度不统一
@@ -470,7 +470,7 @@ var category_select = {
             });
             var count = 0;
             $('#display-area>div').each(function () {
-                if ($(this).find('.module-type').text() == category_name || all || $(this).find('.module-tag').text().indexOf(category_name) != -1) {
+                if ($(this).find('.category-id').text().indexOf(category_name) != -1 || all || $(this).find('.module-tag').text().indexOf(category_name) != -1) {
                     $(this).css('display', 'block');
                     $(this).addClass('show');
                     count += 1;
@@ -556,8 +556,8 @@ var side_menu_control = {
         var content = '<button class="w3-button w3-bar-item w3-blue-gray" onclick=' + functionName + '>All Modules</div>';
         by_module.append(content);
         $.each(module_data, function (index, val) {
-            var functionName = 'category_select.switch_card("' + val + '","Modules")';
-            var content = '<button class="w3-button w3-bar-item w3-blue-gray" onclick=' + functionName + '>' + val + '</div>';
+            var functionName = 'category_select.switch_card("' + val['id'] + '","Modules")';
+            var content = '<button class="w3-button w3-bar-item w3-blue-gray" onclick=' + functionName + '>' + val['name'] + '</div>';
             by_module.append(content);
         });
         //load tags

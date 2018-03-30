@@ -9,15 +9,15 @@ import java.util.ArrayList;
 
 
 public class SqlConnection {
-//    private static String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-//    private static String URL = "jdbc:sqlserver://123.207.49.64:1433";
-//    private static String USER_NAME = "sa";
-//    private static String USER_PWD = "Jabil456";
-
     private static String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    private static String URL = "jdbc:sqlserver://CNSHAH0MROSQL01:1433";
-    private static String USER_NAME = "ePlatform";
+    private static String URL = "jdbc:sqlserver://123.207.49.64:1433";
+    private static String USER_NAME = "sa";
     private static String USER_PWD = "Jabil456";
+
+//    private static String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+//    private static String URL = "jdbc:sqlserver://CNSHAH0MROSQL01:1433";
+//    private static String USER_NAME = "ePlatform";
+//    private static String USER_PWD = "Jabil456";
 //
     //private static Connection connection;
     private static java.sql.Statement statement;

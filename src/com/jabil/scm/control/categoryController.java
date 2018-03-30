@@ -19,13 +19,13 @@ public class categoryController {
      */
     @RequestMapping(value = "/getCategory")
     @ResponseBody
-    public ArrayList<String> getCats() {
+    public ArrayList<Category> getCats() {
         return categoryService.getCategory();
     }
 
     @RequestMapping(value="insertCats")
     @ResponseBody
-    public ArrayList<String> insertCats(){
+    public ArrayList<Category> insertCats(){
         Category category = new Category(6, "Shenanyi");
         categoryService.insertCategory(category);
         return categoryService.getCategory();
