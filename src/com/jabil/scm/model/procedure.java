@@ -2,6 +2,7 @@ package com.jabil.scm.model;
 
 import java.io.File;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class procedure {
     private int id;
@@ -12,6 +13,7 @@ public class procedure {
     private String Category_id;
     private String tag_id;
     private int number;
+    private ArrayList<String>category;
 
     public procedure(int id, String filePath, String title, String picPath, String description, String category_id, String tag_id, int number) {
         this.id = id;

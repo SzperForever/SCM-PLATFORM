@@ -31,7 +31,7 @@ public class FileUploadController {
             String contextPath = request.getContextPath();//"/SpringMvcFileUpload"
             String servletPath = request.getServletPath();//"/gotoAction"
             String scheme = request.getScheme();//"http"
-            String storePath="/Users/szper/Desktop/SCM";
+            String storePath="/SCM";
             int size = projectLibService.getProjectLibs().size() + 1;
             Date date = new Date();
             String TypePath= "/" + typesService.getTypes().get(type).getTypeName() + "/";

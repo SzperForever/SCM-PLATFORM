@@ -9,6 +9,7 @@ var content_control = {
     run : function () {
         this.load_category();
         this.load_table_data();
+        this.load_type();
     },
     load_category : function () {
         $.ajax({
@@ -23,6 +24,19 @@ var content_control = {
             }
         });
     },
+    load_type : function () {
+        $.ajax({
+            dataType: 'json',
+            url: '/getTypes.form',
+            success: function (data) {
+                cache['types'] = data;
+                $.each(data, function (index, val) {
+                    var content = '<li class="tag"><span class="tag-id" style="display: none">'+val['id']+'</span>' + val['typeName'] + '</li>';
+                    $('#by-tag>ul').append(content);
+                });
+            }
+        });
+    },
     load_table_data : function () {
         $.ajax({
             dataType : 'json',
@@ -32,12 +46,11 @@ var content_control = {
                 $.each(data,function (index, val) {
                     var content =
                     '<tr>' +
-                        '<td>'+val['title']+'</td>' +
+                        '<td><a href="'+val['filePath']+'">'+val['title']+'</a></td>' +
                         '<td>'+val['type']+'</td>' +
                         '<td>'+val['number']+'</td>' +
                         '<td>'+val['description']+'</td>' +
                         '<td>'+val['filePath']+'</td>' +
-                        '<td>'+val['category_id']+'</td>' +
                         '<td>'+val['category_id']+'</td>' +
                         '<td>'+val['tag_id']+'</td>' +
                      '</tr>';

@@ -258,16 +258,16 @@ var content_control = {
         removeLoading();
     },
     listen_leanPortal_click: function () {
-        if (cache['leanPortal_clicked'] == undefined || cache['leanPortal_clicked'] != true) {
-            cache['leanPortal_clicked'] = true;
-            var lean_portal;
-            $('#display-area>div').each(function () {
-                if ($(this).find('h3 a').text() == 'lean portal') {
-                    lean_portal = $(this);
-                }
-            });
-            lean_portal.find('h3 a').attr('onclick', 'return false');
-            lean_portal.click(function () {
+        var lean_portal;
+        $('#display-area>div').each(function () {
+            if ($(this).find('h3 a').text() == 'lean portal') {
+                lean_portal = $(this);
+            }
+        });
+        lean_portal.find('h3 a').attr('onclick', 'return false');
+        lean_portal.find('h3 a').click(function () {
+            if (cache['leanPortal_clicked'] == undefined || cache['leanPortal_clicked'] != true) {
+                cache['leanPortal_clicked'] = true;
                 //隐藏其他卡片
                 $('#display-area>div').each(function () {
                     if ($(this).find('h3 a').text() != 'lean portal') {
@@ -287,49 +287,33 @@ var content_control = {
                 var page = $('#lean-portal');
                 page.css('display', 'block');
                 page.load("/file.form");
-            });
-            $('#restore-card').click(function () {
-                var lean_portal2;
-                $('#display-area>div').each(function () {
-                    if ($(this).attr('display') != none) {
-                        lean_portal2 = $(this);
-                    }
-                });
-                $('#lean-portal').remove();
-                lean_portal2.css({
-                    'width': '22%',
-                    'height': '22vh',
-                    'transition': 'all 1s'
-                });
-                lean_portal2.children().each(function () {
-                    $(this).fadeIn('200ms')
-                });
-                $('#display-area>div').each(function () {
-                    $(this).css('display', 'block');
-                });
-                cache['leanPortal_clicked'] = false;
-            })
-        }
-        // else{
-        //     var lean_portal2;
-        //     $('#display-area>div').each(function () {
-        //         if ($(this).attr('display') != none) {
-        //             lean_portal2 = $(this);
-        //         }
-        //     });
-        //     lean_portal2.css({
-        //         'width': '22%',
-        //         'height': '22vh',
-        //         'transition': 'all 1s'
-        //     });
-        //     lean_portal.children().each(function () {
-        //         $(this).fadeIn('200ms')
-        //     });
-        //     $('#display-area>div').each(function () {
-        //         $(this).css('display', 'block');
-        //     });
-        //     cache['leanPortal_clicked'] = false;
-        // }
+            }
+        });
+    }
+    ,
+    restore_card : function () {
+        var lean_portal;
+        $('#display-area>div').each(function () {
+            if ($(this).find('h3 a').text() == 'lean portal') {
+                lean_portal = $(this);
+            }
+        });
+        $('#lean-portal').remove();
+        lean_portal.css({
+            'width': '22%',
+            'height': '22vh',
+            'transition': 'all 1s'
+        });
+        lean_portal.children().each(function () {
+            $(this).fadeIn('200ms')
+        });
+        lean_portal.find('.module-tag').css('display','none');
+        lean_portal.find('.data').css('display','none');
+        lean_portal.find('.category-id').css('display','none');
+        $('#display-area>div').each(function () {
+            $(this).css('display', 'block');
+        });
+        cache['leanPortal_clicked'] = false;
     },
     windows_resize_control: function () {
         $(window).resize(function () {
@@ -603,3 +587,10 @@ var side_menu_control = {
 
     }
 };
+
+function upload() {
+    $('#upload-form').ajaxForm(function() {
+        alert("Upload Success!");
+        $('upload-form').clearForm();
+    });
+}

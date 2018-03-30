@@ -66,7 +66,7 @@
         <div id="left">
             <div id="asyncJobNotification" class="react-component-container"><!-- react-empty: 1 --></div>
             <div id="favorite">
-                <span>Facorite</span>
+                <span>FAVORITES</span>
             </div>
             <div id="by-category">
                 <span>By category</span>
@@ -77,16 +77,14 @@
             <div id="by-tag">
                 <span>By Tag</span>
                 <ul>
-                    <li>A</li>
-                    <li>B</li>
-                    <li>C</li>
-                    <li>D</li>
+
                 </ul>
             </div>
         </div>
         <div id="center">
             <div id="search-box-2">
                 <input class="w3-input" placeholder="Find a document" type="text" style="width: 20%">
+                <button class="w3-button">Show Filters</button>
             </div>
             <table id="data-number" class="w3-table-all w3-hoverable">
                 <tr>
