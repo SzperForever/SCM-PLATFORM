@@ -429,7 +429,7 @@ var category_select = {
                 category_select.switch_card("All", "Modules")
             }
             else{
-                category_select.switch_card($(this).text(), "Modules")
+                category_select.switch_card($(this).find('.category-id').text(), "Modules")
             }
 
         })
