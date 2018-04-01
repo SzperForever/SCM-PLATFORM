@@ -463,7 +463,6 @@ var category_select = {
             });
             if(category_name == "All Modules"){
                 $('#nav>span:first').addClass('active');
-                console.log("SSSS")
                 $('#by-module>button:nth-child(2)').addClass('w3-white');
             }
         }
@@ -493,7 +492,7 @@ var category_select = {
             });
             var count = 0;
             $('#display-area>div').each(function () {
-                if ( category_name.indexOf($(this).find('.category-id').text()) != -1 || all || (by_what != "Modules" && category_name.indexOf( $(this).find('.module-tag').text()) != -1)) {
+                if ( $(this).find('.category-id').text().indexOf(category_name) != -1 || all || (by_what != "Modules" && $(this).find('.module-tag').text().indexOf(category_name) != -1)) {
                     $(this).css('display', 'block');
                     $(this).addClass('show');
                     count += 1;

@@ -204,13 +204,12 @@ body {
     padding: 10px 5px 10px 5px;
     border-top: solid 1px #e4e4e4;
     position: relative;
-    background: white;
+    background: #f6f6f6;
     transition: transform 1s;
 }
 
 #by-tag.up{
     transform: translateY(-158px);
-
 }
 
 #tag-ul {
@@ -225,6 +224,20 @@ body {
     background-color: transparent;
     transition: background-color .2s ease-out;
     position: relative;
+}
+
+#blank-cover{
+    position: relative;
+    z-index: 35!important;
+    transition: transform 1s;
+}
+
+#blank-cover.upOne{
+    transform: translateY(-198px);
+}
+
+#blank-cover.upTwo{
+    transform: translateY(-356px);
 }
 
 /*鼠标移入淡色背景*/
@@ -366,6 +379,21 @@ li>.right-caret:hover {
     position: absolute;
     right: 0;
     transform: translateY(7px);
+}
+
+#filter-select{
+    background: #f9f9f9;
+    border: 1px solid #e4e4e4;
+    padding: 10px 10px 20px 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.filter-item{
+    display: inline-block;
+    margin-right: 32px;
+    min-height: 60px;
+    vertical-align: top;
 }
 
 #result-table{

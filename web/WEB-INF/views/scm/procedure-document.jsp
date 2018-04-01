@@ -44,7 +44,7 @@
             <div id="by-category">
                 <span style="padding: 5px 0px 5px 0px;display: block;color: #666;position:relative;">
                     By Category
-                    <i class="right-caret fas fa-caret-right" style="line-height: 30px !important;right: -10px;transform: rotate(-90deg);"></i>
+                    <i class="right-caret fas fa-caret-right" style="right: -10px;transform: rotate(-90deg);transition: transform 800ms;" onclick="content_control.collapse_category()"></i>
                 </span>
                 <ul id="category-ul">
 
@@ -53,11 +53,14 @@
             <div id="by-tag">
                 <span style="padding: 5px 0px 5px 0px;display: block;color: #666;position:relative;">
                     By Tag
-                    <i class="right-caret fas fa-caret-right" style="line-height: 30px !important;right: -10px;transform: rotate(-90deg);"></i>
+                    <i class="right-caret fas fa-caret-right" style="right: -10px;transform: rotate(-90deg);transition: transform 800ms;" onclick="content_control.collapse_tag()"></i>
                 </span>
                 <ul id="tag-ul">
 
                 </ul>
+            </div>
+            <div id="blank-cover">
+
             </div>
         </div>
         <div id="center">
@@ -65,7 +68,7 @@
                 <span><i class="fas fa-home"></i></span>
                 <span>Home</span>
                 >
-                <span>Pro*****</span>
+                <span>Procedure</span>
             </div>
 
             <div id="blank-line"></div>
@@ -84,7 +87,40 @@
                 </span>
                     <div id="search-result">Found : 1</div>
                 </div>
+
             </div>
+
+            <div id="filter-select">
+                <div class="filter-item">
+                    <h3>Status</h3>
+                    <ul>
+                        <li>Active</li>
+                    </ul>
+                </div>
+                <div class="filter-item">
+                    <h3>Document Type</h3>
+                    <ul>
+                        <li>Document</li>
+                    </ul>
+                </div>
+                <div class="filter-item">
+                    <h3>Created</h3>
+                    <ul>
+                        <li>Today</li>
+                        <li>This week</li>
+                        <li>This month</li>
+                        <li>This year</li>
+                        <li>Custom Range</li>
+                    </ul>
+                </div>
+                <div class="filter-item">
+                    <h3>Status</h3>
+                    <ul>
+                        <li>Active</li>
+                    </ul>
+                </div>
+            </div>
+
             <div id="result-table-container">
                 <table id="result-table" class="w3-table-all">
                     <tr style="color: #1a4473;">
