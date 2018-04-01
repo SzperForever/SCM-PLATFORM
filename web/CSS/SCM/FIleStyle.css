@@ -1,4 +1,4 @@
-#container{
+#top-bar-container{
     width: 400px;
     height: 200px;
     margin: 0 auto;
@@ -6,7 +6,7 @@
     border: 2px dashed;
 }
 
-#container>div{
+#top-bar-container>div{
     width: 20%;
     margin: 0 auto;
 }

@@ -17,8 +17,8 @@
     <script type="text/javascript" src="JS/SCM/procedure.js"></script>
 </head>
 <body>
-<div id="top-bar" >
-    <div id="container">
+<div id="top-bar">
+    <div id="top-bar-container">
         <div id="logo" class="w3-bar-item">
             <span></span>
         </div>
@@ -26,37 +26,9 @@
             <input class="w3-input" placeholder="Find a document" type="text">
             <i class="fas fa-search w3-large"></i>
         </div>
-        <div class="popupmenu document-list bright" id="searchresults" style="display: none;">
-            <div class="results"><p class="empty">no document found</p></div>
-        </div>
+            <div id="search-box-result" style="display: none"></div>
         <div class="instance">
             <div id="snippet-instanceSelect-"><span class="instance-name">@&nbsp;&nbsp;Jabil</span>
-            </div>
-        </div>
-        <div style="display: none;" id="snippet--top">
-            <div class="topmenu">
-                <div id="usermenu-btns-desktop">
-                    <a title="My Profile" class="tooltip my-profile" href="/profile/detail/?folder=1">
-                        <img src="https://jabil.teamguru.com/data/jabil.teamguru.com/images/thumb/1_ec932b5837.jpg?1516956493"
-                             width="30" height="30" alt="">
-                        <span class="name">Johnson Jia</span>
-                    </a>
-                    <a title="Home - My Dashboard" class="tooltip my-dashboard" href="/dashboard/?folder=1">Home</a>
-                    <a title="Recently opened documents" class="recent_button tooltip my-recents" href="#"
-                       onclick="return false;">Recents</a>
-                    <div id="notification-icon-wrapper" class="react-component-wrapper react-component-container"><span
-                            data-reactroot="" class="tooltip" title=""><a href="#"
-                                                                          class="notification_button tooltip"><span
-                            class="icon icon-notifications"></span></a></span></div>
-                    <a href="/imessage/?folder=1" class="tooltip" title="Messages">
-                        <span class="icon icon-mail"></span>
-                    </a>
-                    <a title="Settings" class="setting_button tooltip settings" href="#" onclick="return false;"><span
-                            class="icon icon-settings"></span></a>
-                    <a title="Logout" class="tooltip logout" href="/auth/logout/"><span class="icon icon-logout"></span></a>
-                </div>
-                <div class="cleaner"></div>
-
             </div>
         </div>
     </div>
@@ -64,39 +36,67 @@
 
 <div id="full-page-container">
     <div id="page" class="content-container">
-        <div id="left">
-            <div id="asyncJobNotification" class="react-component-container"><!-- react-empty: 1 --></div>
+        <div id="left" class="w3-sidenav">
+            <div class="top-line"></div>
             <div id="favorite">
-                <span>FAVORITES</span>
+                <span>Favorites</span>
             </div>
             <div id="by-category">
-                <span>By category</span>
-                <ul>
+                <span style="padding: 5px 0px 5px 0px;display: block;color: #666;position:relative;">
+                    By Category
+                    <i class="right-caret fas fa-caret-right" style="line-height: 30px !important;right: -10px;transform: rotate(-90deg);"></i>
+                </span>
+                <ul id="category-ul">
 
                 </ul>
             </div>
             <div id="by-tag">
-                <span>By Tag</span>
-                <ul>
+                <span style="padding: 5px 0px 5px 0px;display: block;color: #666;position:relative;">
+                    By Tag
+                    <i class="right-caret fas fa-caret-right" style="line-height: 30px !important;right: -10px;transform: rotate(-90deg);"></i>
+                </span>
+                <ul id="tag-ul">
 
                 </ul>
             </div>
         </div>
         <div id="center">
-            <div id="search-box-2">
-                <input class="w3-input" placeholder="Find a document" type="text" style="width: 20%">
-                <button class="w3-button">Show Filters</button>
+            <div id="top-path">
+                <span><i class="fas fa-home"></i></span>
+                <span>Home</span>
+                >
+                <span>Pro*****</span>
             </div>
-            <table id="data-number" class="w3-table-all w3-hoverable">
-                <tr>
-                    <th>Title</th>
-                    <th>Type</th>
-                    <th>number</th>
-                    <th>description</th>
-                    <th>file path</th>
-                    <th>category</th>
-                </tr>
-            </table>
+
+            <div id="blank-line"></div>
+
+            <div style="margin-bottom: 6px;">
+
+                <div id="bar-name"><h1 style="color: #002a3f;">Documents</h1></div>
+
+                <div id="document-filter">
+                    <input type="search" name="document-tag">
+                    <i class="fas fa-search w3-large"></i>
+                    <button class="w3-button">Show Filters</button>
+                    <span id="active-filters">
+                    <p>Active filters:</p>
+                    <span>Today<i class="fas fa-times"></i></span>
+                </span>
+                    <div id="search-result">Found : 1</div>
+                </div>
+            </div>
+            <div id="result-table-container">
+                <table id="result-table" class="w3-table-all">
+                    <tr style="color: #1a4473;">
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Type</th>
+                        <th>File number</th>
+                        <th>FilePath</th>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 </div>

@@ -3,8 +3,6 @@ $(function () {
     $('#particles-js').css({
         'position': 'absolute'
     });
-
-
     $.ajax({
         dataType: 'json',
         url: '/getTag.form',
@@ -13,9 +11,6 @@ $(function () {
             removeLoading();
         }
     })
-
-    // document.getElementsByClassName('particles-js-canvas-el')[0].setAttribute("height",$('body').height());
-    // document.getElementsByClassName('particles-js-canvas-el')[0].setAttribute("width",$('body').width());
 });
 
 //用来储存一些临时数据，比如预加载的AJAX数据
@@ -78,7 +73,7 @@ var content_control = {
                 //缓存以备侧边菜单使用
                 cache['category'] = data;
                 $.each(data, function (index, val) {
-                    var content = '<span class="category">' + val['name'] + '</span>';
+                    var content = '<span class="category">' + val['name'] + '<span class="category-id" style="display: none">'+val['id']+'</span></span>';
                     $('#nav').append(content);
                 });
                 //加载完毕目录之后再加载背景图，防止出现高度不统一
@@ -289,9 +284,8 @@ var content_control = {
                 page.load("/file.form");
             }
         });
-    }
-    ,
-    restore_card : function () {
+    },
+    restore_card: function () {
         var lean_portal;
         $('#display-area>div').each(function () {
             if ($(this).find('h3 a').text() == 'Lean Portal') {
@@ -307,9 +301,9 @@ var content_control = {
         lean_portal.children().each(function () {
             $(this).fadeIn('200ms')
         });
-        lean_portal.find('.module-tag').css('display','none');
-        lean_portal.find('.data').css('display','none');
-        lean_portal.find('.category-id').css('display','none');
+        lean_portal.find('.module-tag').css('display', 'none');
+        lean_portal.find('.data').css('display', 'none');
+        lean_portal.find('.category-id').css('display', 'none');
         $('#display-area>div').each(function () {
             $(this).css('display', 'block');
         });
@@ -431,7 +425,13 @@ var category_select = {
     },
     listen_click: function () {
         $(".category").click(function () {
-            category_select.switch_card($(this).text(), "Modules")
+            if($(this).find('.category-id').text == ""){
+                category_select.switch_card("All", "Modules")
+            }
+            else{
+                category_select.switch_card($(this).text(), "Modules")
+            }
+
         })
     },
     switch_card: function (name, by_what) {
@@ -441,18 +441,41 @@ var category_select = {
         }
         //移除所有分类的激活状态
         $('.category').removeClass('active');
+        //取消左侧菜单栏的激活效果
+        $('#by-module>button').each(function () {
+            $(this).removeClass('w3-white');
+        });
+        $('#by-tag>button').each(function () {
+            $(this).removeClass('w3-white');
+        });
         var category_name = name;
         //给对应的分类添加激活状态
         if (by_what == 'Modules') {
             $('#nav>span').each(function () {
-                if ($(this).text() == category_name) {
+                if ($(this).find('.category-id').text() != "" && category_name.indexOf($(this).find('.category-id').text()) != -1) {
                     $(this).addClass('active');
                 }
             });
+            $('#by-module>button').each(function () {
+                if($(this).find('.side_category_id').text() != "" && category_name.indexOf($(this).find('.side_category_id').text()) != -1){
+                    $(this).addClass('w3-white');
+                }
+            });
+            if(category_name == "All Modules"){
+                $('#nav>span:first').addClass('active');
+                console.log("SSSS")
+                $('#by-module>button:nth-child(2)').addClass('w3-white');
+            }
         }
         else {
             $('#nav>span:first').addClass('active');
+            $('#by-tag>button').each(function () {
+                if(category_name.indexOf($(this).find('.side_category_id').text()) != -1){
+                    $(this).addClass('w3-white');
+                }
+            })
         }
+        var category_name = name;
         //点击all时 显示所有的模块
         var all = false;
         var module_div = $('#display-area>div');
@@ -470,7 +493,7 @@ var category_select = {
             });
             var count = 0;
             $('#display-area>div').each(function () {
-                if ($(this).find('.category-id').text().indexOf(category_name) != -1 || all || $(this).find('.module-tag').text().indexOf(category_name) != -1) {
+                if ( category_name.indexOf($(this).find('.category-id').text()) != -1 || all || (by_what != "Modules" && category_name.indexOf( $(this).find('.module-tag').text()) != -1)) {
                     $(this).css('display', 'block');
                     $(this).addClass('show');
                     count += 1;
@@ -552,12 +575,12 @@ var side_menu_control = {
         //load module
         var by_module = $('#by-module');
         var module_data = cache['category'];
-        var functionName = 'category_select.switch_card("All")';
+        var functionName = 'category_select.switch_card("All","Modules")';
         var content = '<button class="w3-button w3-bar-item w3-blue-gray" onclick=' + functionName + '>All Modules</div>';
         by_module.append(content);
         $.each(module_data, function (index, val) {
             var functionName = 'category_select.switch_card("' + val['id'] + '","Modules")';
-            var content = '<button class="w3-button w3-bar-item w3-blue-gray" onclick=' + functionName + '>' + val['name'] + '</div>';
+            var content = '<button class="w3-button w3-bar-item w3-blue-gray" onclick=' + functionName + '>' + val['name'] + '<span class="side_category_id" style="display: none;">'+val['id']+'</span></div>';
             by_module.append(content);
         });
         //load tags
@@ -565,12 +588,11 @@ var side_menu_control = {
         var by_tag = $('#by-tag');
         $.each(URL_data, function (index, val) {
             var functionName = 'category_select.switch_card(\'' + val['id'] + '\',\'Tags\')';
-            var content = '<button class="w3-button w3-bar-item w3-blue-gray" onclick=\"' + functionName + '\">' + val['name'] + '</div>';
+            var content = '<button class="w3-button w3-bar-item w3-blue-gray" onclick=\"' + functionName + '\">' + val['name'] + '<span class="side_category_id" style="display: none;">'+val['id']+'</span></div>';
             by_tag.append(content);
         });
     },
     closeMenu: function () {
-
         $('#left-menu').css('display', 'none');
         $('#main-container').removeClass();
         $('#main-container').addClass('animate-left');
@@ -587,4 +609,5 @@ var side_menu_control = {
 
     }
 };
+
 
