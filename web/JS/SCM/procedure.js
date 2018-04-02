@@ -18,7 +18,7 @@ var content_control = {
             'overflow': 'hidden',
             'padding': '0'
         });
-        this.filter_select();
+
     },
     load_category: function () {
         $.ajax({
@@ -40,7 +40,7 @@ var content_control = {
                     $('#by-category>ul').append(content);
                 });
                 content_control.draw_color();
-                category_control.listen_click();
+                filter_control.run();
             }
         });
     },
@@ -69,7 +69,7 @@ var content_control = {
                     'width': $('#by-tag').width() + 30,
                     'background': '#f6f6f6'
                 });
-                category_control.listen_click();
+                filter_control.run();
             }
 
         });
@@ -83,7 +83,7 @@ var content_control = {
                 cache['table_data'] = data;
                 $.each(data, function (index, val) {
                     var content =
-                        '<tr class="Procedure Document">' +
+                        '<tr class="ProcedureDocument">' +
                         '<td><a href="' + val['filePath'] + '" style="text-decoration: none;">' + val['title'] + '</a></td>' +
                         '<td>' + val['description'] + '</td>' +
                         '<td>' + val['category'] + '</td>' +
@@ -91,35 +91,37 @@ var content_control = {
                         '<td>' + val['number'] + '</td>' +
                         '<td>' + val['filePath'] + '</td>' +
                         '<td><i class="far fa-star"></i></td>' +
-                        '<td class="category-id" style="display: none">'+val['category_id']+'</td>'+
-                        '<td class="type-id" style="display: none">'+val['type_id']+'</td>'+
+                        '<td class="category-id" style="display: none">' + val['category_id'] + '</td>' +
+                        '<td class="type-id" style="display: none">' + val['type_id'] + '</td>' +
                         '</tr>';
                     $('#result-table').append(content);
+                });
+
+                $.ajax({
+                    dataType: "json",
+                    url: '/getProLibs.form',
+                    success: function (data) {
+                        cache['table_data_fromLib'] = data;
+                        $.each(data, function (index, val) {
+                            var content =
+                                '<tr class="ProjectLibrary">' +
+                                '<td><a href="' + val['filePath'] + '" style="text-decoration: none;">' + val['fileName'] + '</a></td>' +
+                                '<td>File from ProjectLib</td>' +
+                                '<td>' + val['typeName'] + '</td>' +
+                                '<td>ProjectLib</td>' +
+                                '<td>' + val['id'] + '</td>' +
+                                '<td>' + val['filePath'] + '</td>' +
+                                '<td><i class="far fa-star"></i></td>' +
+                                '<td class="category-id" style="display: none">' + val['category_id'] + '</td>' +
+                                '</tr>';
+                            $('#result-table').append(content);
+                        });
+                        $('#search-result').text("Found : " + (cache['table_data'].length + cache['table_data_fromLib'].length));
+                    }
                 })
+
             }
         });
-        $.ajax({
-            dataType:"json",
-            url:'/getProLibs.form',
-            success:function (data) {
-                cache['table_data_fromLib'] = data;
-                $.each(data, function (index, val) {
-                var content =
-                    '<tr class="Project Library">' +
-                    '<td><a href="' + val['filePath'] + '" style="text-decoration: none;">' + val['fileName'] + '</a></td>' +
-                    '<td>File from ProjectLib</td>' +
-                    '<td>' + val['typeName'] + '</td>' +
-                    '<td>ProjectLib</td>' +
-                    '<td>' + val['id'] + '</td>' +
-                    '<td>' + val['filePath'] + '</td>' +
-                    '<td><i class="far fa-star"></i></td>' +
-                    '<td class="category-id" style="display: none">'+val['category_id']+'</td>'+
-                    '</tr>';
-                    $('#result-table').append(content);
-                });
-                $('#search-result').text("Found : " + (cache['table_data'].length + cache['table_data_fromLib'].length));
-            }
-        })
     },
     draw_color: function () {
         //(29,168,252) (40,175,83) (252,189,30) (228,73,31) (164,30,114) (29,168,252) ()
@@ -130,12 +132,12 @@ var content_control = {
             icon.css('background', color[index % color.length]);
             icon.parent().parent().hover(function () {
                 icon.css('background', color_change[index % color.length]);
-                if($(this).css('background').indexOf('rgb(255, 255, 255)') == -1) {
+                if ($(this).css('background').indexOf('rgb(255, 255, 255)') == -1) {
                     $(this).css('background', '#ebebeb');
                 }
             }, function () {
                 icon.css('background', color[index % color.length]);
-                if($(this).css('background').indexOf('rgb(255, 255, 255)') == -1) {
+                if ($(this).css('background').indexOf('rgb(255, 255, 255)') == -1) {
                     $(this).css('background', '#f6f6f6');
                 }
             })
@@ -196,35 +198,14 @@ var content_control = {
             $('#document-filter>button').text("Show Filters");
         }
     },
-    filter_select: function () {
-        $('.filter-item>ul>li').each(function () {
-            $(this).click(function () {
-                var h3 = $(this).parent().parent().find('h3').text(), name = $(this).text();
-                if($(this).css('color') == "rgb(0, 145, 220)"){
-                    content_control.remove_filter(h3,name);
-                }
-                else {
-                    $(this).css({
-                        'color': '#0091dc'
-                    });
-                    $(this).append(
-                        '<i class="fas fa-times" onclick=\"content_control.remove_filter(\'' + h3 + '\',\'' + name + '\')\"></i>'
-                    );
-                    content_control.add_filter(h3,name);
-                }
-                if(name == "Project Library" || name == "Procedure Document")
-                    content_control.excute_filter();
-            });
-        })
-    },
     add_filter: function (h3, name) {
         h3 = h3.trim();
         name = name.trim();
-        $('#document-filte>span>p').css('display','inline');
+        $('#document-filter>span>p').css('display', 'inline');
         $('#document-filter').append(
             '<span class="active-filter">' +
             '   <span class="filter-name">' + name + '<i class="fas fa-times" onclick=\"content_control.remove_filter(\'' + h3 + '\',\'' + name + '\')\"></i></span>' +
-            '   <span class="h3" style="display: none">'+ h3 +'</span>'+
+            '   <span class="h3" style="display: none">' + h3 + '</span>' +
             '</span>'
         )
     },
@@ -232,61 +213,34 @@ var content_control = {
         h3 = h3.trim();
         name = name.trim();
         $('.active-filter').each(function () {
-            if ($(this).find('.h3').text() == h3 && $(this).find('.filter-name').text() == name){
+            if ($(this).find('.h3').text() == h3 && $(this).find('.filter-name').text() == name) {
                 $(this).remove();
             }
         });
         $('.filter-item').each(function () {
-            if($(this).find('h3').text() == h3){
+            if ($(this).find('h3').text() == h3) {
                 $(this).find('li').each(function () {
-                    if($(this).text() == name){
-                        $(this).css('color','black');
+                    if ($(this).text() == name) {
+                        $(this).css('color', 'black');
                         $(this).find('i').remove();
                     }
                 })
             }
         });
-        if($('.active-filter').length == '0'){
-            $('#document-filter>span>p').css('display','none');
+        if ($('.active-filter').length == '0') {
+            $('#document-filter>span>p').css('display', 'none');
         }
-        content_control.excute_filter();
     },
-    excute_filter : function () {
-        // $('#result-table>tbody>tr').each(function () {
-        //     if($(this).find('th').length == '0'){
-        //         $(this).fadeOut("200");
-        //     }
-        // });
-        $('.active-filter').each(function () {
-            var filter_name = $(this).find('span.filter-name').text();
-            console.log(filter_name);
-            $('#result-table>tbody>tr').each(function () {
-                if($(this).find('th').length == '0'){
-                    //不符合条件隐藏
-                    if($(this).attr("class").indexOf(filter_name) == -1){
-                        $(this).fadeOut("200");
-                    }
-                }
-            });
-        });
-        //如果筛选器为空，则显示所有
-        if($('.active-filter').length == '0'){
-            $('#result-table>tbody>tr').each(function () {
-                $(this).fadeIn("200");
-            })
-        }
-        setTimeout(content_control.setCount(),210);
-    },
-    setCount : function () {
+    setCount: function () {
         var count = 0;
         $('#result-table>tbody>tr').each(function () {
-            if($(this).css('display') != 'none'){
+            if ($(this).css('display') != 'none') {
                 count++;
             }
         });
-        $('#search-result').text("Found : " + (count-1));
+        $('#search-result').text("Found : " + (count - 1));
     },
-    show_all:function () {
+    show_all: function () {
         $('#result-table>tbody>tr').each(function () {
             $(this).fadeIn("200");
         })
@@ -322,12 +276,12 @@ var search_control = {
             }
         })
     },
-    listen_search : function () {
+    listen_search: function () {
         $('#document-filter>input').on('input propertychange', function () {
             var content = $(this).val().toLowerCase();
             var count = 0;
             $('#result-table>tbody>tr').each(function () {
-                if($(this).find('th').length == '0') {
+                if ($(this).find('th').length == '0') {
                     $(this).stop();
                     $(this).fadeOut("300");
                     if ($(this).find('td:first').text().toLowerCase().indexOf(content) != -1) {
@@ -336,76 +290,136 @@ var search_control = {
                     }
                 }
             });
-            setTimeout(content_control.setCount(),310);
+            setTimeout(content_control.setCount(), 310);
 
         })
     }
 };
 
-var category_control = {
+var filter_control = {
+    count : 0,
+    run : function () {
+        this.count += 1;
+        if(this.count == 2){
+            this.listen_click();
+        }
+    },
+    close_active: function () {
+        $('.active').each(function () {
+            $(this).removeClass('active');
+            var removedClass;
+            if ($(this).find('span>span.category-id').length == '0') {
+                removedClass = 'fadeOutByTag';
+            }
+            else {
+                removedClass = 'fadeOutByCategory';
+            }
+            filter_control.undo_filter(removedClass);
+        })
+    },
     //点击侧面菜单
-    listen_click : function () {
+    listen_click: function () {
         $('#category-ul>li').each(function () {
             $(this).click(function () {
-                if($(this).css('background').indexOf("rgb(255, 255, 255)") != -1){
-                    content_control.show_all();
-                    //保持筛选器的筛选
-                    content_control.excute_filter();
-                    $(this).css('background','transparent');
-                    return ;
+                if ($(this).attr('class').indexOf("active") != -1) {
+                    $(this).removeClass('active');
+                    filter_control.undo_filter("fadeOutByCategory");
                 }
-                $('.tag-li').each(function () {
-                    $(this).css('background','transparent')
-                });
-                $('.category-li').each(function () {
-                    $(this).css('background','transparent')
-                });
-                var id = $(this).find('.category-id').text();
-                console.log(id);
-                var count = 0;
-                $('#result-table>tbody>tr').each(function () {
-                    if($(this).find('th').length == '0') {
-                        $(this).stop();
-                        if ($(this).find('td.category-id').text().toLowerCase().indexOf(id) == -1) {
-                            $(this).fadeOut("300");
-                            ++count;
-                        }
-                    }
-                });
-                $('#search-result').text("Found : " + count);
-                $(this).css('background','white');
+                else {
+                    //add之前删除其他的筛选激活状态
+                    filter_control.close_active();
+                    $(this).addClass('active');
+                }
+                filter_control.execute_filter();
             })
         });
 
         $('#tag-ul>li').each(function () {
             $(this).click(function () {
-                if($(this).css('background').indexOf("rgb(255, 255, 255)") != -1){
-                    content_control.show_all();
-                    content_control.excute_filter();
-                    $(this).css('background','transparent');
-                    return ;
+                if ($(this).attr('class').indexOf("active") != -1) {
+                    $(this).removeClass('active');
+                    filter_control.undo_filter("fadeOutByTag");
                 }
-                $('.tag-li').each(function () {
-                    $(this).css('background','transparent')
-                });
-                $('.category-li').each(function () {
-                    $(this).css('background','transparent')
-                });
-                var id = $(this).find('.tag-id').text();
-                var count = 0;
-                $('#result-table>tbody>tr').each(function () {
-                    if($(this).find('th').length == '0') {
-                        $(this).stop();
-                        if ($(this).find('td.type-id').text().toLowerCase().indexOf(id) == -1) {
-                            $(this).fadeOut("300");
-                            ++count;
+                else {
+                    filter_control.close_active();
+                    $(this).addClass('active');
+                }
+                filter_control.execute_filter();
+            })
+        });
+
+        $('.filter-item>ul>li').each(function () {
+            $(this).click(function () {
+                var h3 = $(this).parent().parent().find('h3').text(), name = $(this).text();
+                console.log(h3,name);
+                if ($(this).css('color') == "rgb(0, 145, 220)") {
+                    content_control.remove_filter(h3, name);
+                    filter_control.undo_filter("fadeOutByFilter"+name.replace(" ",""))
+                }
+                else {
+                    $(this).css({
+                        'color': '#0091dc'
+                    });
+                    $(this).append(
+                        '<i class="fas fa-times" onclick=\"content_control.remove_filter(\'' + h3 + '\',\'' + name + '\')\"></i>'
+                    );
+                    content_control.add_filter(h3, name);
+                }
+                if (name == "Project Library" || name == "Procedure Document")
+                    filter_control.execute_filter();
+            });
+        })
+    },
+    execute_filter: function () {
+        $('.active-filter').each(function () {
+            var filter_name = $(this).find('span.filter-name').text();
+            $('#result-table>tbody>tr').each(function () {
+                //排除第一行
+                if ($(this).find('th').length == '0') {
+                    //不符合条件隐藏
+                    if ($(this).attr("class").indexOf(filter_name.replace(" ","")) == -1) {
+                        $(this).fadeOut("200");
+                        $(this).addClass("fadeOutByFilter" + filter_name.replace(" ",""));
+                    }
+                }
+            });
+        });
+
+        $('.active').each(function () {
+            if($(this).find('span>span.category-id').length != '0'){
+                var filter_id = $(this).find('span>span.category-id').text();
+                // console.log(filter_id);
+                $('#result-table>tbody>tr').each(function (index) {
+                    if ($(this).find('th').length == '0') {
+                        if ($(this).find('.category-id').text().indexOf(filter_id) == -1) {
+                            console.log(index,$(this).find('category-id').text());
+                            $(this).fadeOut("200");
+                            $(this).addClass("fadeOutByCategory");
                         }
                     }
-                });
-                $('#search-result').text("Found : " + count);
-                $(this).css('background','white');
-            })
+                })
+            } else{
+                var filter_id = $(this).find('span>span.tag-id').text();
+                $('#result-table>tbody>tr').each(function () {
+                    if ($(this).find('th').length == '0') {
+                        if ($(this).find('.type-id').text().indexOf(filter_id) == -1) {
+                            $(this).fadeOut("200");
+                            $(this).addClass("fadeOutByTag");
+                        }
+                    }
+                })
+            }
+        });
+        setTimeout(content_control.setCount(), 210);
+    },
+    undo_filter: function (removedClass) {
+        $('#result-table>tbody>tr').each(function () {
+            if ($(this).find('th').length == '0') {
+                if ($(this).attr("class").indexOf(removedClass) != -1) {
+                    $(this).fadeIn('200');
+                    $(this).removeClass(removedClass);
+                }
+            }
         })
-
     }
 };
