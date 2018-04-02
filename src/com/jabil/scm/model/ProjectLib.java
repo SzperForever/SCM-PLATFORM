@@ -10,6 +10,7 @@ public class ProjectLib {
     private int Userid;
     private String Status;
     private Timestamp UploadTime;
+    private String TypeName;
 
     public ProjectLib(long id, String fileName, String filePath, int typeid, int userid, String status, Timestamp uploadTime) {
         this.id = id;
@@ -85,6 +86,14 @@ public class ProjectLib {
 
     public Timestamp getUploadTime() {
         return UploadTime;
+    }
+
+    public String getTypeName() {
+        return TypeName;
+    }
+
+    public void setTypeName(String typeName) {
+        TypeName = typeName;
     }
 
     public void setUploadTime(Timestamp uploadTime) {

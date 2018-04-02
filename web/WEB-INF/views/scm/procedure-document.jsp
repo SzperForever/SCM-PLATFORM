@@ -26,7 +26,7 @@
             <input class="w3-input" placeholder="Find a document" type="text">
             <i class="fas fa-search w3-large"></i>
         </div>
-            <div id="search-box-result" style="display: none"></div>
+        <div id="search-box-result" style="display: none"></div>
         <div class="instance">
             <div id="snippet-instanceSelect-"><span class="instance-name">@&nbsp;&nbsp;Jabil</span>
             </div>
@@ -44,7 +44,9 @@
             <div id="by-category">
                 <span style="padding: 5px 0px 5px 0px;display: block;color: #666;position:relative;">
                     By Category
-                    <i class="right-caret fas fa-caret-right" style="right: -10px;transform: rotate(-90deg);transition: transform 800ms;" onclick="content_control.collapse_category()"></i>
+                    <i class="right-caret fas fa-caret-right"
+                       style="right: -10px;transform: rotate(-90deg);transition: transform 800ms;"
+                       onclick="content_control.collapse_category()"></i>
                 </span>
                 <ul id="category-ul">
 
@@ -53,7 +55,9 @@
             <div id="by-tag">
                 <span style="padding: 5px 0px 5px 0px;display: block;color: #666;position:relative;">
                     By Tag
-                    <i class="right-caret fas fa-caret-right" style="right: -10px;transform: rotate(-90deg);transition: transform 800ms;" onclick="content_control.collapse_tag()"></i>
+                    <i class="right-caret fas fa-caret-right"
+                       style="right: -10px;transform: rotate(-90deg);transition: transform 800ms;"
+                       onclick="content_control.collapse_tag()"></i>
                 </span>
                 <ul id="tag-ul">
 
@@ -80,11 +84,11 @@
                 <div id="document-filter">
                     <input type="search" name="document-tag">
                     <i class="fas fa-search w3-large"></i>
-                    <button class="w3-button">Show Filters</button>
+                    <button class="w3-button" onclick="content_control.collapse_filter_select()">Show Filters</button>
                     <span id="active-filters">
-                    <p>Active filters:</p>
-                    <span>Today<i class="fas fa-times"></i></span>
-                </span>
+                        <p style="display: none">Active filters:</p>
+                    <%--<span>Today<i class="fas fa-times" onclick="content_control.remove_filter('')"></i></span>--%>
+                    </span>
                     <div id="search-result">Found : 1</div>
                 </div>
 
@@ -114,9 +118,28 @@
                     </ul>
                 </div>
                 <div class="filter-item">
-                    <h3>Status</h3>
+                    <h3>Modified</h3>
                     <ul>
-                        <li>Active</li>
+                        <li>Today</li>
+                        <li>This week</li>
+                        <li>This month</li>
+                        <li>This year</li>
+                        <li>Custom Range</li>
+                    </ul>
+                </div>
+                <div class="filter-item">
+                    <h3>My Documents</h3>
+                    <ul>
+                        <li>Today</li>
+                        <li>Favorites</li>
+                        <li>I am the owner</li>
+                    </ul>
+                </div>
+                <div class="filter-item">
+                    <h3>Data Source</h3>
+                    <ul>
+                        <li>Procedure Document</li>
+                        <li>Project Library</li>
                     </ul>
                 </div>
             </div>

@@ -11,8 +11,10 @@ public class procedure {
     private String picPath;
     private String description;
     private String Category_id;
+    private String type_id;
     private int number;
-    private ArrayList<String>category;
+    private ArrayList<String> category;
+    private ArrayList<String> type;
 
     public procedure(int id, String filePath, String title, String description, String category_id, String tag_id, int number) {
         this.id = id;
@@ -22,26 +24,41 @@ public class procedure {
         Category_id = category_id;
         this.number = number;
     }
-    public procedure(ResultSet resultSet){
+
+    public procedure(ResultSet resultSet) {
         super();
-        try{
-            id = resultSet.getInt(1);
-            FilePath = resultSet.getString(2);
-            title = resultSet.getString(3);
-            description = resultSet.getString(4);
-            Category_id = resultSet.getString(5);
-            number = resultSet.getInt(6);
-        }catch (Exception e){
+        try {
+            if (System.getProperty("os.name").equals("Mac OS X")) {
+                id = resultSet.getInt(1);
+                FilePath = resultSet.getString(2);
+                title = resultSet.getString(3);
+                description = resultSet.getString(4);
+                Category_id = resultSet.getString(5);
+                type_id = resultSet.getString(6);
+                number = resultSet.getInt(7);
+            } else {
+                id = resultSet.getInt(1);
+                FilePath = resultSet.getString(2);
+                title = resultSet.getString(3);
+                description = resultSet.getString(4);
+                Category_id = resultSet.getString(5);
+                type_id = resultSet.getString(6);
+                number = resultSet.getInt(7);
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
         category = new ArrayList<>();
+        type = new ArrayList<>();
     }
 
-    public void addCategory(String category){
+    public void addCategory(String category) {
         this.category.add(category);
     }
 
-
+    public void addType(String type) {
+        this.type.add(type);
+    }
 
     public int getId() {
         return id;
@@ -108,4 +125,19 @@ public class procedure {
         this.category = category;
     }
 
+    public ArrayList<String> getType() {
+        return type;
+    }
+
+    public void setType(ArrayList<String> type) {
+        this.type = type;
+    }
+
+    public String getType_id() {
+        return type_id;
+    }
+
+    public void setType_id(String type_id) {
+        this.type_id = type_id;
+    }
 }

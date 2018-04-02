@@ -38,6 +38,16 @@ public class ProcedureDao {
         }
     }
 
+    private void getTypeNameByID(procedure procedure){
+        String []cateIDs = procedure.getType_id().split(",");
+        for(int i = 0; i < cateIDs.length; ++i){
+            for(Types types : this.types){
+                if(types.getId() == Integer.parseInt(cateIDs[i])){
+                    procedure.addType(types.getTypeName());
+                }
+            }
+        }
+    }
 
 
     public ArrayList<procedure> getProcedure(){
@@ -46,10 +56,11 @@ public class ProcedureDao {
         Statement statement = sqlConnection.createStatement(connection);
         ResultSet resultSet = null;
         try{
-            resultSet = statement.executeQuery("SELECT * FROM V_doc");
+            resultSet = statement.executeQuery("SELECT * FROM V_Doc");
             while(resultSet.next()){
                 procedure pro = new procedure(resultSet);
                 this.getCategoryNameByID(pro);
+                this.getTypeNameByID(pro);
                 procedures.add(pro);
             }
 
