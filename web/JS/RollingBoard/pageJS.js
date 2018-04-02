@@ -20,7 +20,6 @@ $(document).ready(function () {
             $.each(data, function (index, lineData) {
                 writeDataToLine(lineData);
             });
-
             // 在写入完所有数据后，计算顶部count的位置，使其对齐各自的Model 表格
             $("#blank_pre").css("flex", "0 0 " + $(".BayNum:first").width() + "px");
             $("#blank_last").css("flex", "0 0 " + ($(".Status:first").width() + $(".LineBoxBlank:first").width() - $("#buildingCount").width()).toString() + "px");

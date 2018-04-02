@@ -47,7 +47,7 @@ var content_control = {
     load_type: function () {
         $.ajax({
             dataType: 'json',
-            url: '/getTypes.form',
+            url: '/getTag.form',
             success: function (data) {
                 cache['types'] = data;
                 $.each(data, function (index, val) {
@@ -56,7 +56,7 @@ var content_control = {
                         '   <span>' +
                         '       <span class="icon"><i class="fas fa-tags"></i></span>' +
                         '       <span class="tag-id" style="display: none">' + val['id'] + '</span>'
-                        + val['typeName'] +
+                        + val['name'] +
                         '   </span>' +
                         '   <i class="right-caret fas fa-caret-right" style="z-index: 31!important;"></i>' +
                         '</li>';

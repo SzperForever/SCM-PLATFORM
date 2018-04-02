@@ -150,7 +150,7 @@
                         <th>Title</th>
                         <th>Description</th>
                         <th>Category</th>
-                        <th>Type</th>
+                        <th>Tag</th>
                         <th>File number</th>
                         <th>FilePath</th>
                     </tr>

@@ -1,9 +1,6 @@
 package com.jabil.scm.dao;
 
-import com.jabil.scm.model.Category;
-import com.jabil.scm.model.Types;
-import com.jabil.scm.model.URL;
-import com.jabil.scm.model.procedure;
+import com.jabil.scm.model.*;
 import com.jabil.scm.utils.SqlConnection;
 import org.springframework.stereotype.Repository;
 
@@ -18,13 +15,13 @@ public class ProcedureDao {
     SqlConnection sqlConnection = new SqlConnection();
 
     private ArrayList<Category> category;
-    private ArrayList<Types> types;
+    private ArrayList<Tags> tag;
 
     public ProcedureDao(){
         categoryDao dao = new categoryDao();
         category = dao.getCategory();
-        TypesDao typesDao = new TypesDao();
-        types = typesDao.getTypes();
+        TagDao tagDao = new TagDao();
+        tag = tagDao.getTags();
     }
 
     private void getCategoryNameByID(procedure procedure){
@@ -41,9 +38,9 @@ public class ProcedureDao {
     private void getTypeNameByID(procedure procedure){
         String []cateIDs = procedure.getType_id().split(",");
         for(int i = 0; i < cateIDs.length; ++i){
-            for(Types types : this.types){
-                if(types.getId() == Integer.parseInt(cateIDs[i])){
-                    procedure.addType(types.getTypeName());
+            for(Tags tags: this.tag){
+                if(tags.getId() == Integer.parseInt(cateIDs[i])){
+                    procedure.addType(tags.getName());
                 }
             }
         }

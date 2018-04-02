@@ -13,6 +13,12 @@ $(function () {
     })
 });
 
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+}
+
 //用来储存一些临时数据，比如预加载的AJAX数据
 var cache = {};
 
@@ -25,6 +31,11 @@ var content_control = {
         this.bind_menu_event();
         this.loadLink();
     },
+    getColor: function () {
+        color = ['#0077b5', '#11BD78','#FFC004','#c73301','#8e005d'];
+        return color[Math.floor(Math.random() * (color.length - 0) + 0)];
+    }
+    ,
     //加载名称和描述
     loadNameAndDescription: function () {
         $.ajax({
@@ -73,7 +84,7 @@ var content_control = {
                 //缓存以备侧边菜单使用
                 cache['category'] = data;
                 $.each(data, function (index, val) {
-                    var content = '<span class="category">' + val['name'] + '<span class="category-id" style="display: none">'+val['id']+'</span></span>';
+                    var content = '<span class="category">' + val['name'] + '<span class="category-id" style="display: none">' + val['id'] + '</span></span>';
                     $('#nav').append(content);
                 });
                 //加载完毕目录之后再加载背景图，防止出现高度不统一
@@ -120,6 +131,7 @@ var content_control = {
                         var module_pic = $('#display-area>div:last>span:first');
                         module_pic.empty();
                         module_pic.text(val['title'].slice(0, 1));
+                        module_pic.css('background',content_control.getColor());
                     }
                 });
                 //绑定更多按钮
@@ -425,10 +437,10 @@ var category_select = {
     },
     listen_click: function () {
         $(".category").click(function () {
-            if($(this).find('.category-id').text == ""){
+            if ($(this).find('.category-id').text == "") {
                 category_select.switch_card("All", "Modules")
             }
-            else{
+            else {
                 category_select.switch_card($(this).find('.category-id').text(), "Modules")
             }
 
@@ -457,11 +469,11 @@ var category_select = {
                 }
             });
             $('#by-module>button').each(function () {
-                if($(this).find('.side_category_id').text() != "" && category_name.indexOf($(this).find('.side_category_id').text()) != -1){
+                if ($(this).find('.side_category_id').text() != "" && category_name.indexOf($(this).find('.side_category_id').text()) != -1) {
                     $(this).addClass('w3-white');
                 }
             });
-            if(category_name == "All Modules"){
+            if (category_name == "All Modules") {
                 $('#nav>span:first').addClass('active');
                 $('#by-module>button:nth-child(2)').addClass('w3-white');
             }
@@ -469,7 +481,7 @@ var category_select = {
         else {
             $('#nav>span:first').addClass('active');
             $('#by-tag>button').each(function () {
-                if(category_name.indexOf($(this).find('.side_category_id').text()) != -1){
+                if (category_name.indexOf($(this).find('.side_category_id').text()) != -1) {
                     $(this).addClass('w3-white');
                 }
             })
@@ -492,7 +504,7 @@ var category_select = {
             });
             var count = 0;
             $('#display-area>div').each(function () {
-                if ( $(this).find('.category-id').text().indexOf(category_name) != -1 || all || (by_what != "Modules" && $(this).find('.module-tag').text().indexOf(category_name) != -1)) {
+                if ($(this).find('.category-id').text().indexOf(category_name) != -1 || all || (by_what != "Modules" && $(this).find('.module-tag').text().indexOf(category_name) != -1)) {
                     $(this).css('display', 'block');
                     $(this).addClass('show');
                     count += 1;
@@ -579,7 +591,7 @@ var side_menu_control = {
         by_module.append(content);
         $.each(module_data, function (index, val) {
             var functionName = 'category_select.switch_card("' + val['id'] + '","Modules")';
-            var content = '<button class="w3-button w3-bar-item w3-blue-gray" onclick=' + functionName + '>' + val['name'] + '<span class="side_category_id" style="display: none;">'+val['id']+'</span></div>';
+            var content = '<button class="w3-button w3-bar-item w3-blue-gray" onclick=' + functionName + '>' + val['name'] + '<span class="side_category_id" style="display: none;">' + val['id'] + '</span></div>';
             by_module.append(content);
         });
         //load tags
@@ -587,7 +599,7 @@ var side_menu_control = {
         var by_tag = $('#by-tag');
         $.each(URL_data, function (index, val) {
             var functionName = 'category_select.switch_card(\'' + val['id'] + '\',\'Tags\')';
-            var content = '<button class="w3-button w3-bar-item w3-blue-gray" onclick=\"' + functionName + '\">' + val['name'] + '<span class="side_category_id" style="display: none;">'+val['id']+'</span></div>';
+            var content = '<button class="w3-button w3-bar-item w3-blue-gray" onclick=\"' + functionName + '\">' + val['name'] + '<span class="side_category_id" style="display: none;">' + val['id'] + '</span></div>';
             by_tag.append(content);
         });
     },
