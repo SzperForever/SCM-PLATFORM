@@ -1,0 +1,26 @@
+/*#by-tag:before {
+    content: 'werrh';
+    width: 315px;
+    height: 200px;
+    position: absolute;
+    filter: blur(5px);
+    background: inherit;
+    z-index: -1;
+}
+#by-tag{
+    background-attachment: fixed;
+    position: relative;
+    background: rgba(0, 0%, 100%, .3);
+    z-index: 1
+}*/
+
+#foot-glass{
+    width: 319px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.23);
+    background: fixed;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    filter: blur(5px);
+    z-index: -1;
+}

@@ -68,17 +68,29 @@ body {
     top: 0;
     height: 43px;
     width: 100%;
-    background: wheat;
-    background: linear-gradient(to bottom,rgba(78, 124, 162, 0.65) 0,rgba(239,239,239,1) 100%);
+    background: #0077b5;
+    /*background: linear-gradient(to bottom,rgba(78, 124, 162, 0.65) 0,rgba(239,239,239,1) 100%);*/
     z-index: 4;
 }
+/*
+
+#left-menu:before{
+    content: '';
+    z-index: -1;
+    width: 315px;
+    height: 100%;
+    position: absolute;
+    filter: blur(10px);
+    background: #07a7ffa3!important;
+}
+*/
 
 #left-menu{
     display: none;
     z-index: 4;
     width: 315px;
+    background-color: #0075b5a6!important;
 }
-
 
 #header-background{
     z-index: 3;
